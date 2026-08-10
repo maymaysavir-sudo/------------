@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>השוואת התאמה — תאריכי לידה 🔍</title>
+<style>
+:root{--bg:#fbfaf8;--fg:#1c1b19;--muted:#6b6660;--line:#e3ded6;--card:#fff;
+--accent:#7a5c3e;--accent-soft:#f3ece3;--green:#2e7d52;--green-bg:#eaf5ee;
+--red:#b4342c;--red-bg:#fdeceb;--amber:#9a6b12;--amber-bg:#fdf3e0;--maxw:58rem}
+@media (prefers-color-scheme:dark){:root{--bg:#16151a;--fg:#eae7e2;--muted:#9d968d;
+--line:#302d36;--card:#1e1d24;--accent:#c9a87c;--accent-soft:#282430;
+--green:#6cc496;--green-bg:#172a21;--red:#f08a80;--red-bg:#2e1a18;
+--amber:#dcae5a;--amber-bg:#2b2317}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'SF Hebrew','Arial Hebrew','Segoe UI',Tahoma,'Noto Sans Hebrew',sans-serif;
+font-size:17px;line-height:1.85;text-align:right;direction:rtl}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:3rem 1.5rem 6rem}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .6em;font-weight:700;letter-spacing:-.01em}
+h1{font-size:2.1rem;margin-top:0}
+h2{font-size:1.45rem;margin-top:2.9em;padding-bottom:.35em;border-bottom:2px solid var(--line);scroll-margin-top:1rem}
+h3{font-size:1.15rem;margin-top:2em;color:var(--accent)}
+h4{font-size:1.02rem;margin-top:1.6em;color:var(--muted)}
+p{margin:0 0 1.05em}em{color:var(--muted)}
+a{color:var(--accent);text-underline-offset:3px}
+hr{border:0;border-top:1px solid var(--line);margin:2.6rem 0}
+ul,ol{margin:0 0 1.15em;padding-inline-start:0;padding-inline-end:1.4em}
+li{margin:.4em 0}
+blockquote{margin:1.5em 0;padding:1em 1.2em;background:var(--card);
+border:1px solid var(--line);border-inline-start:5px solid var(--accent);border-radius:.5rem}
+blockquote>:last-child{margin-bottom:0}
+blockquote.green{border-inline-start-color:var(--green);background:var(--green-bg)}
+blockquote.red{border-inline-start-color:var(--red);background:var(--red-bg)}
+blockquote.amber{border-inline-start-color:var(--amber);background:var(--amber-bg)}
+.tablewrap{overflow-x:auto;margin:1.4em 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:32rem;direction:rtl;font-size:.94rem;
+background:var(--card);border:1px solid var(--line);border-radius:.5rem;overflow:hidden}
+th,td{text-align:right;padding:.65em .85em;border-bottom:1px solid var(--line);
+vertical-align:top;line-height:1.6}
+th{background:var(--accent-soft);font-weight:700}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
+.deg{unicode-bidi:isolate}
+.lede{color:var(--muted);font-size:.97rem;line-height:1.7}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:.6rem;
+padding:1.1em 1.5em;margin:2.2rem 0 3rem}
+.toc h3{margin:0 0 .5em;color:var(--fg);font-size:.95rem;letter-spacing:.03em}
+.toc ol{padding-inline-end:1.3em;margin:0;font-size:.93rem;columns:2;column-gap:2rem}
+.toc li{margin:.25em 0;break-inside:avoid}
+.toc a{text-decoration:none}.toc a:hover{text-decoration:underline}
+@media print{body{background:#fff;color:#000;font-size:10.5pt}
+.toc{break-inside:avoid}h2{break-after:avoid}table,blockquote{break-inside:avoid}
+.wrap{padding:0;max-width:none}}
+@media (max-width:680px){body{font-size:16px}.wrap{padding:2rem 1rem 4rem}
+h1{font-size:1.65rem}h2{font-size:1.25rem}.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>השוואת התאמה — תאריכי לידה 🔍</h1>
+<div class="toc">
+<h3>תוכן</h3>
+<ol>
+<li><a href="#s1">איך זה חושב</a></li>
+<li><a href="#s2">🏆 הדירוג</a></li>
+<li><a href="#s3">1. 15.5.1993 — הכי חזק</a></li>
+<li><a href="#s4">2. 22.4.1995 — החתימה של "מרים אותך"</a></li>
+<li><a href="#s5">3. 16.5.1993 — כמעט תאום של #1</a></li>
+<li><a href="#s6">4. 6.5.1990 — משיכה חזקה, פצע מדויק</a></li>
+<li><a href="#s7">5. 5.9.1996 — הכי חלק על פני השטח, והכי מכווץ מתחת 🆕</a></li>
+<li><a href="#s8">6. 25.6.1990 — קל, אבל שקט מדי</a></li>
+<li><a href="#s9">7. 5.2.1997 — הכי הרבה חשמל, הכי פחות קרקע</a></li>
+<li><a href="#s10">8. 18.1.1991 — תבור · הדירוג הזה שגוי, ותוקן</a></li>
+<li><a href="#s11">9. 3.4.1990 — הכי הרבה חיכוך</a></li>
+<li><a href="#s12">💡 שלוש מסקנות מעשיות</a></li>
+</ol>
+</div>
+<p><strong>מול המפה של מאיסה</strong> (3.5.1993, 23:50, פתח תקווה · אופק גדי <span class="deg">12°44′</span>)</p>
+<hr>
+<h2 id="s1">איך זה חושב</h2>
+<p>חושב עם <strong>Swiss Ephemeris</strong> (המנוע שמאחורי astro.com ו-astro-seek), לא מהערכה.
+<strong>בדיקת אימות:</strong> המנוע הריץ קודם את המפה שלך והפיק בדיוק את הנתונים המתועדים — שמש שור <span class="deg">13°25′</span>, ירח מאזניים <span class="deg">12°02′</span>, אופק גדי <span class="deg">12°44′</span>, ורטקס אריה <span class="deg">21°04′</span>, נקודת הגורל אריה <span class="deg">14°07′</span>. כל ההפרשים היו דקת קשת אחת של עיגול. כלומר: מה שמופיע כאן מדויק.</p>
+<h3>⚠️ המגבלה החשובה</h3>
+<p>נתת <strong>תאריכים בלבד</strong> — בלי שעה ובלי מקום. לכן עבור רובם:
+- ❌ <strong>אין ירח מדויק</strong> — והירח הוא שליט בית 7 שלך, כלומר הנתון הכי חשוב מבחינת זוגיות. הוא זז <span class="deg">13°</span> ביום.
+- ❌ <strong>אין אופק, אין בתים</strong> — משתנים לגמרי לפי שעה.
+- ✅ <strong>כן ודאי:</strong> שמש, מרקורי, ונוס, מאדים, צדק, שבתאי, כירון, ראש הדרקון — וכל ההיבטים שלהם למפה שלך.</p>
+<p>לשניים יש נתונים מלאים בתיקייה: <strong>18.1.1991</strong> (חלון לילה) ו-<strong>15.5.1993</strong> (8:02, ירושלים).
+<strong>הדירוג למטה נשען רק על מה שוודאי.</strong></p>
+<hr>
+<h2 id="s2">🏆 הדירוג</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>תאריך</th>
+<th>שמש</th>
+<th>מאדים</th>
+<th>ציון</th>
+<th>בשורה אחת</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>15.5.1993</strong></td>
+<td>שור <span class="deg">24°35′</span></td>
+<td><strong>אריה <span class="deg">8°40′</span> — בבית 7 שלך</strong></td>
+<td>🟢🟢</td>
+<td>הכי הרבה מגעים זורמים, ומאדים בדיוק במקום הנכון</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>22.4.1995</strong></td>
+<td>שור <span class="deg">1°49′</span></td>
+<td><strong>אריה <span class="deg">17°32′</span> — בבית 7 שלך</strong></td>
+<td>🟢🟢</td>
+<td>היחיד עם חתימת "מרים אותך" מדויקת</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>16.5.1993</strong></td>
+<td>שור <span class="deg">25°33′</span></td>
+<td><strong>אריה <span class="deg">9°11′</span> — בבית 7 שלך</strong></td>
+<td>🟢</td>
+<td>כמעט זהה ל-15.5, קצת פחות נקי</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6.5.1990</td>
+<td>שור <span class="deg">15°37′</span></td>
+<td>דגים <span class="deg">11°34′</span></td>
+<td>🟡</td>
+<td>משיכה חזקה מאוד — וגם פצע מדויק</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>5.9.1996</strong> 🆕</td>
+<td>בתולה <span class="deg">12°35′</span></td>
+<td><strong>סרטן <span class="deg">26°52′</span> — בבית 7 שלך</strong></td>
+<td>🟡</td>
+<td>הכי חלק על פני השטח, והכי מכווץ מתחת</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>15.9.1990</strong></td>
+<td>בתולה <span class="deg">22°19′</span></td>
+<td>תאומים <span class="deg">6°45′</span></td>
+<td>🟡</td>
+<td>ירח באריה בבית 7 כל היום — אבל מושך אותך אחורה</td>
+</tr>
+<tr>
+<td>7</td>
+<td>25.6.1990</td>
+<td>סרטן <span class="deg">3°36′</span></td>
+<td>טלה <span class="deg">18°07′</span></td>
+<td>🟡</td>
+<td>נעים, נטול חיכוך — וגם נטול מתח</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.2.1997</td>
+<td>דלי <span class="deg">16°39′</span></td>
+<td>מאזניים <span class="deg">5°55′</span></td>
+<td>🟠</td>
+<td>הכי הרבה חשמל, הכי פחות קרקע</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>18.1.1991 — תבור</strong></td>
+<td>גדי <span class="deg">27°18′–28°19′</span></td>
+<td>שור <span class="deg">29°22′</span></td>
+<td>⚫</td>
+<td><strong>הוצא מהדירוג.</strong> נותח לעומק בקובץ נפרד — <a href="#8-1811991--תבור--הדירוג-הזה-שגוי-ותוקן">ראה למטה</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>3.4.1990</td>
+<td>טלה <span class="deg">13°23′</span></td>
+<td>דלי <span class="deg">16°55′</span></td>
+<td>🔴</td>
+<td>הכי הרבה חיכוך ישיר לנקודות הרגישות שלך</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h1>🟢 שלושת העליונים</h1>
+<h2 id="s3">1. 15.5.1993 — הכי חזק</h2>
+<p><strong>מיקומים:</strong> שמש שור <span class="deg">24°35′</span> · מרקורי שור <span class="deg">23°44′</span> · ונוס טלה <span class="deg">12°10′</span> · <strong>מאדים אריה <span class="deg">8°40′</span> (בית 7 שלך)</strong> · צדק מאזניים <span class="deg">5°10′</span> · שבתאי דלי <span class="deg">29°47′</span> · <strong>כירון אריה <span class="deg">17°54′</span> (בית 7 שלך)</strong> · ראש הדרקון קשת <span class="deg">13°18′</span>
+<em>(עם שעת הלידה המתועדת 8:02: ירח </em><em>דגים <span class="deg">12°59′</span></em><em>)</em></p>
+<p><strong>מה עובד:</strong>
+- 🔴 <strong>הירח שלו בשלישות למרכז בית 7 שלך — הפרש <span class="deg">0.25°</span>.</strong> זה המגע החזק ביותר בכל שמונת התאריכים. הירח הוא שליט בית 7 שלך; שלישות כמעט מדויקת אליו היא בדיוק הדבר שהמפה שלך מבקשת.
+- 🔴 <strong>הירח שלו בשישית לשמש שלך — <span class="deg">0.44°</span>.</strong> רוך שנפגש עם היציבות שלך.
+- 🔴 <strong>מאדים שלו באריה <span class="deg">8°40′</span> — בתוך בית 7 שלך.</strong> האש שהמפה שלך דורשת, ממוקמת בדיוק בזירה הנכונה.
+- ונוס שלו בשלישות לראש הדרקון שלך (<span class="deg">1.74°</span>) ולנקודת הגורל (<span class="deg">1.95°</span>) — הוא מושך אותך לכיוון הצמיחה.
+- מאדים שלו בשלישות לונוס שלך (<span class="deg">2.63°</span>), בשישית לצדק (<span class="deg">2.73°</span>) ולירח (<span class="deg">3.38°</span>).
+- <strong>בן אותו דור בדיוק</strong> (12 יום הפרש): שבתאי על שבתאי, צדק על צדק, כירון על כירון, ראש הדרקון על ראש הדרקון — כולם בפחות ממעלה. אותו קצב חיים, אותו פצע, אותו כיוון. הבנה עמוקה בלי להסביר.
+- לפי הקובץ הקיים: <strong>ראש הדרקון שלו בבית 7 שלו</strong> — הזוגיות היא כיוון הצמיחה של חייו. אדם שרוצה קשר.</p>
+<p><strong>מה לא:</strong>
+- ⚠️ ונוס שלו בריבוע לציר האופק שלך (<span class="deg">0.57°</span>) — חיכוך סביב איך הוא אוהב מול איך את בנויה.
+- ⚠️ שמש שלו בניגוד לפלוטו שלך (<span class="deg">0.13°</span> — כמעט מדויק) — עוצמה ואינטנסיביות, ופוטנציאל למאבק שליטה. זה בדיוק הדגל האדום השני שלך.
+- הצמידויות הדוריות (שבתאי/צדק/כירון/ראש הדרקון) משותפות לכל מי שנולד באותו שבועיים — עמוקות, אבל לא ייחודיות לו.</p>
+<blockquote>
+<p><strong>🔧 תיקון לקובץ קיים:</strong> ב־<a href="ציר%20זמן%20זוגיות%20משותף%20-%20מאיסה.md">ציר זמן זוגיות משותף</a> רשום שהירח שלו בדגים ~<span class="deg">6°</span>. החישוב המדויק ל-8:02 נותן <strong>דגים <span class="deg">12°59′</span></strong> — הפרש של כ-<span class="deg">7°</span>. זה משנה לטובה: במיקום הנכון הוא יוצר את השלישות של <span class="deg">0.25°</span> לבית 7 שלך.</p>
+</blockquote>
+<hr>
+<h2 id="s4">2. 22.4.1995 — החתימה של "מרים אותך"</h2>
+<p><strong>מיקומים:</strong> שמש שור <span class="deg">1°49′</span> · מרקורי שור <span class="deg">10°43′</span> · ונוס טלה <span class="deg">0°18′</span> · <strong>מאדים אריה <span class="deg">17°32′</span> (בית 7 שלך)</strong> · <strong>צדק קשת <span class="deg">14°43′</span></strong> · שבתאי דגים <span class="deg">20°30′</span> · כירון בתולה <span class="deg">20°37′</span> · ראש הדרקון עקרב <span class="deg">5°52′</span>
+<em>(ירח: גדי <span class="deg">27°54′</span> → דלי <span class="deg">11°39′</span>, תלוי שעה)</em></p>
+<p><strong>מה עובד:</strong>
+- 🔴 <strong>צדק שלו צמוד לראש הדרקון שלך — <span class="deg">0.79°</span>.</strong> זו החתימה שהמפה שלך מצביעה עליה יותר מכל: ראש הדרקון בקשת אומר "פחות כובד, יותר אמונה וחופש", וצדק הוא הכוכב של קשת. אדם שהנוכחות שלו <strong>מושכת אותך לכיוון הצמיחה שלך</strong>. מבין שמונת התאריכים — הוא היחיד שיש לו את זה.
+- 🔴 <strong>צדק שלו בשלישות לנקודת הגורל שלך — <span class="deg">0.59°</span>.</strong> נקודת המזל והאושר שלך, בהיבט הכי מיטיב שיש.
+- 🔴 <strong>מאדים שלו צמוד לכירון שלך — <span class="deg">0.09°</span>.</strong> כמעט מדויק. חרב פיפיות: הוא נוגע ישירות בפצע הזוגי שלך. אבל צדק שלו גם בשלישות לאותו כירון (<span class="deg">2.73°</span>) — כלומר <strong>גם נוגע וגם מרפא באותו מקום.</strong> זה הצירוף של "הקשר שפותח את הפצע וגם סוגר אותו".
+- שמש שלו על מצולת השמיים שלך (<span class="deg">0.52°</span>) — תהודה חזקה של בית, שורשים ומשפחה. מתחבר ישירות לשמש שלך בבית 4.
+- מרקורי שלו צמוד לשמש שלך (<span class="deg">2.70°</span>) ובשלישות לאופק (<span class="deg">2.02°</span>) — קל לדבר איתו.
+- ונוס שלו בשלישות למאדים שלך (<span class="deg">2.55°</span>) — משיכה זורמת.
+- <strong>הכי מעט היבטים קשים מכל השמונה.</strong></p>
+<p><strong>מה לא:</strong>
+- ⚠️ שמש שלו בריבוע למאדים שלך (<span class="deg">1.03°</span>) — התנגשויות רצון.
+- ⚠️ ראש הדרקון שלו בריבוע למאדים שלך (<span class="deg">3.02°</span>).
+- ❓ <strong>אין שעת לידה</strong> — הירח שלו לא ידוע, וזה הנתון החסר המשמעותי ביותר. אם תשיגי שעה, זה התאריך שהכי שווה לחשב מחדש.</p>
+<hr>
+<h2 id="s5">3. 16.5.1993 — כמעט תאום של #1</h2>
+<p><strong>מיקומים:</strong> שמש שור <span class="deg">25°33′</span> · ונוס טלה <span class="deg">12°50′</span> · <strong>מאדים אריה <span class="deg">9°11′</span> (בית 7 שלך)</strong> · <strong>כירון אריה <span class="deg">17°57′</span> (בית 7 שלך)</strong> · ראש הדרקון קשת <span class="deg">13°15′</span>
+<em>(ירח: דגים <span class="deg">20°54′</span> → טלה <span class="deg">2°46′</span>, תלוי שעה)</em></p>
+<p>יום אחד אחרי #1, ולכן כמעט זהה: אותו מאדים בבית 7 שלך, אותן צמידויות דוריות, ונוס שלו בשלישות לראש הדרקון (<span class="deg">1.08°</span>) ולנקודת הגורל (<span class="deg">1.28°</span>) — אפילו הדוקות יותר.</p>
+<p><strong>מה שונה לרעה:</strong>
+- ונוס שלו בריבוע לציר האופק שלך מתהדק ל-<strong><span class="deg">0.10°</span></strong> (במקום <span class="deg">0.57°</span>) — החיכוך חד יותר.
+- נוספים <strong>שני ריבועים לשבתאי שלך</strong> — שליט המפה שלך: מרקורי (<span class="deg">3.30°</span>) ושמש (<span class="deg">3.66°</span>). בקצרה: יותר תחושת חסימה והתנגדות.
+- הניגוד ונוס-ירח נחלש מ-<span class="deg">0.14°</span> ל-<span class="deg">0.80°</span>.</p>
+<p><strong>ההבדל האמיתי בין 15.5 ל-16.5 הוא הירח והאופק</strong> — כלומר בלי שעות לידה אי אפשר להכריע ביניהם סופית. על סמך מה שוודאי, 15.5 נקי יותר.</p>
+<hr>
+<h1>🟡 האמצע</h1>
+<h2 id="s6">4. 6.5.1990 — משיכה חזקה, פצע מדויק</h2>
+<p><strong>מיקומים:</strong> שמש שור <span class="deg">15°37′</span> · מרקורי שור <span class="deg">11°45′</span> (נסוג) · ונוס טלה <span class="deg">2°32′</span> · מאדים דגים <span class="deg">11°34′</span> · צדק סרטן <span class="deg">7°53′</span> · <strong>כירון סרטן <span class="deg">12°32′</span></strong>
+<em>(ירח: </em><em>מאזניים כל היום</em><em> — מ-<span class="deg">1°47′</span> עד <span class="deg">13°51′</span>)</em></p>
+<p><strong>מה עובד:</strong>
+- 🔴 <strong>ונוס שלו בשלישות למאדים שלך — <span class="deg">0.31°</span>.</strong> אחד ההיבטים הרומנטיים הכי טובים שיש, כמעט מדויק.
+- 🔴 <strong>ראש הדרקון שלו בשלישות לירח שלך — <span class="deg">0.22°</span>.</strong>
+- <strong>הירח שלו במאזניים כל היום</strong> — כלומר בלי קשר לשעה, יש כאן תהודה לירח שלך (מאזניים <span class="deg">12°02′</span>). אם נולד אחרי הצהריים, <strong>ירח על ירח</strong> — אחד המגעים הכי עמוקים בסינסטריה.
+- שמש על שמש (<span class="deg">2.20°</span>), מרקורי צמוד לשמש שלך (<span class="deg">1.67°</span>) — תחושת "אותו דבר", היכרות עמוקה.
+- מאדים שלו נוגע בציר האופק שלך בזרימה (<span class="deg">1.17°</span>), מרקורי בשלישות לאופק (<span class="deg">1.00°</span>).</p>
+<p><strong>מה לא:</strong>
+- 🔴 <strong>כירון שלו צמוד למרכז בית 7 שלך — <span class="deg">0.22°</span>.</strong> כמעט מדויק. הוא <strong>מגלם</strong> את פצע הזוגיות שלך. זו לא התאמה ניטרלית — היא נוגעת בדיוק במקום הכי רגיש.
+- 🔴 <strong>כירון שלו בריבוע לירח שלך — <span class="deg">0.49°</span>.</strong> פגיעות רגשית חוזרת.
+- שמש שלו בריבוע לנקודת הגורל (<span class="deg">1.50°</span>) ולכירון (<span class="deg">1.82°</span>) שלך, ראש הדרקון בריבוע לשמש שלך (<span class="deg">1.60°</span>).
+- <em>הערה הוגנת:</em> כירון היה בסרטן לאורך 1990, ולכן "כירון על מרכז בית 7" נכון לכל מי שנולד באביב 1990 — זה פחות ייחודי לו אישית.</p>
+<p><strong>השורה:</strong> משיכה גבוהה מאוד ואינטימיות אמיתית, יחד עם חתימת פצע מדויקת. בדיוק הסוג שמרגיש "גורלי" — ושוחק.</p>
+<hr>
+<h2 id="s7">5. 5.9.1996 — הכי חלק על פני השטח, והכי מכווץ מתחת 🆕</h2>
+<p><strong>מיקומים (5.9.1996, טווח על פני היממה):</strong> שמש <strong>בתולה <span class="deg">12°35′–13°33′</span></strong> · <strong>ירח תאומים <span class="deg">13°29′–25°43′</span></strong> · מרקורי מאזניים <span class="deg">3°28′</span> (נסוג) · <strong>ונוס סרטן <span class="deg">27°31′</span></strong> · <strong>מאדים סרטן <span class="deg">26°52′</span></strong> · צדק גדי <span class="deg">7°49′</span> · שבתאי טלה <span class="deg">5°36′</span> (נסוג) · אורנוס דלי <span class="deg">1°08′</span> (נסוג) · נפטון גדי <span class="deg">25°15′</span> (נסוג) · פלוטו קשת <span class="deg">0°31′</span> · ראש הדרקון מאזניים <span class="deg">9°19′</span> · כירון מאזניים <span class="deg">14°53′</span></p>
+<p><strong>הפלנטות שלו בבתים שלך:</strong> ונוס ומאדים ב-<strong>7</strong> · שמש ב-8 · מרקורי, ראש הדרקון וכירון ב-9 · ירח ב-5–6 · אורנוס ונפטון ב-1 · שבתאי ב-3 · צדק ב-12 · פלוטו ב-11</p>
+<h3>🟢 מה שמצוין — ובאמת מצוין</h3>
+<ul>
+<li>🔴 <strong>השמש שלו בשלישות לשמש שלך — <span class="deg">0.14°–0.83°</span>.</strong> בתולה–שור, שלישות אדמה כמעט מדויקת. <strong>אין דבר כזה ברשימה הזאת אצל אף אחד אחר.</strong></li>
+<li>🔴 <strong>השמש שלו בשלישות לאופק שלך — <span class="deg">0.15°–0.82°</span>.</strong> גם היא כמעט מדויקת. שתי השלישויות האלה יחד אומרות דבר אחד: <strong>הוא "מתאים" לך ברמה הבסיסית ביותר.</strong> נוח, טבעי, בלי חיכוך, בלי מאמץ. הגוף שלך יירגע לידו.</li>
+<li>🔴 <strong>ונוס ומאדים שלו — שניהם בתוך בית 7 שלך, וצמודים זה לזה ב-<span class="deg">0.6°</span>.</strong> צמידות ונוס-מאדים היא חתימת המשיכה הקלאסית (אהבה + תשוקה מאוחדות), והיא נוחתת <strong>בדיוק בבית הזוגיות שלך</strong>. ✅ <strong>עובר את בדיקה #2</strong> — מאדים בטווח סרטן <span class="deg">13°</span> – אריה <span class="deg">20°</span>.</li>
+<li><strong>מרקורי שלו בשישית למאדים שלך — <span class="deg">0.51°</span>.</strong> תקשורת שמתחברת ישירות לנקודה החיה בבית 7 שלך. <strong>זו בדיוק ההפך מהבעיה שיש לך עם תבור.</strong></li>
+<li><strong>כירון שלו בשישית לנקודת הגורל שלך — <span class="deg">0.75°</span></strong> ולראש הדרקון שלך — <span class="deg">0.96°</span>. ריפוי שנוגע בנקודות המזל והכיוון.</li>
+<li><strong>נפטון שלו בשישית לפלוטו שלך — <span class="deg">0.78°</span>.</strong></li>
+<li>מאדים-פלוטו הדדי: הפלוטו שלו בשלישות למאדים שלך (<span class="deg">2.32°</span>) והמאדים שלו בשלישות לפלוטו שלך (<span class="deg">2.43°</span>). <strong>מטען ארוטי עם עומק.</strong></li>
+<li>שבתאי שלו בשלישות למאדים שלך (<span class="deg">2.69°</span>) — עמידות על הנקודה הנכונה.</li>
+<li>ראש הדרקון וכירון שלו צמודים לירח שלך (<span class="deg">2.7°–2.9°</span>) — מגע נודלי, תחושת "לא סתם".</li>
+</ul>
+<h3>🔴 ומה שבעייתי — וזה כבד יותר</h3>
+<ul>
+<li>🔴🔴 <strong>שבתאי שלו צמוד לונוס שלך — <span class="deg">0.43°</span>.</strong> זו הבעיה המרכזית, והיא לא נראית לעין.
+  שבתאי על ונוס בסינסטריה = <strong>הוא מקרר, מרסן ומכביד בדיוק על היכולת שלך ליהנות, לתת ולהתרחב.</strong> התחושה מבפנים: "האהבה כאן מרגישה כמו חובה", או "אני לא מספיק טובה".</li>
+<li>🔴🔴 <strong>ומאותה סיבה — שבתאי שלו בניגוד לצדק שלך, <span class="deg">0.33°</span>.</strong>
+  <strong>ונוס מול צדק ב-<span class="deg">0.10°</span> הוא ההיבט ההדוק ביותר במפה שלך</strong> — ציר הנדיבות, השמחה וההתרחבות. <strong>השבתאי שלו נוחת בדיוק עליו.</strong> כלומר הוא מתיישב על הציר הכי רגיש ומאיר שיש לך, ומכווץ אותו משני קצותיו.</li>
+<li>🔴 <strong>השמש שלו בריבוע לראש הדרקון שלך — <span class="deg">0.36°–1.33°</span>.</strong> ראש הדרקון שלך בקשת אומר: <strong>פחות שליטה, יותר אמונה, קלילות וחופש.</strong> שמש בבתולה — ניתוח, ביקורת, פירוט, דאגה — <strong>מרבעת בדיוק את זה.</strong> הוא ימשוך אותך חזרה לכיוון שהמפה שלך מבקשת שתעזבי.</li>
+<li>🔴 <strong>אורנוס שלו בריבוע ל-MC שלך — <span class="deg">0.17°</span>.</strong> כמעט מדויק. ערעור על ציר הקריירה והסטודיו.</li>
+<li>🔴 <strong>פלוטו שלו בריבוע לשבתאי שלך — <span class="deg">1.31°</span></strong> (שליט המפה שלך). מאבקי כוח.</li>
+<li>🔴 <strong>אורנוס שלו בניגוד למאדים שלך — <span class="deg">1.71°</span></strong> ובריבוע למרקורי שלך — <span class="deg">1.19°</span>.</li>
+<li>🔴 <strong>הונוס שלו בריבוע למרקורי שלך — <span class="deg">1.34°</span></strong>, והצדק שלו בריבוע לונוס שלך — <span class="deg">1.79°</span>.</li>
+<li>⚠️ <strong>והדפוס שמדאיג: הונוס שלך מקבלת ארבע פגיעות</strong> — שבתאי שלו בצמידות (<span class="deg">0.43°</span>), צדק שלו בריבוע (<span class="deg">1.79°</span>), מרקורי שלו בניגוד (<span class="deg">2.57°</span>), ראש הדרקון שלו בניגוד (<span class="deg">3.22°</span>). <strong>שלוש מתוך ארבע קשות.</strong></li>
+</ul>
+<h3>📋 ארבע הבדיקות</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>הבדיקה</th>
+<th>התוצאה</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>הירח</strong> — מים, סרטן/עקרב/דגים</td>
+<td><strong>תאומים <span class="deg">13°–25°</span></strong> — אוויר</td>
+<td>❌ <strong>נכשל</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>מאדים</strong> — סרטן <span class="deg">13°</span> עד אריה <span class="deg">20°</span></td>
+<td><strong>סרטן <span class="deg">26°52′</span></strong></td>
+<td>✅ <strong>עובר</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>ונוס</strong> — אש או אוויר</td>
+<td><strong>סרטן</strong> — מים</td>
+<td>❌ נכשל</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>צדק</strong> — קשת <span class="deg">10°–18°</span></td>
+<td>גדי <span class="deg">7°49′</span></td>
+<td>❌ נכשל</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>דגלים אדומים:</strong> אין 4+ גורמים בגדי/דלי ✅ · המאדים לא באזורים הבעייתיים ✅ · <strong>אבל נוסף דגל שלא היה ברשימה: שבתאי שלו על הונוס שלך.</strong></p>
+<blockquote class="amber">
+<p>⚠️ <strong>והירח ודאי כאן, בלי קשר לשעה.</strong> הוא בתאומים לאורך כל היממה. כלומר <strong>בדיקה #1 — החשובה ביותר, כי הירח הוא שליט בית 7 שלך — נכשלת בוודאות.</strong> ירח בתאומים הוא ההפך ממה שהמפה שלך מבקשת: מנטלי, מילולי, חסר מנוחה, קליל רגשית. הרוך לא יגיע משם.</p>
+</blockquote>
+<h3>🎯 השורה התחתונה עליו</h3>
+<p><strong>זה הפרופיל של "נוח אבל מכווץ".</strong>
+שתי שלישויות השמש הכמעט-מדויקות והצמידות ונוס-מאדים בבית 7 יוצרות <strong>התאמה שתרגיש נהדר בהתחלה</strong> — קלה, טבעית, מושכת, בלי חיכוך גלוי. זה בדיוק מה שהופך אותו למסוכן: <strong>הבעיה שלו לא מורגשת בחודשים הראשונים.</strong></p>
+<p>אבל מתחת: <strong>השבתאי שלו יושב בדיוק על ציר ונוס-צדק שלך</strong> — הציר של השמחה, הנדיבות והערך העצמי — <strong>והשמש שלו מרבעת את כיוון הצמיחה שלך.</strong> התרגום: קשר שיהיה <strong>נוח ומקטין</strong> בו-זמנית. את תרגישי בטוחה, ותהיי פחות.</p>
+<p><strong>ובשקלול הכולל: 19 היבטים קשים מול 12 הרמוניים לנקודות האישיות שלך — והקשים הדוקים יותר בממוצע.</strong> לפי כלל האצבע שלך עצמך (לספור זורמים מול חוסמים, לא לרדוף אחרי הדוקים), הוא <strong>נופל לאמצע הרשימה ולא לראשה</strong> — למרות שתי השלישויות היפות.</p>
+<p><strong>מה שהיה משנה את זה:</strong> שום דבר. הירח בתאומים ודאי, והשבתאי-על-ונוס לא תלוי בשעה. <strong>זה אחד המקרים הבודדים שבהם אין צורך בשעת לידה כדי להכריע.</strong></p>
+<hr>
+<h2 id="s8">6. 25.6.1990 — קל, אבל שקט מדי</h2>
+<p><strong>מיקומים:</strong> שמש סרטן <span class="deg">3°36′</span> · מרקורי תאומים <span class="deg">24°47′</span> · ונוס תאומים <span class="deg">0°29′</span> · מאדים טלה <span class="deg">18°07′</span> · <strong>צדק סרטן <span class="deg">18°04′</span> (בית 7 שלך)</strong> · <strong>כירון סרטן <span class="deg">17°05′</span> (בית 7 שלך)</strong>
+<em>(ירח: </em><em>אריה כל היום</em><em> — מ-<span class="deg">1°32′</span> עד <span class="deg">15°31′</span>, כלומר </em><em>בתוך בית 7 שלך</em><em>)</em></p>
+<p><strong>מה עובד:</strong>
+- <strong>שמש בסרטן</strong> — מזל מרכז בית 7 שלך. הארכיטיפ הנכון.
+- <strong>צדק שלו בבית 7 שלך</strong> — הכוכב המיטיב, בבית הזוגיות.
+- <strong>הירח שלו באריה כל היום, בתוך בית 7 שלך.</strong> אם נולד בערב, הירח שלו נופל על <strong>נקודת הגורל שלך</strong> (אריה <span class="deg">14°07′</span>) — מגע של מזל ואושר. זה תלוי שעה, אבל הטווח כולו טוב.
+- מאדים שלו בשלישות לכירון שלך (<span class="deg">0.67°</span>) ולורטקס (<span class="deg">2.96°</span>) — אש שנוגעת בבית 7 שלך בזרימה ולא בהתנגשות.</p>
+<p><strong>מה לא:</strong>
+- <strong>רשימת המגעים היא הקצרה מכל השמונה.</strong> מעט חיכוך — אבל גם מעט מתח וגם מעט מטען.
+- שמש שלו בריבוע לצדק (<span class="deg">2.34°</span>) ולונוס (<span class="deg">2.44°</span>) שלך; ונוס שלו בריבוע לשבתאי שלך (<span class="deg">1.28°</span>).
+- ונוס בתאומים + מרקורי בתאומים: קליל, מתקשר, לא עמוק רגשית. מול מרכז בית 7 בסרטן — לא מספיק רוך.</p>
+<p><strong>השורה:</strong> על הנייר יש כאן הרבה נכון (שמש בסרטן, צדק וירח בבית 7). בפועל — חסר וולטאז'. המפה שלך צריכה <strong>גם</strong> ביטחון <strong>וגם</strong> אש; כאן יש שקט אבל אין ניצוץ.</p>
+<hr>
+<h1>🟠🔴 התחתונים</h1>
+<h2 id="s9">7. 5.2.1997 — הכי הרבה חשמל, הכי פחות קרקע</h2>
+<p><strong>מיקומים:</strong> שמש דלי <span class="deg">16°39′</span> · ונוס דלי <span class="deg">2°48′</span> · מרקורי גדי <span class="deg">24°37′</span> · מאדים מאזניים <span class="deg">5°55′</span> · צדק דלי <span class="deg">3°28′</span> · שבתאי טלה <span class="deg">4°01′</span> · כירון עקרב <span class="deg">2°01′</span>
+<em>(ירח: גדי <span class="deg">8°02′</span> → <span class="deg">22°52′</span>)</em></p>
+<p><strong>שלושה היבטים כמעט מדויקים — כולם ניגודים:</strong>
+- 🔴 <strong>ונוס שלו בניגוד למאדים שלך — <span class="deg">0.05°</span></strong>
+- 🔴 <strong>מאדים שלו בניגוד לונוס שלך — <span class="deg">0.11°</span></strong>
+- 🔴 <strong>מאדים שלו צמוד לצדק שלך — <span class="deg">0.01°</span></strong></p>
+<p>ונוס-מאדים כפול מתחת ל-<span class="deg">0.2°</span> הוא <strong>מגנטיות פיזית ורומנטית ברמה נדירה.</strong> אין ספק שהיה כאן חשמל.</p>
+<p><strong>אבל:</strong> כל השלושה הם <strong>ניגודים</strong> — משיכה שבנויה על קוטביות ומתח, לא על זרימה. ניגוד מושך חזק ושוחק חזק. נוסף על כך:
+- ⚠️ <strong>כירון שלו על רום השמיים שלך (<span class="deg">0.72°</span>)</strong> — נוגע בציר הקריירה והייעוד שלך במקום פצוע.
+- ⚠️ שמש שלו בניגוד לכירון שלך (<span class="deg">0.80°</span>), כירון שלו בריבוע למאדים שלך (<span class="deg">0.83°</span>).
+- ⚠️ שבתאי שלו צמוד לונוס שלך (<span class="deg">2.01°</span>) — אהבה שמרגישה כמו חובה והתכווצות.
+- ⚠️ שמש בריבוע שמש (<span class="deg">3.23°</span>).
+- צביר דלי כבד (שמש, ונוס, צדק, אורנוס) — אוויר, עצמאות, ריחוק רגשי. מול מרכז בית 7 בסרטן שצריך זמינות רגשית — זה בדיוק ההפך.</p>
+<p><strong>השורה:</strong> המשיכה הכי חזקה ברשימה, והמבנה הכי פחות יציב. זה הפרופיל של "בלתי נשכח ולא בר-קיימא".</p>
+<hr>
+<h2 id="s10">8. 18.1.1991 — <strong>תבור</strong> · הדירוג הזה שגוי, ותוקן</h2>
+<blockquote class="red">
+<p>❗ <strong>הדירוג המקורי כאן (מקום 9, 🔴 "מלכודת הכובד") נשען על טענה שנבדקה ונמצאה לא נכונה. הניתוח התקף נמצא ב<a href="הכרעה%20-%20האם%20ללכת%20על%20תבור.md">הכרעה — האם ללכת על תבור</a>.</strong></p>
+</blockquote>
+<p><strong>מיקומים (חלון הלילה, מאומת):</strong> שמש גדי <span class="deg">27°18′–28°19′</span> · שבתאי גדי <span class="deg">27°40′–27°46′</span> · ראש הדרקון גדי <span class="deg">28°11′–28°14′</span> · נפטון גדי <span class="deg">14°45′</span> · אורנוס גדי <span class="deg">10°45′</span> · מרקורי גדי <span class="deg">3°54′–5°04′</span> · ונוס דלי <span class="deg">15°55′–17°10′</span> · <strong>מאדים שור <span class="deg">29°22′–29°33′</span> (בית 5 שלך)</strong> · <strong>צדק אריה <span class="deg">9°56′–10°03′</span> (בית 7 שלך)</strong> · כירון סרטן <span class="deg">24°03′</span> (בית 7 שלך) · פלוטו עקרב <span class="deg">20°01′</span>
+<em>(ירח: דלי <span class="deg">18°52′–20°57′</span> או דגים <span class="deg">0°19′–1°22′</span>)</em></p>
+<h3>❗ מה שנבדק מחדש — והתברר כשגוי</h3>
+<p>הכניסה המקורית סיכמה: <em>"ראש הדרקון שלך בקשת אומר בדיוק ההפך מהכיוון הזה"</em> — כלומר שצביר הגדי שלו מושך אותך <strong>נגד</strong> כיוון הצמיחה שלך. <strong>זו הייתה הנחה נושאית ("גדי כבד, קשת קלילה, לכן הם מתנגשים") שמעולם לא נמדדה.</strong></p>
+<p><strong>הרצתי את כל הגורמים שלו מול ראש הדרקון שלך (קשת <span class="deg">13°55′</span>):</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>הגורם שלו</th>
+<th>ההיבט לראש הדרקון שלך</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ונוס</td>
+<td><strong>שישית — <span class="deg">2.06°</span></strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>צדק</td>
+<td><strong>שלישות — <span class="deg">3.88°</span></strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>לילית</td>
+<td>צמידות — <span class="deg">5.20°</span></td>
+<td>⚪</td>
+</tr>
+<tr>
+<td>ירח</td>
+<td><strong>שישית — <span class="deg">5.64°</span></strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td><strong>כל השאר</strong></td>
+<td><strong>אין היבט</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>אין לו ולו ריבוע או ניגוד אחד לראש הדרקון שלך. שלושה היבטים הרמוניים, אפס קשים.</strong>
+ובנוסף: <strong>ירח הקומפוזיט נופל על ראש הדרקון שלך ב-<span class="deg">1.88°</span>.</strong>
+<strong>הטענה שהוא מושך אותך אחורה — לא נכונה.</strong> המדידה מראה את ההפך.</p>
+</blockquote>
+<p><strong>לשם השוואה, <a href="#5-591996--הכי-חלק-על-פני-השטח-והכי-מכווץ-מתחת">5.9.1996</a> — שנראה הרבה יותר קל — השמש שלו מרבעת את ראש הדרקון שלך ב-<span class="deg">0.85°</span>.</strong> זה מה שנראה כמו "מושך אותך אחורה", והוא לא תבור.</p>
+<h3>✅ מה כן נכון בכניסה המקורית</h3>
+<p><strong>הכובד עצמו אמיתי, והדגל האדום הופעל בצדק:</strong> שישה גורמים בגדי, וחמישה מהם נופלים בבית 1 שלך. <strong>המחיר אמיתי</strong> — קצב איטי, אפס הצהרות, ובלי תחושת היסחפות.
+וגם החיכוכים נכונים: <strong>מאדים שלו בריבוע לשבתאי שלך (<span class="deg">0.15°–0.33°</span> — ההדוק ביותר בהצלבה)</strong> · ונוס שלו בניגוד לכירון שלך (<span class="deg">1.32°–1.53°</span>) · ריבועי תקשורת · שמש-שבתאי שלו בריבוע ל-MC שלך.</p>
+<h3>🎯 ההבחנה שהכניסה המקורית פספסה</h3>
+<p><strong>"כבד" ו"מכביד" הם לא אותו דבר.</strong>
+מסנן הסינון הגס (4+ גורמים בגדי/דלי) מזהה נכון <strong>משקל</strong>. הוא לא מזהה <strong>כיוון</strong>. וכשמודדים את הכיוון — הוא חיובי:
+<strong>צדק שלו בבית 7 שלך · חמישה גורמים בבית 1 שלך כולל ונוס · ראש הדרקון שלו בבית 1 שלך · השמש שלך על ה-DC שלו (<span class="deg">0.83°</span>) · כירון שלו בשלישות לפלוטו שלך (<span class="deg">0.36°</span>) · ירח הקומפוזיט על ראש הדרקון שלך.</strong></p>
+<p><strong>הדירוג התקף: לא ניתן לדרג אותו באותה סקאלה</strong> — הוא היחיד שנותחו לו שעה, בתים, קומפוזיט ומפה פנימית. הסקאלה כאן היא סינון לפי תאריך בלבד.</p>
+<hr>
+<h2 id="s11">9. 3.4.1990 — הכי הרבה חיכוך</h2>
+<p><strong>מיקומים:</strong> שמש טלה <span class="deg">13°23′</span> · מרקורי טלה <span class="deg">28°25′</span> · ונוס דלי <span class="deg">26°59′</span> · מאדים דלי <span class="deg">16°55′</span> · צדק סרטן <span class="deg">3°01′</span> · שבתאי גדי <span class="deg">24°32′</span> · כירון סרטן <span class="deg">10°51′</span> · ראש הדרקון דלי <span class="deg">13°34′</span>
+<em>(ירח: סרטן <span class="deg">18°25′</span> → אריה <span class="deg">1°44′</span>)</em></p>
+<p><strong>רצף היבטים קשים, כולם הדוקים, כולם לנקודות הכי אישיות שלך:</strong>
+- 🔴 <strong>ראש הדרקון שלו בריבוע לשמש שלך — <span class="deg">0.15°</span>.</strong> כמעט מדויק. חיכוך עם הזהות שלך.
+- 🔴 <strong>מאדים שלו בניגוד לכירון שלך — <span class="deg">0.53°</span>.</strong> התוקפנות שלו פוגעת ישירות בפצע הזוגי שלך. מהקשים שיש.
+- 🔴 <strong>שמש שלו בריבוע לציר האופק שלך — <span class="deg">0.65°</span>.</strong> טלה מול גדי: התנגשות חזיתית של סגנונות.
+- 🔴 <strong>כירון שלו בריבוע לירח שלך — <span class="deg">1.19°</span></strong>, וצמוד למרכז בית 7 שלך (<span class="deg">1.90°</span>).
+- 🔴 <strong>שמש שלו בניגוד לירח שלך — <span class="deg">1.35°</span>.</strong> קוטביות רגשית מתמדת.
+- ⚠️ ונוס שלו צמוד לשבתאי שלך (<span class="deg">2.23°</span>) — אהבה שמרגישה כמו מגבלה.
+- ⚠️ מאדים שלו בניגוד לנקודת הגורל שלך (<span class="deg">2.79°</span>) ובריבוע לשמש (<span class="deg">3.50°</span>).</p>
+<p><strong>מה כן היה שם:</strong> שמש שלו בשלישות לראש הדרקון (<span class="deg">0.53°</span>) ולנקודת הגורל (<span class="deg">0.73°</span>) שלך, וראש הדרקון שלו בשלישות לירח שלך (<span class="deg">1.53°</span>) — כלומר הייתה משיכה אמיתית ותחושת משמעות. אבל היא עמדה מול הרבה יותר מדי חיכוך.</p>
+<p><strong>השורה:</strong> מבחינת מאזן היבטים — <strong>הכי הרבה קונפליקט ישיר</strong> מכל השמונה. ההבדל מ-18.1.1991: שם הבעיה מבנית (כובד), כאן היא חזיתית (התנגשות).</p>
+<hr>
+<h1>🧭 מה הרשימה מגלה — הדפוס</h1>
+<p>זה החלק הכי שימושי. שמונה תאריכים זה מדגם, והוא מדבר:</p>
+<h3>1️⃣ ארבעה מתוך שמונה — שמש בשור. המזל שלך.</h3>
+<p>6.5.1990 · 15.5.1993 · 16.5.1993 · 22.4.1995. חצי מהרשימה.
+השמש שלך בשור בבית 4 — בית, שורשים, ביטחון. <strong>את הולכת שוב ושוב למה שמרגיש כמו בית.</strong> זה לא מקרה וזה גם לא רע — שלושה מהארבעה נמצאים בראש הדירוג. פשוט דעי שזה הדפוס.</p>
+<h3>2️⃣ אף אחד מהשמונה לא עם ונוס במים או באדמה</h3>
+<p>ונוס שלהם: טלה, טלה, טלה, טלה · דלי, דלי, דלי · תאומים.
+<strong>ארבעה בטלה, שלושה בדלי, אחד בתאומים. אש ואוויר בלבד.</strong></p>
+<blockquote>
+<p><strong>🔧 תוקן.</strong> בגרסה הראשונה כתבתי שהמסקנה היא שאת "צריכה ונוס במים". <strong>זה היה שגוי</strong> — ראי <a href="התאריך%20האידיאלי%20ואיך%20לבדוק.md">התאריך האידיאלי ואיך לבדוק</a> לחישוב המלא. בקצרה: הונוס שלך בטלה <span class="deg">6°02′</span>, וונוס במים יוצרת אליה <strong>ריבוע</strong> (סרטן), <strong>קווינקונקס</strong> (עקרב) או חצי-שישית (דגים) — כלומר חיכוך, לא הרמוניה. <strong>ונוס באש או באוויר דווקא זורמת אלייך.</strong></p>
+</blockquote>
+<p><strong>מה הדפוס באמת אומר:</strong> הבחירה שלך בונוס אש/אוויר היא <strong>נכונה</strong> לרובד המשיכה — היא מתחברת יפה לונוס שלך בטלה. הפער לא נמצא בונוס שלהם.</p>
+<p><strong>הרוך שהמפה שלך מבקשת מגיע ממקום אחר: מהירח שלו.</strong> שליט בית 7 שלך הוא <strong>הירח</strong>, לא ונוס. וזה בדיוק מה שאי אפשר היה לראות — <strong>בשישה מתוך שמונה אין שעת לידה, ולכן אין ירח.</strong></p>
+<p>והנתון שכן היה: <strong>15.5.1993 — הירח שלו בדגים <span class="deg">12°59′</span>. מים.</strong> בשלישות למרכז בית 7 שלך בהפרש <span class="deg">0.25°</span>. הוא גם דורג ראשון. כלומר האלמנט החסר לא נעדר מהרשימה — הוא פשוט הופיע בירח ולא בונוס, ורק אצל היחיד שיש לו שעת לידה.</p>
+<h3>3️⃣ שלושה עם מאדים באריה — והם בדיוק שלושת הראשונים.</h3>
+<p>15.5.1993 · 16.5.1993 · 22.4.1995 — כולם עם מאדים בבית 7 שלך, וכולם בראש הדירוג.
+זה מאשש את <a href="פרופיל%20בן%20הזוג%20האידיאלי%20-%20מאיסה.md">פרופיל בן הזוג</a> מנתונים אמיתיים: <strong>אריה בבית 7 שלך הוא הסימן הכי אמין ברשימה.</strong></p>
+<h3>4️⃣ חמישה מתוך שמונה עם עומס גדי/דלי על בית 1 שלך.</h3>
+<p>18.1.1991 (שישה גורמים), 5.2.1997, 3.4.1990, ובמידה פחותה גם אחרים — כולם עם שבתאי/אורנוס/נפטון בגדי-דלי נופלים על בית 1 שלך. חלק מזה דורי (כולם ילידי 1990–1997), אבל <strong>הריכוז אצל 18.1.1991 הוא חריג ואישי.</strong></p>
+<h3>5️⃣ ההיבטים הכי הדוקים ברשימה — כמעט כולם ניגודים.</h3>
+<p><span class="deg">0.05°</span> · <span class="deg">0.11°</span> · <span class="deg">0.13°</span> · <span class="deg">0.14°</span> — כולם ניגודים (5.2.1997 ו-15.5.1993).
+זה <strong>ונוס מול צדק</strong> שלך בפעולה: <span class="deg">0.1°</span> של אידיאליזציה במפה שלך מושך אותך לקשרים בעלי מטען קוטבי גבוה. <strong>ניגוד = משיכה שגם דוחפת.</strong></p>
+<hr>
+<h2 id="s12">💡 שלוש מסקנות מעשיות</h2>
+<ol>
+<li>
+<p><strong>התבנית לחפש:</strong> שמש בשור/סרטן + <strong>מאדים או ונוס באריה</strong> (זה עבד — שלושת הראשונים) + <strong>ירח במים</strong>. הרכיב השלישי הוא היחיד שלא הצלחנו לראות ברוב המקרים, כי הוא דורש שעת לידה. <strong>הוא גם הרכיב הכי חשוב</strong> — הירח הוא שליט בית 7 שלך.</p>
+</li>
+<li>
+<p><strong>המבחן שעובד עלייך:</strong> מגעים כמעט־מדויקים (מתחת ל-<span class="deg">0.5°</span>) הם מגנט, לא ערובה. אצלך הם הופיעו <strong>גם</strong> אצל הכי מתאים <strong>וגם</strong> אצל הכי פחות. ההבדל אינו בעוצמה אלא ב<strong>סוג</strong>: שלישות/שישית = זורם · ריבוע/ניגוד = שוחק. עוצמת התחושה בהתחלה לא מנבאת כלום.</p>
+</li>
+<li>
+<p><strong>אם תשיגי שעת לידה של אחד</strong> — קחי את <strong>22.4.1995</strong>. הוא היחיד עם צדק על ראש הדרקון שלך (חתימת "מרים אותך"), ומה שחסר לו כדי להיות ודאי זה בדיוק הירח.</p>
+</li>
+</ol>
+<hr>
+<p><em>חושב עם Swiss Ephemeris, מאומת מול המפה המתועדת שלך · קריאה אסטרולוגית, אינה תחליף לייעוץ מקצועי.</em>
+<em>ראי גם: <a href="פרופיל%20בן%20הזוג%20האידיאלי%20-%20מאיסה.md">פרופיל בן הזוג האידיאלי</a> · <a href="מפה%20אסטרולוגית%20-%20מאיסה.md">המפה שלי</a></em></p>
+</div>
+</body>
+</html>
