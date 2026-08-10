@@ -1,0 +1,11 @@
+# symlink מקומי ל-~/.claude, תלוי-מכונה. לא לגרסון.
+claude global
+
+# snapshot של ~/.claude מלפני התקנת premium-kit. 6.4MB, כולל session data. ארכיון בלבד.
+claude-before-lvlup/
+
+# פלט שנוצר בריצה. התיקיה נשמרת דרך .gitkeep, התוכן לא.
+reports/**
+!reports/**/.gitkeep
+tools/agentshield-report-*.md
+tools/agentshield-baseline.json
