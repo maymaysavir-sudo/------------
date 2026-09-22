@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ההתאמה עם 15.5.1993 - ניתוח מלא</title>
+<style>
+:root{--bg:#fbfaf8;--fg:#1c1b19;--muted:#6b6660;--line:#e3ded6;--card:#fff;
+--accent:#7a5c3e;--accent-soft:#f3ece3;--green:#2e7d52;--green-bg:#eaf5ee;
+--red:#b4342c;--red-bg:#fdeceb;--amber:#9a6b12;--amber-bg:#fdf3e0;--maxw:58rem}
+@media (prefers-color-scheme:dark){:root{--bg:#16151a;--fg:#eae7e2;--muted:#9d968d;
+--line:#302d36;--card:#1e1d24;--accent:#c9a87c;--accent-soft:#282430;
+--green:#6cc496;--green-bg:#172a21;--red:#f08a80;--red-bg:#2e1a18;
+--amber:#dcae5a;--amber-bg:#2b2317}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+font-family:-apple-system,'SF Hebrew','Arial Hebrew','Segoe UI',Tahoma,'Noto Sans Hebrew',sans-serif;
+font-size:17px;line-height:1.85;text-align:right;direction:rtl}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:3rem 1.5rem 6rem}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .6em;font-weight:700;letter-spacing:-.01em}
+h1{font-size:2.1rem;margin-top:0}
+h2{font-size:1.45rem;margin-top:2.9em;padding-bottom:.35em;border-bottom:2px solid var(--line);scroll-margin-top:1rem}
+h3{font-size:1.15rem;margin-top:2em;color:var(--accent)}
+h4{font-size:1.02rem;margin-top:1.6em;color:var(--muted)}
+p{margin:0 0 1.05em}em{color:var(--muted)}
+a{color:var(--accent);text-underline-offset:3px}
+hr{border:0;border-top:1px solid var(--line);margin:2.6rem 0}
+ul,ol{margin:0 0 1.15em;padding-inline-start:0;padding-inline-end:1.4em}
+li{margin:.4em 0}
+blockquote{margin:1.5em 0;padding:1em 1.2em;background:var(--card);
+border:1px solid var(--line);border-inline-start:5px solid var(--accent);border-radius:.5rem}
+blockquote>:last-child{margin-bottom:0}
+blockquote.green{border-inline-start-color:var(--green);background:var(--green-bg)}
+blockquote.red{border-inline-start-color:var(--red);background:var(--red-bg)}
+blockquote.amber{border-inline-start-color:var(--amber);background:var(--amber-bg)}
+.tablewrap{overflow-x:auto;margin:1.4em 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:32rem;direction:rtl;font-size:.94rem;
+background:var(--card);border:1px solid var(--line);border-radius:.5rem;overflow:hidden}
+th,td{text-align:right;padding:.65em .85em;border-bottom:1px solid var(--line);
+vertical-align:top;line-height:1.6}
+th{background:var(--accent-soft);font-weight:700}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--accent-soft) 40%,transparent)}
+.deg{unicode-bidi:isolate}
+.lede{color:var(--muted);font-size:.97rem;line-height:1.7}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:.6rem;
+padding:1.1em 1.5em;margin:2.2rem 0 3rem}
+.toc h3{margin:0 0 .5em;color:var(--fg);font-size:.95rem;letter-spacing:.03em}
+.toc ol{padding-inline-end:1.3em;margin:0;font-size:.93rem;columns:2;column-gap:2rem}
+.toc li{margin:.25em 0;break-inside:avoid}
+.toc a{text-decoration:none}.toc a:hover{text-decoration:underline}
+@media print{body{background:#fff;color:#000;font-size:10.5pt}
+.toc{break-inside:avoid}h2{break-after:avoid}table,blockquote{break-inside:avoid}
+.wrap{padding:0;max-width:none}}
+@media (max-width:680px){body{font-size:16px}.wrap{padding:2rem 1rem 4rem}
+h1{font-size:1.65rem}h2{font-size:1.25rem}.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>ההתאמה עם 15.5.1993 - ניתוח מלא</h1>
+<div class="toc">
+<h3>תוכן</h3>
+<ol>
+<li><a href="#s1">1. המפה שלו, מדויקת</a></li>
+<li><a href="#s2">2. הסינסטריה: מה שבאמת חזק</a></li>
+<li><a href="#s3">3. המפה המשולבת (קומפוזיט)</a></li>
+<li><a href="#s4">4. מה קורה בשמיים דווקא עכשיו</a></li>
+<li><a href="#s5">5. סיני, 4-8.9.2026, יום אחר יום</a></li>
+<li><a href="#s6">6. איך לרמוז לאדם הזה, ספציפית</a></li>
+<li><a href="#s7">7. ציר הזמן, 2026-2029</a></li>
+<li><a href="#s8">8. שלושה מבחני מציאות</a></li>
+<li><a href="#s9">9. פסק דין</a></li>
+</ol>
+</div>
+<p><strong>מפה א׳:</strong> מאיסה, 3.5.1993, 23:50, פתח תקווה (<span class="deg">32°05′</span>N, <span class="deg">34°53′</span>E)
+<strong>מפה ב׳:</strong> הוא, 15.5.1993, 08:02, ירושלים (<span class="deg">31°46′</span>N, <span class="deg">35°13′</span>E)
+שעון קיץ ישראלי (UTC+3) בשתי הלידות · Placidus · <strong>כל הנתונים חושבו מחדש ב-Swiss Ephemeris</strong></p>
+<blockquote class="amber">
+<p>⚠️ <strong>הקובץ הזה מחליף את "ציר זמן זוגיות משותף".</strong> שם היו ארבע טעויות בנתונים שלו: הוונוס, המרקורי, הירח וראש הדרקון. התיקונים משנים חלק מהמסקנות, לטובה ולרעה.</p>
+</blockquote>
+<hr>
+<h2 id="s1">1. המפה שלו, מדויקת</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>גורם</th>
+<th>מיקום</th>
+<th>בית (Placidus)</th>
+<th>בית (מזל שלם)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>☉ שמש</td>
+<td><strong>שור <span class="deg">24°23′</span></strong></td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>☽ ירח</td>
+<td><strong>דגים <span class="deg">13°00′</span></strong></td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>☿ מרקורי</td>
+<td>שור <span class="deg">23°17′</span></td>
+<td>11</td>
+<td>12</td>
+</tr>
+<tr>
+<td>♀ ונוס</td>
+<td><strong>טלה <span class="deg">12°02′</span></strong></td>
+<td>10</td>
+<td>11</td>
+</tr>
+<tr>
+<td>♂ מאדים</td>
+<td><strong>אריה <span class="deg">8°33′</span></strong></td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>♃ צדק</td>
+<td>מאזניים <span class="deg">5°11′</span> R</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>♄ שבתאי</td>
+<td>דלי <span class="deg">29°47′</span></td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>♅ אורנוס</td>
+<td>גדי <span class="deg">22°03′</span> R</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>♆ נפטון</td>
+<td>גדי <span class="deg">21°01′</span> R</td>
+<td>7</td>
+<td>8</td>
+</tr>
+<tr>
+<td>♇ פלוטו</td>
+<td>עקרב <span class="deg">24°08′</span> R</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>⚷ כירון</td>
+<td>אריה ~<span class="deg">18°05′</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>☊ ראש הדרקון</td>
+<td>קשת <span class="deg">12°20′</span> R</td>
+<td>6</td>
+<td><strong>7</strong></td>
+</tr>
+<tr>
+<td>⚸ לילית</td>
+<td>דגים <span class="deg">23°33′</span></td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>ASC</strong></td>
+<td><strong>תאומים <span class="deg">29°17′</span></strong></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>MC</strong></td>
+<td><strong>דגים <span class="deg">12°16′</span></strong></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>מה תוקן מול הקובץ הקודם:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>נתון</th>
+<th>מה היה כתוב</th>
+<th>האמת</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ונוס</td>
+<td>אריה <span class="deg">20°</span></td>
+<td><strong>טלה <span class="deg">12°02′</span></strong></td>
+</tr>
+<tr>
+<td>מרקורי</td>
+<td>שור <span class="deg">2°</span></td>
+<td><strong>שור <span class="deg">23°17′</span></strong></td>
+</tr>
+<tr>
+<td>ירח</td>
+<td>דגים <span class="deg">6°</span></td>
+<td><strong>דגים <span class="deg">13°00′</span></strong></td>
+</tr>
+<tr>
+<td>ראש הדרקון</td>
+<td>"בבית 7 = מוכן לקשר"</td>
+<td>בית 6 בפלסידוס, בית 7 במזל שלם. שתי הקריאות לגיטימיות, אבל <strong>זה לא נתון ודאי</strong> ואי אפשר להישען עליו</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>ההיבטים הפנימיים שלו, לפי חוזק:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>היבט</th>
+<th>מרווח</th>
+<th>מה זה אומר</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>שמש באופוזיציה לפלוטו</strong></td>
+<td><strong><span class="deg">0.25°</span></strong></td>
+<td>ההיבט המגדיר של המפה שלו. עומק, עוצמה, שליטה, הכל-או-כלום. לא עושה שטחי. גם: לא מוותר על שליטה בקלות</td>
+</tr>
+<tr>
+<td>שבתאי בשלישות לאופק</td>
+<td><span class="deg">0.49°</span></td>
+<td>נראה יציב, אמין, מאופק. זה אמיתי, לא רק חזות</td>
+</tr>
+<tr>
+<td><strong>ירח צמוד ל-MC</strong></td>
+<td><strong><span class="deg">0.72°</span></strong></td>
+<td>חיי הרגש שלו נמצאים בראש המפה. הוא רגיש למה שנראה כלפי חוץ, קורא אווירה, ומרגיש הכל</td>
+</tr>
+<tr>
+<td>מרקורי באופוזיציה לפלוטו</td>
+<td><span class="deg">0.86°</span></td>
+<td>חושב עמוק, לא מדבר בקלילות, מחזיק דברים בפנים</td>
+</tr>
+<tr>
+<td>שמש צמוד למרקורי בבית 12</td>
+<td><span class="deg">1.11°</span></td>
+<td>עולם פנימי סגור. חושב הרבה יותר ממה שהוא אומר</td>
+</tr>
+<tr>
+<td>שמש בריבוע שבתאי</td>
+<td><span class="deg">5.40°</span></td>
+<td>ספק עצמי. איטיות. חושש להצהיר ולהתבדות</td>
+</tr>
+<tr>
+<td>ונוס בשלישות מאדים</td>
+<td><span class="deg">3.49°</span></td>
+<td>באש. כשהוא מחליט לרצות, הוא יודע לפעול</td>
+</tr>
+</tbody>
+</table></div>
+<h3>מי הוא, בשורה אחת</h3>
+<p>גבר שור עם שמש בבית 12 מול פלוטו: <strong>עמוק מאוד, פרטי מאוד, ולא ילך ראשון.</strong>
+ירח דגים צמוד ל-MC נותן לו רוך אמיתי ואינטואיציה גבוהה, ואופק תאומים נותן לו את הפה: הוא מתחבר דרך שיחה, לא דרך הצהרות.
+מאדים וכירון באריה בבית 3: האש שלו יושבת במילים. גם הפצע שלו.</p>
+<hr>
+<h2 id="s2">2. הסינסטריה: מה שבאמת חזק</h2>
+<p>מיינתי לפי מרווח. <strong>מתחת ל-<span class="deg">1°</span> זה כבר לא מקריות, זה חתימה.</strong></p>
+<h3>🔴 חמשת המגעים הכי חזקים</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>המגע</th>
+<th>מרווח</th>
+<th>מה זה</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>הוונוס שלו באופוזיציה לירח שלך</strong></td>
+<td><strong><span class="deg">0.00°</span></strong></td>
+<td>מדויק לדקת קשת. הירח שלך הוא <strong>שליט בית 7 שלך</strong>, כלומר המשמעות של "בן זוג" במפה שלך. הוונוס שלו נוחת עליו בדיוק מוחלט, בציר טלה-מאזניים, שהוא ציר הזוגיות עצמו. משיכה הדדית חזקה מאוד. גם: מתח קבוע של ניגודים</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>הירח שלו בשלישות לשיא בית 7 שלך</strong></td>
+<td><strong><span class="deg">0.25°</span></strong></td>
+<td>דגים <span class="deg">13°00′</span> מול סרטן <span class="deg">12°45′</span>. זו <strong>בדיוק הבדיקה מספר 1</strong> ברשימה שלך: "הירח שלו במים, במעלות 9-17". הוא פוגע בול. וגם: <strong>הירח שלו בשישית לאופק שלך (<span class="deg">0.25°</span>) ובשישית לשמש שלך (<span class="deg">0.42°</span>)</strong>. שלושה מגעי ירח כמעט מדויקים לשלושת הגורמים הכי אישיים שלך</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>המאדים והכירון שלו בבית 7 שלך</strong></td>
+<td>-</td>
+<td>מאדים באריה <span class="deg">8°33′</span> וכירון באריה <span class="deg">18°05′</span> נוחתים בתוך בית 7 שלך, על האשכול הכי טעון במפה: מאדים <span class="deg">2°51′</span>, נקודת הגורל <span class="deg">14°07′</span>, כירון <span class="deg">17°26′</span>, ורטקס <span class="deg">21°04′</span>. <strong>הכירון שלו צמוד לכירון שלך במרווח <span class="deg">0.65°</span>.</strong> זה בדיוק מה שכתוב בפרופיל בן הזוג האידיאלי שלך: "אריה <span class="deg">2°-21°</span>, הרצועה הכי טעונה במפה שלך"</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>השמש שלו באופוזיציה לפלוטו שלך</strong></td>
+<td><strong><span class="deg">0.07°</span></strong></td>
+<td>וזה גם ההיבט הפנימי הכי חזק שלו (<span class="deg">0.25°</span>). כלומר: <strong>את מגלמת עבורו את הנושא הכי עמוק במפה שלו.</strong> הוא לא יכול להתייחס אלייך כאל עוד מישהי. את או מרתיעה או מחייבת אותו, אבל לא נייטרלית</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>האופק שלו בשלישות לשבתאי שלך</strong></td>
+<td><strong><span class="deg">0.09°</span></strong></td>
+<td>שבתאי הוא שליט המפה שלך, ומה שהוא נוגע בו נשאר. הנוכחות הפיזית שלו מרגישה לך יציבה ובטוחה. פלוס: <strong>השבתאי שלו בשישית למרקורי שלך (<span class="deg">0.14°</span>)</strong> והשבתאים שלכם צמודים (<span class="deg">0.57°</span>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>🟢 מה עוד עובד</h3>
+<ul>
+<li><strong>הוונוס שלו בשלישות לראש הדרקון שלך (<span class="deg">0.40°</span>)</strong> - הוא מושך אותך לכיוון הצמיחה שלך, לא אחורה.</li>
+<li><strong>השמש והמרקורי שלו בבית 4 שלך</strong>, באותו מזל של השמש שלך. תחושת בית ושייכות. שור פוגש שור.</li>
+<li><strong>הירח, השבתאי והלילית שלו בבית 2 שלך</strong> - הוא נוגע בערך העצמי ובביטחון שלך. לטוב ולרע.</li>
+<li><strong>הירח והצדק שלך בבית 4 שלו</strong> - <strong>את מרגישה לו כמו בית.</strong> בשביל גבר שור עם שמש בבית 12, זה הדבר הכי נדיר שיש</li>
+<li><strong>המאדים שלו בשלישות לוונוס שלך (<span class="deg">2.52°</span>)</strong> וונוס שלו צמוד לוונוס שלך (<span class="deg">6°</span>, שניהם בטלה). שניכם אוהבים ישיר, מהר ובלי משחקים.</li>
+</ul>
+<h3>⚠️ מה שלא מסתדר, ואסור לטייח</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>הבעיה</th>
+<th>מרווח</th>
+<th>למה זה חשוב</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>הוונוס שלו באופוזיציה לירח שלך</strong></td>
+<td><span class="deg">0.00°</span></td>
+<td>אותו היבט שהוא הכי חזק הוא גם הכי מפצל. הירח שלך במאזניים רוצה קרבה, איזון ושותפות. הוונוס שלו בטלה רוצה עצמאות, יוזמה ומרחב. <strong>נדנדה קבועה</strong>: כשאת מתקרבת, הוא זז אחורה. וההפך</td>
+</tr>
+<tr>
+<td><strong>השמש שלו בריבוע לשבתאי שלך</strong></td>
+<td><span class="deg">4.83°</span></td>
+<td>+ המרקורי שלו בריבוע לשבתאי שלך (<span class="deg">5.93°</span>). ובמפה שלו יש כבר שמש בריבוע שבתאי. <strong>את בקלות תהפכי לשופטת שלו.</strong> גם בלי כוונה. עם אופק גדי ושבתאי שליט המפה, ברירת המחדל שלך היא להעריך ולתקן. עליו זה נוחת כביקורת, וזה נוגע בפצע הכי ישן שלו</td>
+</tr>
+<tr>
+<td><strong>המאדים שלו בריבוע לשמש שלך</strong></td>
+<td><span class="deg">4.86°</span></td>
+<td>חיכוך. מתח מיני עם קצה של ריב</td>
+</tr>
+<tr>
+<td><strong>הצדק שלו באופוזיציה לוונוס שלך</strong></td>
+<td><span class="deg">0.85°</span></td>
+<td>במפה שלך כבר יש ונוס מול צדק (<span class="deg">0.1°</span>). הוא <strong>מכפיל</strong> לך את זה. תוצאה: אידיאליזציה, נדיבות יתר, לראות אותו גדול ממה שהוא</td>
+</tr>
+<tr>
+<td><strong>הנפטון שלך בבית 7 שלו, הנפטון שלו בבית 1 שלך</strong></td>
+<td>-</td>
+<td>ערפל דו כיווני. הוא מקרין עלייך דמות, ואת עליו</td>
+</tr>
+<tr>
+<td><strong>הוונוס שלו בריבוע לאופק שלך</strong></td>
+<td><span class="deg">0.70°</span></td>
+<td>הבדלי סגנון וטעם שמתגלים דווקא בקרבה</td>
+</tr>
+</tbody>
+</table></div>
+<h3>🎯 החיכוך המבני האמיתי</h3>
+<p>במפה שלך, <strong>בית 7 בסרטן ומלא באריה</strong>: את צריכה בן זוג שגאה בך <strong>בגלוי</strong>. מאדים באריה בבית 7 לא מתפשר על זה.
+במפה שלו, <strong>שמש בבית 12 מול פלוטו, צמודה למרקורי</strong>: הוא חי בפנים, לא מכריז, לא מציג.</p>
+<p>המאדים והכירון שלו כן באריה, כלומר מולך אישית תהיה לו אש ונוכחות. אבל <strong>הזהות שלו נשארת פרטית.</strong> זה הפער שיקבע אם זה עובד, ולא אף היבט אחר.</p>
+<hr>
+<h2 id="s3">3. המפה המשולבת (קומפוזיט)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>גורם</th>
+<th>מיקום</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASC</td>
+<td>טלה <span class="deg">6°01′</span></td>
+</tr>
+<tr>
+<td>☉ שמש</td>
+<td>שור <span class="deg">18°54′</span></td>
+</tr>
+<tr>
+<td>☽ ירח</td>
+<td>קשת <span class="deg">27°31′</span></td>
+</tr>
+<tr>
+<td>♀ ונוס</td>
+<td><strong>טלה <span class="deg">9°02′</span></strong> (צמודה ל-ASC, <span class="deg">3°</span>)</td>
+</tr>
+<tr>
+<td>♂ מאדים</td>
+<td>אריה <span class="deg">5°42′</span></td>
+</tr>
+<tr>
+<td>MC</td>
+<td>גדי <span class="deg">6°47′</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>מה זה אומר על הקשר עצמו:</strong> אופק בטלה עם ונוס צמודה, ומאדים באריה. הקשר הזה מתחיל <strong>חם, ישיר ומהיר</strong>. שמש בשור נותנת לו את היכולת להתבסס. ירח בקשת רוצה חופש, מרחב, מסע ומשמעות, לא בית קטן וסגור.</p>
+<p>זה קשר שנולד מתוך התלהבות, לא מתוך היכרות איטית. ו-MC בגדי אומר שאם הוא שורד את השנה הראשונה, הוא בונה משהו רציני.</p>
+<hr>
+<h2 id="s4">4. מה קורה בשמיים דווקא עכשיו</h2>
+<p>זה החלק שהופך את השאלה שלך מתיאורטית למעשית.</p>
+<h3>🌑 ליקוי החמה המלא, 12.8.2026, אריה <span class="deg">20°02′</span></h3>
+<p>לפני שלושה שבועות בדיוק.</p>
+<ul>
+<li><strong><span class="deg">1°02′</span> מהוורטקס שלך</strong> (אריה <span class="deg">21°04′</span>), נקודת "המפגש הגורלי" הקלאסית</li>
+<li><strong><span class="deg">0°25′</span> מסוף בית 7 שלך</strong> (אריה <span class="deg">20°27′</span>), כלומר <strong>בתוך בית הזוגיות שלך</strong></li>
+<li><strong><span class="deg">2°36′</span> מהכירון שלך</strong>, ו-<strong><span class="deg">1°57′</span> מהכירון שלו</strong></li>
+</ul>
+<p>ליקוי חמה מלא על הוורטקס בבית 7 הוא אחת החתימות הנדירות שיש. <strong>ובמפה שלו הוא נפל בבית 3 שלו, על הכירון: בית הדיבור.</strong> כלומר: אצלך הליקוי פתח נושא של מפגש. אצלו הוא לחץ בדיוק על הנקודה שקשה לו לדבר ממנה.</p>
+<h3>🍀 צדק על נקודת הגורל שלך, 3.9.2026</h3>
+<p><strong>יום לפני שאתם יוצאים.</strong></p>
+<p>צדק חצה את נקודת הגורל שלך (אריה <span class="deg">14°07′</span>) ב-3 בספטמבר, ובימי הטיול עצמם הוא עומד על אריה <span class="deg">14°24′</span> עד <span class="deg">15°14′</span>, כלומר <strong>יושב עליה, בתוך בית 7 שלך</strong>. זה ההיבט הכי בר-מזל שיש לזוגיות, והוא נמצא בדיוק על התאריכים של סיני.</p>
+<p>צדק עובר על הכירון שלך ב-20.9, יוצא מבית 7 ב-6.10, וחוזר בנסיגה עוד פעמיים: פברואר ויוני 2027.</p>
+<h3>🪐 שבתאי על הוונוס שלו, ובאופוזיציה לירח שלך</h3>
+<p>שבתאי עומד עכשיו בטלה <span class="deg">13°20′</span> בנסיגה:
+- <strong><span class="deg">1°18′</span> מהוונוס שלו</strong> (טלה <span class="deg">12°02′</span>)
+- <strong><span class="deg">1°18′</span> באופוזיציה לירח שלך</strong> (מאזניים <span class="deg">12°02′</span>)</p>
+<p>זה אותו מעלה, כי הוונוס שלו והירח שלך נמצאים באותה מעלה מדויקת. <strong>הטרנזיט הזה יושב על ציר הסינסטריה עצמו.</strong></p>
+<p>מעברים מדויקים: <strong>30.5.2026 · 25.9.2026 · 20.2.2027.</strong></p>
+<p>מה זה אומר בפועל:
+- <strong>אצלו:</strong> תקופה של רצינות, זהירות והתכנסות באהבה. אולי גם אכזבה או סגירה שהוא לא מדבר עליה. שבתאי על ונוס לא אומר "לא". הוא אומר: <strong>לאט, ורק אם זה אמיתי.</strong>
+- <strong>אצלך:</strong> שבתאי מול הירח, ובריבוע לאופק (<span class="deg">0.8°</span>). תחושת בדידות, כובד, חוסר סיפוק רגשי. את מרגישה יותר לבד ממה שאת באמת.
+- <strong>המעבר המדויק הבא הוא 25.9, שבועיים אחרי סיני.</strong> כלומר בטיול עצמו הוא בשיא ההתכנסות.</p>
+<h3>🌊 שני טרנזיטים שצריך לשים עליהם דגל אדום</h3>
+<ul>
+<li><strong>נפטון בטלה <span class="deg">3°33′</span> צמוד לוונוס שלך</strong> (טלה <span class="deg">6°02′</span>, מרווח <span class="deg">2.5°</span>) ובאופוזיציה לצדק שלך. <strong>יחד עם הצדק שלו שנופל על אותו ציר: שלוש שכבות של אידיאליזציה.</strong> תניחי שאת רואה כרגע לפחות 30% יותר ממה שיש שם.</li>
+<li><strong>פלוטו בדלי <span class="deg">3°25′</span> באופוזיציה למאדים שלך</strong> (אריה <span class="deg">2°51′</span>, מרווח <span class="deg">0.6°</span>). טרנזיט רב שנתי לבית 7 שלך. הוא גורם לרצייה להרגיש כמו גורל. <strong>חלק מהעוצמה שאת מרגישה כלפיו היא הטרנזיט, לא הוא.</strong></li>
+</ul>
+<h3>✨ ואחד ירוק</h3>
+<p><strong>אורנוס בתאומים <span class="deg">5°41′</span> בשישית לוונוס שלך (<span class="deg">0.4°</span>) ובשלישות לצדק שלך (<span class="deg">0.3°</span>).</strong> פתיחות רומנטית פתאומית, הפתעות, יציאה מדפוס. מרווחים מדויקים. זה חלון אמיתי לשינוי בתחום הזה.</p>
+<hr>
+<h2 id="s5">5. סיני, 4-8.9.2026, יום אחר יום</h2>
+<p>הירח שלך הוא שליט בית 7 שלך, ולכן מיקום הירח בשמיים הוא המדד המעשי הכי טוב לתזמון. כל השעות מקומיות.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>תאריך</th>
+<th>הירח</th>
+<th>מה קורה</th>
+<th>המלצה</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ו׳ 4.9</strong></td>
+<td>תאומים <span class="deg">12°</span></td>
+<td>השמש באופוזיציה לירח ול-MC שלו (<span class="deg">1.4°</span>). הוא רגיש, פתוח מדי או דווקא מכונס</td>
+<td><strong>לא לרמוז.</strong> יום התארגנות. להיות קלילה, לצחוק, כלום מעבר</td>
+</tr>
+<tr>
+<td><strong>ש׳ 5.9</strong></td>
+<td>תאומים <span class="deg">26°</span> → <strong>צמוד לאופק שלו ב-17:00</strong></td>
+<td>הירח עובר על האופק שלו. אופק תאומים + ירח בתאומים = הוא הכי מדבר, הכי נגיש, הכי בקטע</td>
+<td><strong>הערב הזה הוא לשיחה.</strong> לא להצהרה. שיחה ארוכה אחד על אחד. הוא נפתח דרך מילים, זה המזל שלו</td>
+</tr>
+<tr>
+<td><strong>א׳ 6.9</strong></td>
+<td>סרטן. <strong>נכנס לבית 7 שלך ב-15:00. צמוד למאדים ב-23:00</strong></td>
+<td>ירח ומאדים צמודים בסרטן, <strong>בתוך בית 7 שלך</strong>. רגש פלוס אומץ, במזל הכי רך שיש, בבית הזוגיות שלך</td>
+<td>🎯 <strong>זה הערב.</strong> הכי טוב בכל הטיול. אחרי 21:00, בשיחה פרטית</td>
+</tr>
+<tr>
+<td><strong>ב׳ 7.9</strong></td>
+<td>סרטן, כל היום בבית 7 שלך</td>
+<td>הירח בסרטן בשלישות לירח שלו בדגים ובשישית לשמש שלו. יום רך, ביתי, מחובר</td>
+<td>חלון שני, טוב כמעט באותה מידה. אם 6.9 לא קרה, כאן</td>
+</tr>
+<tr>
+<td><strong>ג׳ 8.9</strong></td>
+<td>אריה. <strong>על המאדים שלו ב-11:00. על נקודת הגורל שלך + צדק ב-22:00</strong></td>
+<td>הכי חזק סימבולית, והכי מאוחר בפועל</td>
+<td>אם אתם עדיין ביחד ב-22:00, זה הרגע החזק ביותר. אם זה יום נסיעה הביתה, לא לכפות</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>המסקנה: הערב של 6.9, ואם לא, במהלך 7.9.</strong></p>
+<hr>
+<h2 id="s6">6. איך לרמוז לאדם הזה, ספציפית</h2>
+<p>המפה שלו אומרת שלוש דברים שסותרים את האינטואיציה הרגילה:</p>
+<p><strong>1. "עדין" אצלו לא אומר "מעורפל".</strong>
+הוונוס שלו בטלה, כמו שלך. ונוס בטלה לא מפענחת רמזים דקים. היא קולטת ישיר. יחד עם שמש בבית 12 שממילא לא מניחה שרוצים אותה, <strong>רמז מעודן מדי פשוט לא ייקלט</strong>, או שייקלט והוא ישתוק מזהירות.
+<strong>עדין = פרטי ובלי לחץ. לא = מעומעם.</strong></p>
+<p><strong>2. לא מול החברים.</strong>
+ירח צמוד ל-MC בדגים פלוס שמש בבית 12: הוא סופג את כל האווירה בחדר, ואכפת לו מאוד איך זה נראה. <strong>כל מהלך מול הקבוצה ייצור לו לחץ, והוא ייסוג.</strong> צריך רגע אחד על אחד: הליכה, ישיבה מחוץ למעגל, נסיעה.</p>
+<p><strong>3. הערוץ שלו הוא מילים.</strong>
+אופק תאומים, מאדים וכירון בבית 3. הוא מתחבר דרך שיחה. <strong>רמז מילולי קטן וברור יעבוד הרבה יותר טוב מרמז פיזי.</strong> מגע פיזי מוקדם מדי, עם שמש-פלוטו ובית 12, יגרום לו להתכווץ.</p>
+<p><strong>4. חייבת להיות לו דרך יציאה.</strong>
+שמש בריבוע שבתאי פלוס שבתאי שעובר עכשיו על הוונוס שלו. הוא לא במצב שבו הוא מוכן להיחשף. משפט שהוא יכול לענות עליו בקלילות, בלי להתחייב, הוא מה שיפתח אותו. משפט שדורש תשובה יסגור אותו.</p>
+<p><strong>5. אל תעריכי אותו.</strong>
+שמש ומרקורי שלו בריבוע לשבתאי שלך. ברגע שנשמע בקול שלך משהו שדומה להערכה או לתיקון, הוא נעלם. שיחה חמה ולא שיפוטית היא כל התנאי.</p>
+<p><strong>מה כן:</strong> לומר משהו קטן, אישי ואמיתי עלייך, לא עליו. לא שאלה. לא בקשה. אמירה אחת, ואז לתת לשקט לעבוד. עם שמש בבית 12 הוא צריך את הזמן הזה כדי לעכל.</p>
+<p><strong>ומה לצפות:</strong> <strong>הוא כמעט בוודאות לא יגיב במקום.</strong> שור, בית 12, שבתאי על הוונוס. התגובה תגיע באיחור, ואולי אחרי הטיול. <strong>שתיקה מיידית אצלו היא לא דחייה.</strong> אצלו זה עיבוד. הסימן האמיתי הוא מה קורה בשבועיים שאחרי.</p>
+<hr>
+<h2 id="s7">7. ציר הזמן, 2026-2029</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>מתי</th>
+<th>מה</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4-8.9.26</strong></td>
+<td>צדק על נקודת הגורל שלך בבית 7. החלון הפתוח</td>
+</tr>
+<tr>
+<td><strong>20.9.26</strong></td>
+<td>צדק על הכירון שלך. ריפוי, או שהפצע הישן נפתח</td>
+</tr>
+<tr>
+<td><strong>25.9.26</strong></td>
+<td>⚠️ שבתאי מדויק על הוונוס שלו ומול הירח שלך. <strong>הנקודה הכי קרה בשנה.</strong> אם יש קרירות או נסיגה, כאן. לא להסיק מזה מסקנות סופיות</td>
+</tr>
+<tr>
+<td><strong>6.10.26</strong></td>
+<td>צדק יוצא מבית 7 שלך. סוף הגל הראשון</td>
+</tr>
+<tr>
+<td><strong>נוב׳ 26 - ינו׳ 27</strong></td>
+<td>תקופה שקטה. <strong>צ׳ק פוינט: אם עד סוף ינואר לא היה שום מהלך מצידו, זה התשובה</strong></td>
+</tr>
+<tr>
+<td><strong>20.2.27</strong></td>
+<td>⚠️ המעבר האחרון של שבתאי על הוונוס שלו. אחרי זה הוא משוחרר</td>
+</tr>
+<tr>
+<td><strong>23.2 - 1.6.27</strong></td>
+<td>צדק חוזר בנסיגה לבית 7 שלך. <strong>גל שני, וזה הגל שבו זה יכול להפוך לאמיתי.</strong> צדק על הכירון שלו ב-18.3 וב-10.5</td>
+</tr>
+<tr>
+<td><strong>2.8.27</strong></td>
+<td>🔴 <strong>ליקוי חמה באריה <span class="deg">9°55′</span>, צמוד למאדים שלו (<span class="deg">1°22′</span>), בתוך בית 7 שלך.</strong> אם יש דבר אחד לסמן ביומן, זה זה</td>
+</tr>
+<tr>
+<td><strong>2029-2030</strong></td>
+<td>שבתאי על השמש שלו בבית 4 שלך. בית ובסיס משותפים, אם הגעתם לשם</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>הקצב האמיתי, בכנות:</strong> את בשיא החלון עכשיו. הוא ייפתח מפברואר-מרץ 2027. <strong>הפער הזה הוא הבעיה המרכזית של הזוגיות הזאת בעיתוי הנוכחי</strong>, לא ההתאמה עצמה.</p>
+<hr>
+<h2 id="s8">8. שלושה מבחני מציאות</h2>
+<p>בלי אסטרולוגיה. אלה שלוש הבדיקות שנגזרות מהפערים במפות:</p>
+<ol>
+<li>
+<p><strong>כשאת נשענת, הוא מחזיק או נעלם?</strong>
+   הירח שלו בדגים אומר שיש בו רוך אמיתי. הבית ה-12 והשמש בריבוע שבתאי אומרים שהוא עלול <strong>לספוג</strong> במקום <strong>להחזיק</strong>. אלה שני דברים שונים לגמרי, וקל לבלבל ביניהם בהתחלה. בדקי מוקדם.</p>
+</li>
+<li>
+<p><strong>הוא גאה בך בפומבי?</strong>
+   זה הכשל הצפוי שלו. שמש בבית 12 מול פלוטו: פרטיות היא ברירת המחדל שלו. <strong>את צריכה אריה בבית 7.</strong> אם הוא חם מולך ביחידות וקפוא מולך מול אנשים, זו לא ביישנות. זה מבנה, ובאותו מבנה הוא לא ישתנה.</p>
+</li>
+<li>
+<p><strong>הוא סוגר, או נעלם?</strong>
+   שור פלוס בית 12 פלוס שבתאי על הוונוס = איטי. זה בסדר. אבל יש הבדל בין "איטי ועקבי" ל"נעלם וחוזר". <strong>עקביות היא הבדיקה, לא עוצמה.</strong> קראי מעשים לאורך שלושה שבועות, לא מילים בערב אחד.</p>
+</li>
+</ol>
+<hr>
+<h2 id="s9">9. פסק דין</h2>
+<p><strong>ההתאמה עצמה חזקה מאוד, ומהסוג הנדיר.</strong>
+ארבעה מגעים מתחת ל-<span class="deg">0.5°</span>, בדיוק בגורמים שהמפה שלך מסמנת כמרכזיים: הירח שלו על שיא בית 7 שלך, הוונוס שלו על הירח שלך, המאדים והכירון שלו על האשכול באריה בבית 7, והאופק שלו על השבתאי שלך. <strong>הוא עונה על ארבע מתוך ארבע הבדיקות שכתבת לעצמך בקובץ "התאריך האידיאלי".</strong> זה לא קורה הרבה.</p>
+<p><strong>שלוש הסתייגויות אמיתיות:</strong>
+1. <strong>פער עיתוי.</strong> את בחלון הפתוח שלך עכשיו. הוא סגור עד פברואר 2027.
+2. <strong>פער חשיפה.</strong> את צריכה מישהו שמראה. הוא בנוי להסתיר.
+3. <strong>ערפל.</strong> נפטון על הוונוס שלך, פלוטו מול המאדים שלך, והצדק שלו על הוונוס שלך. <strong>אף אחת מהתחושות שלך כרגע היא לא מדד אמין.</strong> לא בגללך. בגלל הרקיע.</p>
+<p><strong>לגבי סיני:</strong> כן, לרמוז. הרמז מוצדק אסטרולוגית, והחלון אמיתי.
+<strong>איך:</strong> ערב 6.9 אחרי 21:00, ביחידות, במילים, אמירה אחת קצרה עם דרך יציאה, ואז שקט.
+<strong>ומה לזכור:</strong> הוא לא יגיב במקום. תני לזה שבועיים לפני שאת מפרשת. ובל תשפטי את הקשר לפי 25.9, שזה בדיוק היום הקר ביותר בלוח.</p>
+<hr>
+<p><em>קריאה אסטרולוגית. חושבה מול Swiss Ephemeris. עיתוי של פוטנציאל, לא ערובה.</em></p>
+</div>
+</body>
+</html>
