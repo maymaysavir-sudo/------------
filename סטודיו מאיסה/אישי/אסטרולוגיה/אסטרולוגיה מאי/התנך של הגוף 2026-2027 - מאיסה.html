@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>תנ״ך הגוף של מאיסה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#faf9f5; --surface:#f0efe8; --sunken:#e7e5db;
+  --ink:#1a2340; --ink-2:#3c4664; --ink-3:#6d7590; --rule:#d6d3c6; --hair:#e4e1d6;
+  --brass:#a2762f; --brass-soft:#f3e9d6;
+  --violet:#5f4a8c; --violet-soft:#efeaf7;
+  --fire:#a8502a; --earth:#4a6b3e; --air:#2f5a86; --water:#5f4a8c;
+  --plate:#ffffff;
+  --serif:'Frank Ruhl Libre','Times New Roman',serif;
+  --sans:'Assistant','Arial Hebrew',-apple-system,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',ui-monospace,monospace;
+  --measure:63ch;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}}
+:root[data-theme="dark"]{
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);direction:rtl;text-align:right;
+  font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.82;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:63rem;margin:0 auto;padding:0 1.5rem 6rem}
+
+/* ---------- shared row: main column + almanac rail ---------- */
+.row{display:grid;grid-template-columns:minmax(0,var(--measure)) 12.5rem;
+  gap:0 2.6rem;justify-content:center;align-items:start}
+.row>.col{grid-column:1;min-width:0}
+.marg{grid-column:2;font-family:var(--mono);font-size:.72rem;line-height:1.65;
+  color:var(--ink-3);border-top:2px solid var(--brass);padding-top:.55rem;
+  margin-top:.5rem;}
+.marg b{display:block;font-family:var(--sans);font-weight:700;font-size:.78rem;
+  color:var(--ink-2);margin-bottom:.45rem}
+.marg .r{display:flex;justify-content:space-between;gap:.6rem;
+  border-bottom:1px solid var(--hair);padding:.2rem 0}
+.marg .r span:first-child{font-family:var(--sans);font-size:.8rem}
+.marg .r span:last-child{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.marg p{margin:.5rem 0 0;font-family:var(--sans);font-size:.78rem;line-height:1.6}
+.narrow{max-width:var(--measure);margin-inline:auto}
+
+/* ---------- sticky nav ---------- */
+html{scroll-behavior:smooth}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:1px solid var(--rule)}
+.nav-in{max-width:63rem;margin:0 auto;padding:.45rem 1.5rem;display:flex;align-items:center;
+  gap:.1rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:.88rem;white-space:nowrap;
+  color:var(--ink);padding-inline-end:.85rem;margin-inline-end:.45rem;
+  border-inline-end:1px solid var(--rule);flex:none}
+.nav a{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--ink-2);
+  text-decoration:none;padding:.34rem .62rem;white-space:nowrap;flex:none;
+  border-bottom:2px solid transparent}
+.nav a:hover{color:var(--brass);background:var(--surface)}
+.nav a.on{color:var(--brass);border-bottom-color:var(--brass)}
+section{scroll-margin-top:3.4rem}
+@media (max-width:680px){.nav-in{padding:.4rem .9rem}.nav-name{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.nav{display:none}}
+
+/* ---------- cover ---------- */
+.cover{max-width:var(--measure);margin:0 auto;padding:5.5rem 0 3rem;text-align:center}
+.cover .eyebrow{font-family:var(--sans);font-weight:700;font-size:.82rem;
+  color:var(--brass);margin:0 0 2.2rem}
+.cover h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,8vw,4.1rem);
+  line-height:1.04;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.cover .sub{font-family:var(--serif);font-weight:500;font-size:1.45rem;color:var(--ink-2);
+  margin:.55rem 0 2.1rem}
+.rule-orn{display:flex;align-items:center;gap:.9rem;justify-content:center;margin:0 0 2rem}
+.rule-orn i{height:1px;background:var(--rule);flex:1;max-width:7rem}
+.rule-orn em{font-style:normal;color:var(--brass);font-size:1.05rem;
+  padding-inline-start:.35em}
+.cover .meta{font-family:var(--sans);font-size:.95rem;color:var(--ink-3);line-height:2;
+  display:inline-block;text-align:center}
+.cover .meta span{font-family:var(--mono);font-size:.86rem;direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.cover .ded{margin:2.6rem auto 0;max-width:26rem;font-size:.97rem;color:var(--ink-2);
+  line-height:1.8;font-weight:300}
+
+/* ---------- typography ---------- */
+h2{font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1.22;
+  margin:0 0 1.1rem;letter-spacing:-.015em;text-wrap:balance}
+h3{font-family:var(--serif);font-weight:700;font-size:1.24rem;line-height:1.3;
+  margin:2.4rem 0 .6rem;text-wrap:balance}
+h4{font-family:var(--sans);font-weight:700;font-size:1rem;margin:1.7rem 0 .35rem;
+  color:var(--ink-2)}
+p{margin:0 0 1.05em}
+p.lead{font-size:1.1rem;line-height:1.75;color:var(--ink-2);font-weight:300}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:italic;color:var(--ink-2)}
+ul,ol{margin:0 0 1.15em;padding-inline-start:0;padding-inline-end:1.35em}
+li{margin:.38em 0}
+li::marker{color:var(--brass)}
+a{color:var(--brass)}
+.n{font-family:var(--mono);font-size:.9em;direction:ltr;unicode-bidi:isolate;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* section opener */
+section{margin-top:4.6rem}
+.opener{display:flex;align-items:baseline;gap:.85rem;margin-bottom:1.5rem;
+  border-bottom:2px solid var(--ink);padding-bottom:.55rem}
+.opener .g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.5rem;
+  color:var(--brass);line-height:1}
+.opener .t{font-family:var(--sans);font-weight:600;font-size:.82rem;color:var(--ink-3);
+  margin-inline-start:auto;white-space:nowrap}
+.opener h2{margin:0;font-size:1.75rem}
+
+/* ---------- plate (chart wheel) ---------- */
+.plate{background:var(--plate);border:1px solid var(--rule);padding:1.5rem 1.2rem 1rem;
+  margin:2rem auto;max-width:44rem}
+.plate svg{display:block;width:100%;height:auto}
+.plate figcaption{font-family:var(--mono);font-size:.7rem;color:#6d7590;text-align:center;
+  border-top:1px solid #e4e1d6;margin-top:.9rem;padding-top:.7rem;
+  direction:rtl}
+
+/* ---------- legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.15rem 1.6rem;
+  margin:1.4rem 0 0;font-size:.88rem}
+.legend div{display:flex;align-items:center;gap:.55rem;padding:.28rem 0;
+  border-bottom:1px solid var(--hair)}
+.sw{width:.95rem;height:.95rem;border-radius:50%;flex:none;border:2px solid}
+.sw.fire{background:var(--fire);border-color:var(--fire)}
+.sw.earth{background:var(--earth);border-color:var(--earth)}
+.sw.air{background:var(--air);border-color:var(--air)}
+.sw.water{background:var(--water);border-color:var(--water)}
+.sw.sure{background:var(--sunken);border-color:var(--ink-3)}
+.sw.gold{background:var(--brass-soft);border-color:var(--brass)}
+.sw.moonr{background:var(--violet-soft);border-color:var(--violet);border-style:dashed}
+.ln{width:1.6rem;height:0;flex:none;border-top:2.5px solid}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:1.5rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.55}
+th,td{text-align:right;padding:.6rem .7rem;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{font-family:var(--sans);font-weight:700;font-size:.76rem;
+  color:var(--ink-2);border-bottom:2px solid var(--ink);white-space:nowrap;
+  padding-bottom:.45rem}
+tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+td.d{font-family:var(--mono);font-size:.82rem;direction:ltr;unicode-bidi:isolate;
+  text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+td.gl{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.15rem;
+  text-align:center;width:2.1rem;padding-inline:.2rem}
+.grade{font-family:var(--mono);font-size:.78rem;white-space:nowrap}
+.grade.hi{color:var(--brass);font-weight:500}
+.grade.lo{color:var(--ink-3)}
+
+/* ---------- pull / notes ---------- */
+.thesis{border-top:3px solid var(--ink);border-bottom:1px solid var(--rule);
+  padding:1.5rem 0 1.3rem;margin:2rem 0}
+.thesis p{font-family:var(--serif);font-size:1.28rem;line-height:1.55;margin:0 0 .8rem;
+  font-weight:500}
+.thesis p:last-child{margin-bottom:0}
+.note{background:var(--surface);border-inline-start:3px solid var(--brass);
+  padding:1rem 1.15rem;margin:1.6rem 0;font-size:.94rem;line-height:1.7}
+.note.v{border-inline-start-color:var(--violet);background:var(--violet-soft)}
+.note>:last-child{margin-bottom:0}
+.note b{display:block;margin-bottom:.25rem;font-size:.82rem;
+  color:var(--brass)}
+.note.v b{color:var(--violet)}
+
+/* ---------- timeline ---------- */
+.tl{margin:2rem 0;border-top:2px solid var(--ink)}
+.tl-item{display:grid;grid-template-columns:6.6rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--hair);align-items:start}
+.tl-date{font-family:var(--mono);font-size:.79rem;line-height:1.45;color:var(--ink-2);
+  direction:ltr;unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums;
+  padding-top:.22rem}
+.tl-item.key{background:var(--brass-soft);margin-inline:-1rem;padding-inline:1rem}
+.tl-item.key .tl-date{color:var(--brass);font-weight:500}
+.tl-h{font-family:var(--serif);font-weight:700;font-size:1.06rem;margin:0 0 .18rem;
+  line-height:1.35}
+.tl-b{margin:0;font-size:.93rem;line-height:1.65;color:var(--ink-2)}
+.tl-tag{font-family:var(--sans);font-weight:600;font-size:.76rem;color:var(--brass);
+  display:block;margin-top:.35rem}
+
+/* ---------- epicentre ---------- */
+.epi{border:2px solid var(--ink);padding:1.8rem 1.6rem 1.5rem;margin:2.4rem 0;
+  background:var(--surface)}
+.epi h3{margin:0 0 .2rem;font-size:1.4rem}
+.epi .when{font-family:var(--mono);font-size:.8rem;color:var(--brass);
+  direction:ltr;unicode-bidi:isolate;text-align:right;margin:0 0 1.1rem}
+.epi ol{counter-reset:e;list-style:none;padding:0;margin:1.2rem 0 0}
+.epi ol li{counter-increment:e;display:grid;grid-template-columns:2.4rem minmax(0,1fr);
+  gap:.15rem .9rem;padding:.95rem 0;border-top:1px solid var(--rule);font-size:.95rem;
+  line-height:1.7}
+.epi ol li::before{content:counter(e);font-family:var(--mono);font-size:1.4rem;
+  color:var(--brass);line-height:1.3}
+.epi-c{min-width:0}
+.epi-c b{display:block;font-family:var(--sans);font-weight:700;line-height:1.45;
+  margin-bottom:.2rem}
+.epi-c span{display:block;color:var(--ink-2)}
+
+/* ---------- planet entries ---------- */
+.planets{margin:2.2rem 0 0;border-top:2px solid var(--ink)}
+.pl{display:grid;grid-template-columns:3.9rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.9rem 0 1.6rem;border-bottom:1px solid var(--rule);scroll-margin-top:4rem}
+.pl:target{background:var(--brass-soft);box-shadow:0 0 0 .9rem var(--brass-soft)}
+.plate svg a{outline:none}
+.pl-g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:2.5rem;line-height:1;
+  color:var(--brass);text-align:center;padding-top:.35rem}
+.pl-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.55rem .9rem;margin-bottom:.15rem}
+.pl-head h3{margin:0;font-size:1.32rem}
+.pl-pos{font-family:var(--mono);font-size:.82rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.chip{font-family:var(--sans);font-size:.7rem;font-weight:700;
+  padding:.12rem .5rem;border:1px solid var(--rule);color:var(--ink-3);white-space:nowrap}
+.chip.hi{color:var(--brass);border-color:var(--brass);background:var(--brass-soft)}
+.chip.lo{color:var(--ink-3);border-style:dashed}
+.pl-role{font-family:var(--sans);font-size:.86rem;color:var(--ink-3);margin:0 0 .85rem;
+  padding-bottom:.5rem;border-bottom:1px solid var(--hair)}
+.pl p{margin:0 0 .8em;font-size:.97rem;line-height:1.75}
+.pl p:last-child{margin-bottom:0}
+.pl-key{font-family:var(--sans),'Apple Symbols','Segoe UI Symbol',serif;font-size:.86rem;color:var(--ink-2);background:var(--surface);
+  padding:.5rem .7rem;margin-top:.9rem;line-height:1.9}
+.pl-key i{font-style:normal;color:var(--ink-3);font-size:.84rem;display:block;margin-top:.3rem}
+@media (max-width:640px){.pl{grid-template-columns:minmax(0,1fr);gap:.5rem}
+  .pl-g{text-align:right;font-size:2rem}}
+@media print{.pl{break-inside:avoid;padding:1.1rem 0 .9rem}
+  .pl-g{font-size:1.9rem}.pl p{font-size:9.9pt;margin-bottom:.55em}}
+
+/* ---------- numerology ---------- */
+.num-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin:2rem 0}
+.num-hero div{background:var(--paper);padding:1.3rem .9rem 1.15rem;text-align:center}
+.num-hero .v{font-family:var(--serif);font-weight:900;font-size:2.7rem;line-height:1.02;
+  color:var(--brass)}
+.num-hero .k{font-family:var(--sans);font-weight:700;font-size:.78rem;margin-top:.4rem;
+  line-height:1.3;color:var(--ink-2)}
+.num-hero .s{font-family:var(--sans);font-size:.75rem;color:var(--ink-3);line-height:1.45;
+  margin-top:.2rem}
+.months{margin:1.8rem 0;border-top:2px solid var(--ink)}
+.mo{display:grid;grid-template-columns:5.6rem 2.3rem minmax(0,1fr);gap:0 1rem;
+  padding:.72rem 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.mo-when{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums}
+.mo-n{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--brass);
+  text-align:center;line-height:1}
+.mo-t{font-size:.93rem;line-height:1.6}
+.mo-t b{font-weight:700}
+.mo.mark{background:var(--brass-soft);margin-inline:-.9rem;padding-inline:.9rem}
+@media (max-width:640px){.mo{grid-template-columns:4.6rem 2rem minmax(0,1fr);gap:0 .7rem}}
+@media print{.mo,.num-hero{break-inside:avoid}.num-hero .v{font-size:2.1rem}}
+
+/* ---------- closing ---------- */
+.close{max-width:var(--measure);margin:5rem auto 0;text-align:center;
+  border-top:1px solid var(--rule);padding-top:2.6rem}
+.close p{font-family:var(--serif);font-size:1.15rem;line-height:1.7;color:var(--ink-2)}
+.sign{font-family:var(--sans);font-weight:700;font-size:.92rem;color:var(--brass);
+  margin-top:1.8rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .row{grid-template-columns:minmax(0,1fr)}
+  .row>.col,.marg{grid-column:1}
+  .marg{margin-top:1.6rem;border-top-width:2px;max-width:none}
+  .tl-item{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .tl-date{text-align:right;direction:ltr}
+  body{font-size:16px}
+}
+
+
+/* ---------- phone: give the text its full width back ---------- */
+@media (max-width:640px){
+  .page{padding-inline:1.05rem}
+  .epi{padding:1.4rem 1.15rem 1.2rem}
+  .epi h3{font-size:1.25rem}
+  .epi ol{margin-top:.9rem}
+  .epi ol li{display:block;padding:.95rem 0}
+  .epi ol li::before{display:none}
+  .mo{grid-template-columns:2.1rem minmax(0,1fr);gap:.12rem .7rem}
+  .mo-n{grid-column:1;grid-row:1/span 2;font-size:1.3rem;padding-top:.1rem}
+  .mo-when{grid-column:2;grid-row:1;text-align:right;font-size:.73rem}
+  .mo-t{grid-column:2;grid-row:2}
+  .mo.mark{margin-inline:-.7rem;padding-inline:.7rem}
+  .tl-item.key{margin-inline:-.7rem;padding-inline:.7rem}
+  .num-hero{grid-template-columns:repeat(2,1fr)}
+  .num-hero div{padding:1rem .35rem .9rem}
+  .num-hero .v{font-size:2.1rem}
+  .num-hero .k{font-size:.72rem}
+  .num-hero .s{font-size:.68rem}
+  .letter{padding:1.6rem 1.15rem 1.4rem}
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:17mm 16mm 18mm}
+@media print{
+  :root{--paper:#fff;--surface:#f4f3ee;--sunken:#eceae2;--ink:#12182c;--ink-2:#3a4258;
+    --ink-3:#6a7186;--rule:#c9c6b9;--hair:#e0ddd2;--brass:#8a6425;--brass-soft:#f6efe0;
+    --violet:#54427c;--violet-soft:#f0ecf8;--plate:#fff}
+  body{font-size:10.4pt;line-height:1.7;background:#fff}
+  .page{max-width:none;padding:0}
+  .row{grid-template-columns:minmax(0,1fr) 10rem;gap:0 1.6rem}
+  .cover{padding:2rem 0 1rem;break-after:page}
+  section{margin-top:2.2rem;break-inside:auto}
+  .opener{break-after:avoid}
+  h2,h3,h4{break-after:avoid}
+  .plate{break-inside:avoid;max-width:none;padding:.6rem}
+  .note,.thesis,.epi,.tl-item,table,figure{break-inside:avoid}
+  .brk{break-before:page}
+  a{color:inherit;text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+</style>
+<style>html,body{background:var(--paper)}img{max-width:100%}</style>
+<style>
+.mute{color:var(--ink-3)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.6rem 2.4rem;margin:1.8rem 0 0}
+.toc-part h4{margin:0 0 .5rem;font-family:var(--serif);font-size:1.05rem;color:var(--brass);border-bottom:1px solid var(--rule);padding-bottom:.35rem}
+.toc-part ol{margin:0;padding-inline-end:1.3rem}
+.toc-part li{margin:.28rem 0;font-size:.95rem;line-height:1.5}
+.toc-part li::marker{font-family:var(--mono);font-size:.78rem;color:var(--ink-3)}
+.toc-part a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
+.toc-part a:hover{color:var(--brass);border-bottom-color:var(--brass)}
+.toc-part li span{display:block;font-size:.8rem;color:var(--ink-3);line-height:1.45}
+.part{max-width:var(--measure);margin:6rem auto 0;text-align:center}
+.part .k{font-family:var(--mono);font-size:.78rem;color:var(--brass)}
+.part h2{font-size:2.3rem;margin:.3rem 0 .4rem}
+.part p{color:var(--ink-2);margin:0}
+table.grid{width:auto;margin-inline:auto;border-collapse:collapse}
+table.grid th,table.grid td{padding:0;border:1px solid var(--hair);text-align:center;vertical-align:middle}
+table.grid thead th{border-bottom:1px solid var(--hair);padding:.3rem 0;font-size:1.05rem}
+table.grid .gl,table.grid .gh{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.05rem;color:var(--ink-2);width:2.6rem;background:var(--surface)}
+table.grid .gc{width:2.6rem;height:2.6rem;line-height:1.05}
+table.grid .gc b{display:block;font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1rem;font-weight:400}
+table.grid .gc i{display:block;font-style:normal;font-family:var(--mono);font-size:.62rem;color:var(--ink-3)}
+table.grid .gx{border:0;background:transparent}
+.gc.fl b,.tone.fl{color:var(--earth)}
+.gc.tn b,.tone.tn{color:var(--fire)}
+.gc.cj b,.tone.cj{color:var(--brass)}
+.gc.qx b{color:var(--ink-3)}
+.tone{font-family:var(--sans);font-size:.78rem;font-weight:700;white-space:nowrap}
+table.tr td{font-size:.84rem}
+.ptab td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.do{list-style:none;padding:0;margin:1.2rem 0 1.6rem;border-top:2px solid var(--ink)}
+.do li{display:grid;grid-template-columns:1.6rem minmax(0,1fr);gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--hair);margin:0;font-size:.95rem;line-height:1.7}
+.do li::before{content:"✓";color:var(--brass);font-weight:700;font-family:var(--sans);text-align:center}
+.do li.no::before{content:"✕";color:var(--fire)}
+.q{display:block;margin-top:.45rem;font-size:.86rem;color:var(--violet);font-weight:600}
+.q::before{content:"לבדוק מול מה שהיה: "}
+.fx td{font-size:.86rem;line-height:1.55;min-width:9rem}
+.fx td:first-child{font-family:var(--serif);font-weight:700;white-space:nowrap;min-width:6.5rem}
+.fx td b{display:block;font-family:var(--sans);font-size:.74rem;color:var(--brass);margin-bottom:.15rem}
+.meter{display:inline-flex;gap:3px;vertical-align:middle;margin-inline-start:.35rem}
+.meter i{width:.55rem;height:.55rem;border-radius:50%;border:1.5px solid var(--brass)}
+.meter i.on{background:var(--brass)}
+.tl-item.past .tl-date{color:var(--violet)}
+.tl-item.past{border-inline-start:3px solid var(--violet-soft)}
+.domain-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin:0 0 1rem}
+.domain-head .when{font-family:var(--mono);font-size:.8rem;color:var(--ink-3)}
+.plate{background:#ffffff}
+@media (max-width:640px){.part h2{font-size:1.8rem}table.grid .gc,table.grid .gl,table.grid .gh{width:2.2rem;height:2.2rem}}
+@media print{.toc-grid{display:block}.toc-part{break-inside:avoid;margin-bottom:1rem}.part{break-before:page;margin-top:0}}
+</style>
+<style>
+.tl-item.fl,.tl-item.tn,.tl-item.cj{border-inline-start:4px solid var(--rule);padding-inline-start:.9rem}
+.tl-item.fl{border-inline-start-color:var(--earth)}
+.tl-item.tn{border-inline-start-color:var(--fire)}
+.tl-item.cj{border-inline-start-color:var(--brass)}
+.chipline{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;margin:.9rem 0 1.4rem;font-size:.86rem}
+.chipline span{display:inline-flex;align-items:center;gap:.45rem}
+.chipline i{width:1.1rem;height:.3rem;display:inline-block}
+.chipline i.fl{background:var(--earth)}.chipline i.tn{background:var(--fire)}.chipline i.cj{background:var(--brass)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.2rem 2rem;margin:1.6rem 0}
+.split>div{border-top:3px solid var(--rule);padding-top:.7rem}
+.split>div.fl{border-top-color:var(--earth)}.split>div.tn{border-top-color:var(--fire)}.split>div.cj{border-top-color:var(--brass)}
+.split h4{margin:0 0 .5rem;font-family:var(--serif);font-size:1.08rem;color:var(--ink)}
+.split ul{margin:0}.split li{font-size:.93rem;line-height:1.65}
+.phase{border-top:2px solid var(--ink);padding:1.3rem 0 1.1rem;margin-top:1.8rem}
+.phase-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;margin-bottom:.6rem}
+.phase-head h3{margin:0;font-size:1.35rem}
+.phase-head .when{font-family:var(--mono);font-size:.82rem;color:var(--brass);direction:ltr;unicode-bidi:isolate}
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.9rem 1.6rem;margin-top:.8rem}
+.phase-grid>div{background:var(--surface);padding:.8rem .95rem}
+.phase-grid b{display:block;font-size:.8rem;color:var(--brass);margin-bottom:.25rem}
+.phase-grid p,.phase-grid ul{margin:0;font-size:.9rem;line-height:1.65}
+.phase-grid ul{padding-inline-end:1.1rem}
+table.ex td:nth-child(2),table.ex td:nth-child(3){font-family:var(--mono);font-size:.82rem;white-space:nowrap;direction:ltr;unicode-bidi:isolate;text-align:right}
+table.trk td{height:2.1rem;min-width:2.6rem;border:1px solid var(--hair)}
+table.trk th{font-size:.74rem;white-space:nowrap}
+.cmd{list-style:none;counter-reset:c;padding:0;margin:1.4rem 0 0;border-top:2px solid var(--ink)}
+.cmd li{counter-increment:c;display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.2rem 1rem;padding:1rem 0;border-bottom:1px solid var(--hair);margin:0}
+.cmd li::before{content:counter(c,hebrew);font-family:var(--serif);font-weight:900;font-size:1.7rem;color:var(--brass);line-height:1.1;text-align:center}
+.cmd b{display:block;font-family:var(--serif);font-size:1.12rem;margin-bottom:.15rem}
+.cmd span{color:var(--ink-2);font-size:.94rem;line-height:1.65}
+.plate-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.4rem 0}
+.plate-row div{background:var(--paper);padding:.9rem .7rem;text-align:center}
+.plate-row .v{font-family:var(--serif);font-weight:900;font-size:1.35rem;color:var(--brass);line-height:1.2}
+.plate-row .k{font-size:.8rem;color:var(--ink-2);margin-top:.25rem;line-height:1.45}
+@media print{.phase,.split>div,.cmd li{break-inside:avoid}}
+@media (max-width:640px){.cmd li{grid-template-columns:2.2rem minmax(0,1fr)}.cmd li::before{font-size:1.35rem}}
+</style>
+
+</head>
+<body>
+<nav class="nav" aria-label="ניווט במסמך"><div class="nav-in"><span class="nav-name">תנ״ך הגוף</span><a href="#s-toc">תוכן</a><a href="#s-start">לפני שמתחילים</a><a href="#s-rules">עקרונות</a><a href="#s-phases">שלבי השנה</a><a href="#s-week">השבוע</a><a href="#s-train">אימונים</a><a href="#s-food">תזונה</a><a href="#s-menus">תפריטים</a><a href="#s-months">חודש אחר חודש</a><a href="#s-track">מעקב</a><a href="#s-trouble">כשזה לא הולך</a><a href="#s-cmd">עשרת הדיברות</a></div></nav>
+<div class="page">
+<header class="cover">
+  <p class="eyebrow">תוכנית אימונים ותזונה לפי המפה</p>
+  <h1>תנ״ך הגוף</h1>
+  <p class="sub">13 בספטמבר 2026 עד 11 בספטמבר 2027</p>
+  <div class="rule-orn"><i></i><em>♂︎</em><i></i></div>
+  <p class="meta">מאיסה &middot; <span>03.05.1993</span> &middot; אופק עולה בגדי<br>שנה של שבתאי שבונה, מאדים שמניע, וונוס שחוזרת הביתה</p>
+  <p class="ded">שנה אחת, מחולקת לשישה שלבים לפי השמיים שלך. מה לאמן, מה לאכול, מתי להאיץ ומתי להאט, ומה עושים כשזה לא הולך. הגרסה המלאה להדפסה, עם כל התרגילים והדפים למילוי, נמצאת בקובץ "תנ״ך הגוף להדפסה", והמעקב בקובץ האקסל.</p>
+</header>
+
+<section id="s-toc">
+  <div class="narrow">
+    <div class="opener"><span class="g">✦</span><h2>תוכן העניינים</h2><span class="t">איך להשתמש</span></div>
+    <div class="toc-grid">
+      <div class="toc-part"><h4>הבסיס</h4><ol>
+        <li><a href="#s-start">לפני שמתחילים</a><span>נקודת הפתיחה, בדיקות, מדידות</span></li>
+        <li><a href="#s-rules">עשרה עקרונות מהמפה</a></li>
+        <li><a href="#s-phases">ששת שלבי השנה</a><span>מתי להאיץ ומתי להאט</span></li>
+      </ol></div>
+      <div class="toc-part"><h4>התוכנית</h4><ol start="4">
+        <li><a href="#s-week">השבוע</a><span>כל יום והכוכב שלו</span></li>
+        <li><a href="#s-train">האימונים</a><span>בית, מכון, יציבה ועורף, הליכה, ג׳ני</span></li>
+        <li><a href="#s-food">התזונה</a><span>הצלחת, הכללים, רעב רגשי</span></li>
+        <li><a href="#s-menus">יום לדוגמה</a><span>השאר בחוברת ההדפסה</span></li>
+      </ol></div>
+      <div class="toc-part"><h4>לאורך השנה</h4><ol start="8">
+        <li><a href="#s-months">חודש אחר חודש</a></li>
+        <li><a href="#s-track">מעקב</a><span>טבלה להדפסה</span></li>
+        <li><a href="#s-trouble">כשזה לא הולך</a></li>
+        <li><a href="#s-cmd">עשרת הדיברות</a></li>
+      </ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-start">
+  <div class="narrow">
+    <div class="opener"><span class="g">☉︎</span><h2>לפני שמתחילים</h2><span class="t">נקודת פתיחה</span></div>
+    <div class="note v"><b>חשוב</b>
+    <p>התוכנית הזאת בנויה על עקרונות כלליים ובטוחים של אימון ותזונה, ומתוזמנת לפי המפה. היא לא מחליפה רופאה, דיאטנית או פיזיותרפיסטית. אם יש לך מצב רפואי, כאב, הריון או תרופות קבועות, מתאמים איתן לפני שמתחילים.</p></div>
+    <h3>נקודת הפתיחה</h3>
+    <p>גובה 154 ס״מ, משקל 56 ק״ג, יעד ראשון 48 ק״ג עד יולי 2027, ואולי 47 אחר כך. כרגע הגוף חלש מאוד, ויש כאבים בצוואר, בכתפיים ובגב התחתון. לכן ספטמבר הוא חודש בית עם מזרן וגומייה בלבד, ומ-1 באוקטובר נכנסים לחדר כושר. <strong>קלוריות: כ-1,550 בספטמבר, ו-1,350 עד 1,400 מאוקטובר. חלבון: כ-100 גרם ביום.</strong> כדאי לאשר את המספרים מול דיאטנית.</p>
+    <h3>שבוע הפתיחה: 13 עד 19 בספטמבר</h3>
+    <ul class="do">
+      <li><span><strong>בדיקות דם.</strong> לשאול את רופאת המשפחה על ספירת דם, ברזל ופריטין, ויטמין D, B12, תפקודי בלוטת התריס, סוכר ושומנים. גדי עולה ושמש בשור הופכים את ויטמין D ובלוטת התריס לשאלות ששווה לבדוק.</span></li>
+      <li><span><strong>מדידות.</strong> היקף מותניים, שקילה אחת בבוקר, ותמונה מלפנים ומהצד באותה תאורה. את צלמת, תשתמשי בזה.</span></li>
+      <li><span><strong>שלושה מבחנים.</strong> כמה פעמים את קמה מכיסא ב-30 שניות, כמה שכיבות סמיכה על שולחן, וכמה זמן פלאנק. חוזרים עליהם כל שלושה חודשים.</span></li>
+      <li><span><strong>ציוד בסיסי.</strong> מזרן, גומיית התנגדות קלה ובינונית, בקבוק מים של ליטר. משקולות לא צריך עד אוקטובר.</span></li>
+      <li><span><strong>היומן.</strong> לקבוע מראש ימים ושעות לאימונים ולארוחות, כמו פגישות צילום.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="brk" id="s-rules">
+  <div class="narrow">
+    <div class="opener"><span class="g">♄︎</span><h2>עשרה עקרונות מהמפה</h2><span class="t">למה ככה</span></div>
+    <p class="lead">כל כלל כאן נגזר ממשהו ספציפי במפה שלך ומהדפוסים שעלו במסמך "מה היה". זה ההבדל בין תוכנית כללית לתוכנית שלך.</p>
+    <div class="tw"><table><thead><tr><th>מה במפה</th><th>הכלל</th><th>בפועל</th></tr></thead><tbody>
+      <tr><td>שבתאי חזק, שליט המפה</td><td><strong>מבנה לפני מוטיבציה</strong></td><td>שעות קבועות לארוחות ולאימונים, רשומות ביומן</td></tr>
+      <tr><td>גדי עולה</td><td><strong>כוח הוא הבסיס</strong></td><td>שלושה אימוני כוח בשבוע: בספטמבר בבית, מאוקטובר במכון</td></tr>
+      <tr><td>ונוס מול צדק</td><td><strong>הנאה מתוכננת</strong></td><td>קינוח קטן כל ערב, מאפה פעמיים בשבוע, בישיבה</td></tr>
+      <tr><td>ירח בריבוע לאופק</td><td><strong>לזהות רעב רגשי</strong></td><td>עצירה של עשר דקות לפני אכילה לא מתוכננת</td></tr>
+      <tr><td>מאדים בבית 7</td><td><strong>לא לבד</strong></td><td>שותפה לאימון, מאמנת או קבוצה לפחות פעם בשבוע</td></tr>
+      <tr><td>אפס מזלות גמישים</td><td><strong>שתי גרסאות</strong></td><td>גרסה מלאה וגרסה של 15 דקות, אף פעם לא אפס</td></tr>
+      <tr><td>מרקורי שולט בבית 6</td><td><strong>לכתוב</strong></td><td>תכנון שבועי ביום רביעי, מעקב של דקה ביום</td></tr>
+      <tr><td>שמש בשור, בבית 4</td><td><strong>איכות ובית</strong></td><td>לבשל בבית, לאכול לאט, צלחת שנעים להסתכל עליה</td></tr>
+      <tr><td>אורנוס ונפטון בבית 1</td><td><strong>להגן על מערכת העצבים</strong></td><td>שינה בשעות קבועות, קפאין עד 14:00, מעט אלכוהול</td></tr>
+      <tr><td>שמש בשור, עבודה עם מצלמה</td><td><strong>יציבה ועורף</strong></td><td>שגרת יציבה של 10 דקות כל יום, לגיבנת בעורף</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="brk" id="s-phases">
+  <div class="narrow">
+    <div class="opener"><span class="g">♂︎</span><h2>ששת שלבי השנה</h2><span class="t">09.2026 - 09.2027</span></div>
+    <p class="lead">מאדים הוא כוכב האנרגיה והגוף בתנועה, והוא מנהל את תקופת החיים שלך עד 2032. השנה הזאת בנויה סביב המחזור שלו: חזרה למקומו באוקטובר, נסיגה מינואר עד אפריל, ויציאה מחודשת באביב.</p>
+
+    <div class="phase">
+      <div class="phase-head"><h3>1. הכנה בבית</h3><span class="when">13.09.2026 - 30.09.2026</span></div>
+      <p>שבתאי בריבוע לאופק (15.9) ומול הירח (25.9). הגוף מרגיש כבד ומבקש סדר. זה לא הזמן לקפוץ, זה הזמן להניח יסודות.</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>שלושה אימוני בית: מזרן וגומייה</li><li>הליכה יומית, מ-10 ל-20 דקות</li><li>מבחני פתיחה ב-30.9</li></ul></div>
+        <div><b>תזונה</b><ul><li>כ-1,550 קלוריות, שעות קבועות</li><li>חלבון בכל ארוחה, עד 3 יחידות לחם</li></ul></div>
+        <div><b>לסמן</b><p>13.9 יום ראשון לתוכנית. 26.9 ירח מלא, בדיקה ראשונה.</p></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><h3>2. הבנייה, כניסה למכון</h3><span class="when">01.10.2026 - 09.01.2027</span></div>
+      <p>ב-3.10 מאדים חוזר לנקודה שבה עמד כשנולדת: מחזור אנרגיה חדש של שנתיים. עד 4.11 הוא בבית 7, ולכן כדאי להתאמן עם מישהי. ונוס נסוגה (3.10 עד 14.11) ומרקורי נסוג (24.10 עד 13.11): לא לאמץ שיטה חדשה ומבריקה, אלא לחזור למה שכבר עבד. ב-21.11 ונוס המתקדמת נכנסת לשור: אכילה איטית ומהנה הופכת לטבעית יותר. ב-26.11 מאדים נכנס לבתולה, המזל של הדיוק וההכנה.</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>מכון מ-1.10: מכונות, 2 סטים קלים, ואז 3</li><li>הליכה ארוכה בכיף פעם בשבוע, או אירובי לבחירה</li><li>משבצת ג׳ני מאחרי החגים</li></ul></div>
+        <div><b>תזונה</b><ul><li>1,350 עד 1,400 קלוריות, 100 גרם חלבון</li><li>הכנת אוכל פעם בשבוע</li><li>חנוכה: מאפה מתוכנן</li></ul></div>
+        <div><b>לסמן</b><p>3.10 חזרת מאדים. 14.11 סוף נסיגת ונוס. 24.12 ירח מלא בבית 6: סיכום רבעון.</p></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><h3>3. שימור ושיקום</h3><span class="when">10.01.2027 - 31.03.2027</span></div>
+      <p>מאדים נסוג מ-10.1 עד 1.4. אצלך נסיגות של מאדים הביאו בעבר פציעות ועצירות. <strong>המטרה בשלב הזה היא לא להתקדם, אלא לא לאבד.</strong> באותה תקופה: ליקוי חמה ב-6.2 מול כירון, מרקורי נסוג 9.2 עד 3.3, המעבר האחרון של שבתאי מול הירח (19.2) ובריבוע לאופק (26.2), וב-27.2 הירח המתקדם חוצה את האופק ופותח שלוש שנים שבהן הגוף בחזית.</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>כשבעים אחוז מהנפח</li><li>טכניקה, ניידות, פילאטיס</li><li>בלי שיאים ובלי תוכניות חדשות</li></ul></div>
+        <div><b>תזונה</b><ul><li>הפסקת דיאטה: 1,600 עד 7.2, ואז 1,450</li><li>פרוטוקול רעב רגשי בפברואר</li><li>לבדוק ויטמין D בחורף</li></ul></div>
+        <div><b>לסמן</b><p>7.1 ירח חדש בבית 1: כוונה גופנית לשנה. 27.2 הירח המתקדם על האופק.</p></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><h3>4. חזרה לתנועה</h3><span class="when">01.04.2027 - 02.05.2027</span></div>
+      <p>מאדים חוזר לתנועה ישרה ב-1.4. חוזרים לעומס בהדרגה, לא בבת אחת. האביב, הליכות בחוץ, וניקוי המזווה סביב פסח.</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>עשרה אחוזים יותר בכל שבוע</li><li>חזרה לנפח המלא עד סוף אפריל</li></ul></div>
+        <div><b>תזונה</b><ul><li>ירקות אביב, פחות מאפים</li><li>לחזור לשיטת כף היד המלאה</li></ul></div>
+        <div><b>לסמן</b><p>7.4 ירח חדש. 21.4 ירח מלא: מבחנים חוזרים.</p></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><h3>5. השנה החדשה</h3><span class="when">03.05.2027 - 14.07.2027</span></div>
+      <p>יום ההולדת פותח שנה שבה השמש ומרקורי במפת השנה נמצאים בבית 1, ומאדים וצדק בבית 5: שנה של גוף וזהות, ושל תנועה מתוך כיף. זו גם שנת בית 11 בשיטת הבתים, שנת הקבוצות. מאדים נכנס לבתולה ב-14.5, ומ-22.5 נפטון עובר על ונוס: <strong>רגישות גבוהה במיוחד לסוכר ולאלכוהול</strong>. השמש עוברת בבית 6 מ-10.6 עד 5.7, ובאותו זמן מרקורי נסוג (10.6 עד 4.7).</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>יעד חדש לשנה</li><li>הליכות ארוכות בחוץ ושיעור קבוצתי</li><li>ביוני: לשמור, לא לשנות</li></ul></div>
+        <div><b>תזונה</b><ul><li>לדייק את התפריט</li><li>מתוקים ואלכוהול: פחות, וביודעין</li><li>בדיקות שנתיות ביוני</li></ul></div>
+        <div><b>לסמן</b><p>6.5 ירח חדש בשור: איפוס תזונה. 4.7 ירח חדש בבית 6: הזמן הכי טוב להתחיל הרגל חדש.</p></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><h3>6. קיץ חכם</h3><span class="when">15.07.2027 - 11.09.2027</span></div>
+      <p>חום, ליקוי חמה מלא בבית 7 ב-2.8, ומאדים על הירח ובריבוע לאופק ב-5 וב-6 באוגוסט: סטרס שיושב בגוף ונטייה למאמץ יתר. ב-2.9 מאדים נכנס לעקרב, והאנרגיה חוזרת בעוצמה.</p>
+      <div class="phase-grid">
+        <div><b>אימון</b><ul><li>בבוקר מוקדם, או בפנים</li><li>שבוע קל סביב 5 באוגוסט</li><li>בספטמבר: מבחנים חוזרים והשוואה</li></ul></div>
+        <div><b>תזונה</b><ul><li>שתייה לפני צמא</li><li>ארוחות קלות וקרות</li><li>פירות קיץ במקום גלידה יומית</li></ul></div>
+        <div><b>לסמן</b><p>18.7 ירח מלא בבית 1: בדיקת גוף. 11.9 סיכום שנה.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-week">
+  <div class="narrow">
+    <div class="opener"><span class="g">☽︎</span><h2>השבוע</h2><span class="t">כל יום והכוכב שלו</span></div>
+    <p class="lead">לכל יום בשבוע יש כוכב שולט מסורתי. התבנית משתמשת בזה כדי לתת לכל יום תפקיד ברור. אם ימי הצילום נופלים אחרת, מזיזים ושומרים על יום מנוחה בין אימוני כוח.</p>
+    <div class="tw"><table><thead><tr><th>יום</th><th>כוכב</th><th>בספטמבר (בית)</th><th>מאוקטובר (מכון)</th><th>אוכל ושגרה</th></tr></thead><tbody>
+      <tr><td>ראשון</td><td>שמש</td><td>אימון בית</td><td><strong>כוח A</strong></td><td>ארוחת בוקר עם חלבון</td></tr>
+      <tr><td>שני</td><td>ירח, היום שבו נולדת</td><td>הליכה ושגרת יציבה</td><td>הליכה, ג׳ני, שגרת יציבה</td><td>בישול לשלושה ימים</td></tr>
+      <tr><td>שלישי</td><td>מאדים</td><td>אימון בית</td><td><strong>כוח B</strong></td><td>פחמימה לפני האימון</td></tr>
+      <tr><td>רביעי</td><td>מרקורי</td><td>הליכה ושגרת יציבה</td><td>הליכה, ג׳ני, שגרת יציבה</td><td>תכנון שבוע וקניות</td></tr>
+      <tr><td>חמישי</td><td>צדק</td><td>אימון בית</td><td><strong>כוח C</strong></td><td>קניות</td></tr>
+      <tr><td>שישי</td><td>ונוס</td><td>הליכה נעימה</td><td><strong>הליכה בכיף</strong> או אירובי לבחירה</td><td>מאפה מתוכנן</td></tr>
+      <tr><td>שבת</td><td>שבתאי</td><td>מנוחה</td><td>מנוחה</td><td>דף השבוע</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="brk" id="s-train">
+  <div class="narrow">
+    <div class="opener"><span class="g">♂︎</span><h2>האימונים</h2><span class="t">מדורג מאוד</span></div>
+    <p class="lead">מתחילים הרבה מתחת ליכולת, ומעלים רק כששבוע שלם עבר בלי כאב ובלי תשישות. תיאור מלא של כל תרגיל, עם מה מרגישים ומה להיזהר, נמצא בחוברת ההדפסה.</p>
+    <h3>ספטמבר: בית, מזרן וגומייה</h3>
+    <div class="tw"><table><thead><tr><th>שבוע</th><th>תרגילים</th><th>נפח</th><th>הליכה</th></tr></thead><tbody>
+      <tr><td>13-19.9</td><td>נשימה עם ליבה, הטיית אגן, גשר ישבן, שכיבת סמיכה על קיר, חתירה בגומייה, פתיחת גומייה, הנהון סנטר, ציפור וכלב (רק רגל), קימה מכיסא, פתיחת גב על מגבת</td><td>2 סטים של 6-8</td><td>10-15 דקות</td></tr>
+      <tr><td>20-26.9</td><td>אותו דבר, ועוד סנטר אחורה ליד קיר, Y ו-T על הבטן, דד באג מקוצר, צדפה</td><td>2 סטים של 10</td><td>15-20 דקות</td></tr>
+      <tr><td>27-30.9</td><td>אותו דבר, ועוד מלאכים על קיר ופלאנק על הברכיים</td><td>3 סטים של 10</td><td>20 דקות</td></tr>
+    </tbody></table></div>
+    <h3>מאוקטובר: חדר כושר, 3 אימונים של כל הגוף</h3>
+    <div class="tw"><table><thead><tr><th>שבועות</th><th>A</th><th>B</th><th>C</th></tr></thead><tbody>
+      <tr><td>1-4<br><span class="n">2×12</span></td><td>לחיצת רגליים, חתירה בכבל, לחיצת חזה במכונה, גשר, פייס פול, דד באג</td><td>היפ תראסט במכונה, פולי עליון לחזה, כפיפת ברכיים, חתירה בתמיכת חזה, פרפר הפוך, ציפור וכלב</td><td>לחיצת רגליים, פתיחת ירכיים, פולי עליון, לחיצת חזה, סנטר אחורה ליד קיר, פלאנק על הברכיים</td></tr>
+      <tr><td>5-8<br><span class="n">3×10-12</span></td><td>סקוואט גביע לקופסה במקום לחיצת רגליים, והיפ תראסט</td><td>עלייה על מדרגה נמוכה, פרפר הפוך ופאלוף פרס</td><td>הרמת Y על ספסל ופלאנק צד קצר</td></tr>
+      <tr><td>9-14<br><span class="n">3×8-10</span></td><td>לחיצה במשקולות בשיפוע קל</td><td>אותו מבנה, משקל עולה</td><td>דדליפט רומני קל, רק בלי כאב</td></tr>
+    </tbody></table></div>
+    <div class="note"><b>לא בשלב הזה, בגלל הצוואר, הכתפיים והגב</b>
+    <p>לחיצת כתפיים ולחיצות מעל הראש, משיכה לעורף, כיווץ כתפיים עם משקל, כפיפות בטן ורוסיאן טוויסט, הרמת רגליים ישרות, דדליפט מהרצפה, קפיצות, ושחיית חזה עם ראש מעל המים. כאב שמקרין או נימול: עוצרים ובודקים.</p></div>
+    <h3>שגרת היציבה: 10 דקות כל יום</h3>
+    <p>לגיבנת בעורף, שנובעת ברוב המקרים מראש שנוטה קדימה ומגב עליון מעוגל. שינוי ביציבה נראה בדרך כלל אחרי 8 עד 12 שבועות של עבודה יומית, וירידה במשקל מקטינה גם את הרקמה באזור.</p>
+    <div class="tw"><table><thead><tr><th>תרגיל</th><th>כמה</th></tr></thead><tbody><tr><td>הנהון סנטר בשכיבה</td><td>2×8, החזקה 5 שניות</td></tr><tr><td>סנטר אחורה ליד קיר</td><td>2×8, החזקה 5 שניות</td></tr><tr><td>פתיחת גב עליון על מגבת</td><td>2 דקות</td></tr><tr><td>מלאכים על קיר, טווח חלקי</td><td>2×6</td></tr><tr><td>פתיחת גומייה</td><td>2×12</td></tr><tr><td>Y ו-T בשכיבה על הבטן</td><td>2×6 מכל צורה</td></tr><tr><td>מתיחת חזה במשקוף</td><td>30 שניות, פעמיים</td></tr><tr><td>מתיחת עורף ושכמה</td><td>30 שניות לכל צד</td></tr><tr><td>שחרור בסיס הגולגולת עם כדור</td><td>עד דקה</td></tr></tbody></table></div>
+    <p>בימי אימון מספיקה גרסה של 3 דקות בסוף האימון: סנטר ליד קיר, מתיחת חזה במשקוף, מתיחת עורף. הרגלים: מסך בגובה העיניים, טלפון מורם, רצועת מצלמה צולבת, וכל 45 דקות עריכה 5 סנטר ליד קיר.</p>
+    <div class="note"><b>כדאי לבדוק אצל רופאה</b><p>אם הבליטה רכה ושומנית וגדלה, הופיעה בזמן קצר, או מגיעה יחד עם עלייה במשקל בבטן ובפנים, עייפות או לחץ דם גבוה.</p></div>
+    <h3>אירובי לבחירה, פעם בשבוע</h3>
+    <p><strong>ברירת המחדל: הליכה בכיף.</strong> באוקטובר 40 דקות, בנובמבר ובדצמבר 45 עד 60, בחורף 40 עד 50 רגועות, ומאפריל שעה ויותר. במקומה אפשר שחייה (גב או זחילה עם שנורקל), אופניים או אליפטיקל במכון, או שיעור פילאטיס מכשירים.</p>
+    <div class="note v"><b>משבצת ג׳ני</b>
+    <p>תוכנית חיטוב הבטן של ג׳ני נכנסת מאחרי החגים, פעמיים עד שלוש בשבוע ל-10-20 דקות. עד שהקבצים מגיעים: דד באג, ציפור וכלב, פאלוף פרס ופלאנק צד. כשהקבצים מגיעים, משלבים ומתאימים לגב ולצוואר.</p></div>
+    <div class="note"><b>גרסת 15 הדקות</b>
+    <p>שלוש דקות חימום. שלושה סבבים של 10 גשרים, 10 חתירות בגומייה, 8 קימות מכיסא ו-20 שניות פלאנק על הברכיים. חמש דקות יציבה. <strong>זה נחשב אימון.</strong></p></div>
+  </div>
+</section>
+
+<section class="brk" id="s-food">
+  <div class="narrow">
+    <div class="opener"><span class="g">♀︎</span><h2>התזונה</h2><span class="t">רק ממה שאת אוכלת</span></div>
+    <p class="lead">בלי מאכלים אסורים ובלי שיטות קיצוניות. שבתאי צריך מבנה, ונוס צריכה הנאה, והירח צריך ביטחון. כל מה שכאן בנוי רק מהמזונות שאת אוכלת.</p>
+    <h3>הצלחת</h3>
+    <div class="plate-row">
+      <div><div class="v">כף יד</div><div class="k">חלבון<br>ביצים, קוטג׳, גבינות, פסטרמה, עוף, טופו, בקר, מולר</div></div>
+      <div><div class="v">הרבה</div><div class="k">ירקות<br>מלפפון, שרי, גמבה, עלים, תירס</div></div>
+      <div><div class="v">אגרוף</div><div class="k">פחמימה<br>לחם, פיתה, אורז, פסטה, תפוח אדמה, בטטה</div></div>
+      <div><div class="v">כפית</div><div class="k">שומן<br>שמן זית, חמאה, או חופן אגוזים</div></div>
+    </div>
+    <ul class="do">
+      <li><span><strong>100 גרם חלבון ביום.</strong> חלבון בכל ארוחה, ומולר כארוחת ביניים או כקינוח קר.</span></li>
+      <li><span><strong>עד 3 יחידות לחם ביום.</strong> יחידה היא פרוסה או חצי פיתה. לחם מלא ברוב הימים.</span></li>
+      <li><span><strong>מאפה, בורקס או בצק: פעמיים בשבוע</strong>, מתוכנן מראש.</span></li>
+      <li><span><strong>קינוח קטן כל ערב</strong>: שוקולד מריר, ענבים קפואים או פיסטוקים. ואז המטבח נסגר.</span></li>
+      <li><span><strong>מסעדות:</strong> קרפצ׳ו או סלט, פילה או עוף, ותוספת פחמימה אחת.</span></li>
+      <li><span><strong>מה חסר ואיך משלימים:</strong> סיבים מלחם מלא, סלט גדול ותירס. אומגה 3 מאגוזי מלך, ולשאול רופאה על תוסף. ויטמין D לפי בדיקה.</span></li>
+      <li class="no"><span><strong>לא לדלג על ארוחות ולא לפצות.</strong> אחרי ארוחה כבדה, הבאה רגילה.</span></li>
+    </ul>
+    <h3>פרוטוקול רעב רגשי</h3>
+    <ol>
+      <li><strong>עוצרים עשר דקות.</strong> כוס מים, יוצאים מהמטבח.</li>
+      <li><strong>שואלים:</strong> רעבה? כועסת? בודדה? עייפה?</li>
+      <li><strong>רעב:</strong> ארוחת ביניים אמיתית, בישיבה. <strong>רגש:</strong> הודעה לחברה, הליכה, מקלחת.</li>
+      <li><strong>ואם בכל זאת אכלת:</strong> בלי אשמה. רושמים וממשיכים.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="brk" id="s-menus">
+  <div class="narrow">
+    <div class="opener"><span class="g">☉︎</span><h2>יום לדוגמה</h2><span class="t">כ-1,400 קלוריות</span></div>
+    <div class="tw"><table><thead><tr><th>ארוחה</th><th>יום צילום</th></tr></thead><tbody>
+      <tr><td><strong>בוקר</strong></td><td>2 ביצים, 2 פרוסות לחם מלא, גבינה לבנה 5%, ירקות</td></tr>
+      <tr><td><strong>ביניים, בתיק</strong></td><td>מולר 25 גרם חלבון</td></tr>
+      <tr><td><strong>צהריים, קופסה</strong></td><td>חזה עוף, כוס אורז, סלט גדול, כפית שמן זית</td></tr>
+      <tr><td><strong>ערב</strong></td><td>קוטג׳, פרוסת לחם מלא, גמבה</td></tr>
+      <tr><td><strong>קינוח</strong></td><td>3 קוביות שוקולד מריר</td></tr>
+    </tbody></table></div>
+    <p>בערך 1,400 קלוריות ו-118 גרם חלבון. ארבעה ימים נוספים (עריכה בבית, אימון, שישי ומסעדה), טבלת מנות מלאה, הכנה שבועית ורשימת קניות נמצאים בחוברת ההדפסה.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-months">
+  <div class="narrow">
+    <div class="opener"><span class="g">✧</span><h2>חודש אחר חודש</h2><span class="t">09.2026 - 09.2027</span></div>
+    <p>ירח חדש הוא זמן טוב להתחיל צעד קטן. ירח מלא הוא זמן טוב לבדוק איך הולך. כל התאריכים מחושבים לשעון ישראל.</p>
+    <div class="tw"><table class="fx"><thead><tr><th>חודש</th><th>בשמיים</th><th>אימון</th><th>תזונה</th><th>לסמן</th></tr></thead><tbody>
+      <tr><td>ספטמבר 26</td><td>שבתאי בריבוע לאופק 15.9, מול הירח 25.9</td><td>אימוני בית, מזרן וגומייה</td><td>שעות קבועות, להוסיף חלבון</td><td>11.9 ירח חדש · 26.9 ירח מלא</td></tr>
+      <tr><td>אוקטובר</td><td>חזרת מאדים 3.10. ונוס נסוגה מ-3.10, מרקורי מ-24.10</td><td>כניסה למכון, הליכה ארוכה, ג׳ני</td><td>לחזור למה שעבד פעם</td><td>3.10 · 10.10 ירח חדש</td></tr>
+      <tr><td>נובמבר</td><td>ונוס ישרה 14.11. ונוס המתקדמת לשור 21.11. מאדים לבתולה 26.11</td><td>עוד עשרה אחוזים עומס</td><td>אכילה איטית, הכנת אוכל שבועית</td><td>9.11 ירח חדש · 24.11 ירח מלא</td></tr>
+      <tr><td>דצמבר</td><td>ירח חדש בקשת, ירח מלא בבית 6</td><td>שיעור קבוצתי שבועי</td><td>חנוכה: הנאה מתוכננת</td><td>9.12 · 24.12 סיכום רבעון</td></tr>
+      <tr><td>ינואר 27</td><td>ירח חדש בבית 1 (7.1). מאדים נסוג מ-10.1</td><td>שבעים אחוז נפח, טכניקה</td><td>ארוחות חמות, ויטמין D</td><td>7.1 כוונה לשנה · 22.1 ירח מלא</td></tr>
+      <tr><td>פברואר</td><td>ליקוי 6.2 מול כירון. מרקורי נסוג מ-9.2. שבתאי מול הירח 19.2</td><td>פילאטיס, ניידות, בלי שיאים</td><td>פרוטוקול רעב רגשי</td><td>27.2 הירח המתקדם על האופק</td></tr>
+      <tr><td>מרץ</td><td>מרקורי ישר 3.3</td><td>שימור</td><td>יציבות</td><td>8.3 ירח חדש · 22.3 ירח מלא</td></tr>
+      <tr><td>אפריל</td><td>מאדים ישר 1.4. כירון על מרקורי 13.4</td><td>חזרה הדרגתית לנפח מלא</td><td>ניקוי מזווה, ירקות אביב</td><td>7.4 ירח חדש · 21.4 מבחנים</td></tr>
+      <tr><td>מאי</td><td>יום הולדת. מאדים לבתולה 14.5. נפטון על ונוס 22.5</td><td>יעד שנתי חדש, קבוצה</td><td>לדייק תפריט, פחות סוכר ואלכוהול</td><td>6.5 ירח חדש בשור · 20.5 ירח מלא</td></tr>
+      <tr><td>יוני</td><td>השמש בבית 6 מ-10.6. מרקורי נסוג 10.6 עד 4.7</td><td>לשמור, לא לשנות</td><td>בדיקות שנתיות, אוכל קיצי</td><td>4.6 ירח חדש · 19.6 ירח מלא: מנוחה</td></tr>
+      <tr><td>יולי</td><td>ירח חדש בבית 6 (4.7). מאדים למאזניים 15.7. ליקוי ירח 18.7 בבית 1</td><td>בוקר מוקדם, בחוץ</td><td>שתייה, ארוחות קלות</td><td>4.7 הרגל חדש · 18.7 בדיקת גוף</td></tr>
+      <tr><td>אוגוסט</td><td>ליקוי חמה 2.8 בבית 7. מאדים על הירח 5.8 ובריבוע לאופק 6.8</td><td>שבוע קל סביב 5.8</td><td>נוזלים ומלחים בחום</td><td>2.8 · 17.8 ירח מלא · 31.8 ירח חדש</td></tr>
+      <tr><td>ספטמבר 27</td><td>מאדים לעקרב 2.9, בריבוע למאדים 6.9</td><td>מבחנים חוזרים, השוואה לספטמבר 26</td><td>סיכום ותוכנית לשנה הבאה</td><td>11.9 סיכום · 16.9 ירח מלא</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="brk" id="s-track">
+  <div class="narrow">
+    <div class="opener"><span class="g">☿︎</span><h2>מעקב</h2><span class="t">דקה ביום</span></div>
+    <p class="lead">מרקורי שולט בבית 6 שלך: מה שנרשם, קורה. אבל מעקב קצר, לא אובססיבי.</p>
+    <div class="tw"><table><thead><tr><th>מה</th><th>כמה פעמים</th><th>למה</th></tr></thead><tbody>
+      <tr><td>אימון, צעדים, שינה</td><td>כל יום, סימון</td><td>לראות רצף, לא שלמות</td></tr>
+      <tr><td>רעב רגשי</td><td>כשקורה</td><td>ללמוד את הדפוס</td></tr>
+      <tr><td>שקילה</td><td>פעם בשבועיים, בבוקר</td><td>מגמה, לא יום</td></tr>
+      <tr><td>היקף מותניים ותמונה</td><td>בכל ירח מלא</td><td>מדד שלא משקר</td></tr>
+      <tr><td>שלושת המבחנים</td><td>12.2026, 04.2027, 09.2027</td><td>כוח זה ההתקדמות האמיתית</td></tr>
+    </tbody></table></div>
+    <h3>טבלה שבועית להדפסה</h3>
+    <div class="tw"><table class="trk"><thead><tr><th></th><th>א</th><th>ב</th><th>ג</th><th>ד</th><th>ה</th><th>ו</th><th>ש</th></tr></thead><tbody>
+      <tr><th>אימון</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>צעדים</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>שעות שינה</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>חלבון בכל ארוחה</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>ירקות</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>מים</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>רעב רגשי</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>צוואר וכתפיים</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="brk" id="s-trouble">
+  <div class="narrow">
+    <div class="opener"><span class="g">⚷</span><h2>כשזה לא הולך</h2><span class="t">פרוטוקולים</span></div>
+    <div class="tw"><table><thead><tr><th>מצב</th><th>מה עושים</th></tr></thead><tbody>
+      <tr><td><strong>שבוע צילומים עמוס</strong></td><td>גרסת 15 הדקות שלוש פעמים, קופסאות אוכל, שינה לפני הכל.</td></tr>
+      <tr><td><strong>מרקורי נסוג</strong><br><span class="n">24.10-13.11 · 9.2-3.3 · 10.6-4.7</span></td><td>לא משנים תוכנית ולא עוברים אפליקציה. בודקים ומתקנים מה שכבר קיים.</td></tr>
+      <tr><td><strong>מאדים נסוג</strong><br><span class="n">10.1-1.4.27</span></td><td>שבעים אחוז נפח, בלי שיאים, יותר ניידות. מטרה: לא להיפצע.</td></tr>
+      <tr><td><strong>משבר בזוגיות</strong></td><td>התוכנית הופכת להכי פשוטה: שלוש ארוחות קבועות, הליכה יומית. לא מתחילים דיאטה בשבוע כזה.</td></tr>
+      <tr><td><strong>פציעה או כאב</strong></td><td>עוצרים את התרגיל שכואב, לא את כל השגרה. פיזיותרפיסטית, והליכה אם אפשר.</td></tr>
+      <tr><td><strong>חג, אירוע, חופשה</strong></td><td>נהנים בלי פיצוי. חוזרים לצלחת הרגילה בארוחה הבאה.</td></tr>
+      <tr><td><strong>המשקל לא זז</strong></td><td>ארבעה שבועות של עקביות לפני שינוי. אז מקטינים פחמימה בערב או מוסיפים הליכה. מדידות מותניים ומבחני כוח לפעמים זזים לפני המשקל.</td></tr>
+      <tr><td><strong>שבוע שנשבר לגמרי</strong></td><td>יום ראשון הבא, גרסה מקוצרת. זה לא התחלה מחדש, זה המשך.</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="brk" id="s-cmd">
+  <div class="narrow">
+    <div class="opener"><span class="g">♑︎</span><h2>עשרת הדיברות</h2><span class="t">לתלות על המקרר</span></div>
+    <ol class="cmd">
+      <li><div><b>מבנה לפני מוטיבציה</b><span>השעון מחזיק אותך כשהחשק לא.</span></div></li>
+      <li><div><b>כוח בכל שבוע</b><span>הגוף הגדי שלך נבנה מעומס, לא מוויתור.</span></div></li>
+      <li><div><b>אף פעם לא אפס</b><span>15 דקות הן אימון.</span></div></li>
+      <li><div><b>הנאה בזמן שלה</b><span>קינוח קטן כל ערב, מאפה פעמיים בשבוע.</span></div></li>
+      <li><div><b>עשר דקות לפני שהרגש אוכל</b><span>רעבה, כועסת, בודדה או עייפה?</span></div></li>
+      <li><div><b>לא לבד</b><span>מאדים שלך זז מול אנשים.</span></div></li>
+      <li><div><b>לנוח כשמאדים נסוג</b><span>10 בינואר עד 1 באפריל: לשמור, לא לשבור שיאים.</span></div></li>
+      <li><div><b>לכתוב</b><span>מה שנרשם ביום רביעי, קורה ביום ראשון.</span></div></li>
+      <li><div><b>להגן על השינה</b><span>מערכת העצבים שלך היא הבסיס לכל השאר.</span></div></li>
+      <li><div><b>שבוע שנשבר הוא לא כישלון</b><span>זו רק הגרסה המקוצרת.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<footer class="close"><p>הגוף שלך לא פרויקט של שבתאי. הוא הבית של הלולאה.<br>תבני אותו לאט, בהנאה, ובקביעות.</p><p class="sign">מחושב ל-3 במאי 1993, 23:50, פתח תקווה · נכתב בספטמבר 2026</p></footer>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  var map={};links.forEach(function(l){var s=document.getElementById(l.hash.slice(1));if(s)map[s.id]=l;});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id);});
+  if(!secs.length||!('IntersectionObserver' in window))return;
+  var seen={};
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){seen[e.target.id]=e.isIntersecting;});
+    var cur=null;
+    for(var i=0;i<secs.length;i++){if(seen[secs[i].id]){cur=secs[i].id;break;}}
+    links.forEach(function(l){l.classList.remove('on');});
+    if(cur){map[cur].classList.add('on');map[cur].scrollIntoView({block:'nearest',inline:'nearest'});}
+  },{rootMargin:'-56px 0px -70% 0px'});
+  secs.forEach(function(s){io.observe(s);});
+})();
+</script>
+</body>
+</html>

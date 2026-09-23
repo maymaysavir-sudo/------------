@@ -1,0 +1,450 @@
+<title>השירון לסבתא</title>
+<meta name="description" content="ספר אקורדים לגיטרה באחיזות קלות">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=Rubik:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F4EE;
+  --surface:#FFFFFF;
+  --sunk:#E7EBE3;
+  --ink:#1B2620;
+  --muted:#5B685F;
+  --line:#D3DACF;
+  --accent:#9B2335;
+  --accent-soft:#F4E1E3;
+  --honey:#8A5E0E;
+  --honey-soft:#F2E5C6;
+  --chord-size:1.6rem;
+  --f-display:"Frank Ruhl Libre","Times New Roman",serif;
+  --f-ui:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  --f-chord:"Rubik","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1411;
+    --surface:#161D19;
+    --sunk:#1B231E;
+    --ink:#E4EAE3;
+    --muted:#94A097;
+    --line:#2A342E;
+    --accent:#E7788A;
+    --accent-soft:#3A1F25;
+    --honey:#E0B25C;
+    --honey-soft:#2F2819;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1411;
+  --surface:#161D19;
+  --sunk:#1B231E;
+  --ink:#E4EAE3;
+  --muted:#94A097;
+  --line:#2A342E;
+  --accent:#E7788A;
+  --accent-soft:#3A1F25;
+  --honey:#E0B25C;
+  --honey-soft:#2F2819;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ground);color:var(--ink)}
+body{margin:0;font-family:var(--f-ui);font-size:16px;line-height:1.5}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+
+.app{display:grid;grid-template-columns:minmax(17rem,21rem) 1fr;min-height:100vh}
+
+/* ---------- index ---------- */
+.index{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sunk);border-inline-end:1px solid var(--line);padding-block:1.5rem 2rem;padding-inline:18px;display:flex;flex-direction:column;gap:1rem}
+.brand h1{font-family:var(--f-display);font-weight:900;font-size:2rem;line-height:1;margin:0}
+.brand p{margin:.35rem 0 0;color:var(--muted);font-size:.9rem}
+.search{width:100%;font:inherit;font-size:1rem;padding:.6rem .8rem;border-radius:.6rem;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.search::placeholder{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font-size:.88rem;font-weight:600;padding:.28rem .75rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.chip small{font-weight:400;opacity:.7;margin-inline-start:.25rem;font-variant-numeric:tabular-nums}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list button{width:100%;text-align:start;display:flex;flex-direction:column;padding:.5rem .6rem;border-radius:.5rem}
+.list button:hover{background:var(--surface)}
+.list .t{font-weight:700;font-size:1.02rem;line-height:1.25}
+.list .a{font-size:.82rem;color:var(--muted)}
+.list button[aria-current="true"]{background:var(--surface)}
+.list button[aria-current="true"] .t{color:var(--accent)}
+.empty{color:var(--muted);font-size:.95rem;padding:.5rem .6rem}
+
+/* ---------- sheet ---------- */
+.sheet{padding-block:2rem 5rem;padding-inline:clamp(16px,4vw,3.5rem);max-width:60rem;width:100%}
+.back{display:none;font-weight:700;color:var(--accent);padding:.25rem 0;margin-bottom:.75rem}
+.eyebrow{font-size:.9rem;color:var(--muted);margin:0}
+.title{font-family:var(--f-display);font-weight:900;font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.05;margin:.15rem 0 1rem;text-wrap:balance}
+
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding-block:.75rem;border-block:1px solid var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{padding:.38rem .95rem;font-weight:600;font-size:.95rem}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.capo{display:inline-flex;align-items:center;gap:.2rem;background:var(--honey-soft);color:var(--honey);border-radius:999px;padding:.2rem}
+.capo button{width:2rem;height:2rem;border-radius:50%;font-family:var(--f-chord);font-weight:600;font-size:1.1rem;line-height:1}
+.capo button:hover{background:var(--surface)}
+.capo button:disabled{opacity:.35;cursor:default;background:none}
+.capo output{min-width:5.5em;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.tools{display:inline-flex;gap:.3rem;margin-inline-start:auto;flex-wrap:wrap}
+.tool{padding:.38rem .7rem;border-radius:.5rem;font-weight:600;font-size:.92rem;border:1px solid var(--line);background:var(--surface)}
+.tool[aria-pressed="true"]{border-color:var(--honey);color:var(--honey)}
+.tool.lyrics{background:var(--accent);border-color:var(--accent);color:var(--surface);text-decoration:none}
+.note{font-size:.9rem;color:var(--muted);margin:.6rem 0 0}
+.note .linkish{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding:0}
+
+.shapes{display:flex;flex-wrap:wrap;gap:.9rem 1.1rem;padding-block:1.1rem .4rem;margin:0}
+.shape{margin:0;display:flex;flex-direction:column;align-items:center;gap:.1rem;color:var(--ink)}
+.shape svg{display:block}
+.shape figcaption{font-family:var(--f-chord);font-weight:600;font-size:.95rem}
+.shape.bare figcaption{padding-top:.2rem}
+
+.sections{display:flex;flex-direction:column;gap:1.6rem;margin-top:1.4rem}
+.sec h3{font-family:var(--f-ui);font-size:.9rem;font-weight:700;color:var(--accent);margin:0 0 .4rem;letter-spacing:.02em}
+.lines{display:flex;flex-direction:column;gap:.35rem}
+.line{display:flex;flex-wrap:wrap;align-items:center;row-gap:.2rem}
+.ch{font-family:var(--f-chord);font-weight:600;font-size:var(--chord-size);line-height:1.25;padding-inline:.65em;border-inline-start:1.5px solid var(--line);unicode-bidi:isolate}
+.ch:first-child{border-inline-start:0;padding-inline-start:0}
+.line.inst .ch{color:var(--muted)}
+.rep{font-family:var(--f-chord);font-weight:600;font-size:.85rem;color:var(--honey);background:var(--honey-soft);border-radius:999px;padding:.05rem .55rem;margin-inline-start:.5rem}
+.sec.again h3{color:var(--muted)}
+.sec.again .ch{font-size:calc(var(--chord-size) * .68);color:var(--muted)}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:3rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.pager button{text-align:start;padding:.7rem .9rem;border-radius:.6rem;background:var(--surface);border:1px solid var(--line)}
+.pager button:last-child{text-align:end}
+.pager small{display:block;color:var(--muted);font-size:.8rem}
+.pager b{font-family:var(--f-display);font-weight:700;font-size:1.1rem}
+.pager button[hidden]{display:none}
+
+@media (max-width:760px){
+  .app{grid-template-columns:1fr}
+  .index{position:static;height:auto;border-inline-end:0}
+  .app.show-song .index{display:none}
+  .app:not(.show-song) .sheet{display:none}
+  .back{display:inline-block}
+  .tools{margin-inline-start:0}
+  .sheet{padding-block:1rem 4rem}
+}
+@media print{
+  .index,.toolbar,.pager,.back,.note{display:none!important}
+  .app{display:block}
+}
+</style>
+
+<div class="app" id="app">
+  <aside class="index" aria-label="רשימת שירים">
+    <div class="brand">
+      <h1>השירון לסבתא</h1>
+      <p id="count"></p>
+    </div>
+    <input class="search" id="q" type="search" placeholder="חיפוש שיר או זמר" autocomplete="off">
+    <div class="chips" id="chips" role="group" aria-label="קטגוריות"></div>
+    <ul class="list" id="list"></ul>
+  </aside>
+
+  <main class="sheet" id="sheet" aria-live="polite"></main>
+</div>
+
+<script id="songs-data" type="application/json">__DATA__</script>
+<script>
+(function(){
+  const SONGS = JSON.parse(document.getElementById('songs-data').textContent)
+    .sort((a,b)=>a.title.localeCompare(b.title,'he'));
+  const CATS = ['הכל','נעמי שמר','עופרה חזה','בועז שרעבי','ארץ ישראל','זמר עברי','מזרחית','ראש השנה'];
+  const NOTES = ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'];
+  const IDX = {C:0,'B#':0,'C#':1,Db:1,D:2,'D#':3,Eb:3,E:4,Fb:4,F:5,'E#':5,'F#':6,Gb:6,G:7,'G#':8,Ab:8,A:9,'A#':10,Bb:10,B:11,Cb:11};
+
+  // Standard fingerings, low E string first. x = muted string.
+  const SHAPES = {
+    C:'x32010', 'C#':'x46664', D:'xx0232', Eb:'x68886', E:'022100', F:'133211', 'F#':'244322', G:'320003', Ab:'466544', A:'x02220', Bb:'x13331', B:'x24442',
+    Cm:'x35543', 'C#m':'x46654', Dm:'xx0231', Ebm:'x68876', Em:'022000', Fm:'133111', 'F#m':'244222', Gm:'355333', Abm:'466444', Am:'x02210', Bbm:'x13321', Bm:'x24432',
+    C7:'x32310', 'C#7':'x46464', D7:'xx0212', Eb7:'x68686', E7:'020100', F7:'131211', 'F#7':'242322', G7:'320001', Ab7:'464544', A7:'x02020', Bb7:'x13131', B7:'x21202',
+    Cm7:'x35343', 'C#m7':'x46454', Dm7:'xx0211', Ebm7:'x68676', Em7:'020000', Fm7:'131111', 'F#m7':'242222', Gm7:'353333', Abm7:'464444', Am7:'x02010', Bbm7:'x13121', Bm7:'x20202',
+    Cmaj7:'x32000', Dmaj7:'xx0222', Emaj7:'021100', Fmaj7:'xx3210', Gmaj7:'320002', Amaj7:'x02120'
+  };
+  const OPEN = new Set(['C','D','E','G','A','Am','Dm','Em','A7','B7','C7','D7','E7','G7','Am7','Dm7','Em7','Bm7','Cmaj7','Dmaj7','Emaj7','Fmaj7','Gmaj7','Amaj7']);
+
+  const store = {
+    get(k,d){ try{ const v = localStorage.getItem('shiron:'+k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+    set(k,v){ try{ localStorage.setItem('shiron:'+k, JSON.stringify(v)); }catch(e){} }
+  };
+
+  const state = {
+    cat: 'הכל',
+    q: '',
+    id: null,
+    mode: store.get('mode','easy'),
+    size: store.get('size',1.6),
+    capos: store.get('capos',{})
+  };
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const normQ = s => String(s||'').replace(/['"`׳״\-]/g,'').replace(/\s+/g,' ').trim();
+
+  // Reduce any chord to a guitar-friendly family: major, m, 7, m7, maj7, dim.
+  function simpleQ(q){
+    q = q.replace(/[()]/g,'').replace(/add\d+/,'');
+    if(/^(maj7|Maj7|M7|maj9|maj)/.test(q)) return 'maj7';
+    if(/^(m7b5|m7-5|ø)/.test(q)) return 'dim';
+    if(/^(dim|o|°)/.test(q)) return 'dim';
+    if(/^m/.test(q)) return /7|9|11/.test(q) ? 'm7' : 'm';
+    if(/^sus/.test(q)) return /7/.test(q) ? '7' : '';
+    if(/^(\+|aug|6|2|4|5)/.test(q)) return '';
+    if(/7|9|11|13/.test(q)) return '7';
+    return '';
+  }
+  function parse(raw){
+    const m = /^([A-G])([#b]?)([^/]*)(?:\/(?:[A-G][#b]?m?|\d+))?$/.exec(String(raw).trim());
+    if(!m) return null;
+    const root = IDX[m[1]+m[2]];
+    if(root === undefined) return null;
+    return {root, q: simpleQ(m[3])};
+  }
+  const nameOf = (root,q) => NOTES[((root % 12) + 12) % 12] + q;
+  function cost(n,q){
+    if(OPEN.has(n)) return 0;
+    if(n === 'F') return 1.5;
+    if(n === 'Bm') return 2;
+    if(q === 'dim') return 2.5;
+    return 3;
+  }
+  const bestCache = new Map();
+  function bestCapo(song){
+    if(bestCache.has(song.id)) return bestCache.get(song.id);
+    const cs = [];
+    song.sections.forEach(s => s.lines.forEach(l => l.c.forEach(c => { const p = parse(c); if(p) cs.push(p); })));
+    let best = 0, bs = Infinity;
+    for(let c = 0; c <= 7; c++){
+      let s = c * 0.25;
+      for(const p of cs) s += cost(nameOf(p.root - c, p.q), p.q);
+      if(s < bs - 1e-9){ bs = s; best = c; }
+    }
+    bestCache.set(song.id, best);
+    return best;
+  }
+
+  function diagram(name){
+    const f = SHAPES[name];
+    if(!f) return `<figure class="shape bare"><svg width="58" height="4" aria-hidden="true"></svg><figcaption dir="ltr">${esc(name)}</figcaption></figure>`;
+    const fr = [...f].map(ch => ch === 'x' ? -1 : +ch);
+    const pressed = fr.filter(n => n > 0);
+    const max = pressed.length ? Math.max(...pressed) : 0;
+    const min = pressed.length ? Math.min(...pressed) : 0;
+    const base = max > 5 ? min : 1;
+    const L = 12, T = 16, SX = 9, SY = 12, W = L + SX*5 + 8, H = T + SY*5 + 4;
+    let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="אחיזת ${esc(name)}" fill="none">`;
+    for(let i = 0; i < 6; i++) s += `<line x1="${L+i*SX}" y1="${T}" x2="${L+i*SX}" y2="${T+SY*5}" stroke="currentColor" stroke-opacity=".45" stroke-width="1"/>`;
+    for(let j = 0; j <= 5; j++) s += `<line x1="${L}" y1="${T+j*SY}" x2="${L+SX*5}" y2="${T+j*SY}" stroke="currentColor" stroke-opacity=".45" stroke-width="1"/>`;
+    if(base === 1) s += `<rect x="${L-.5}" y="${T-2.5}" width="${SX*5+1}" height="3" fill="currentColor"/>`;
+    else s += `<text x="${L-4}" y="${T+SY*.72}" font-size="8" text-anchor="end" fill="currentColor" font-family="Rubik,Arial,sans-serif">${base}</text>`;
+    // barre: lowest fret held across 4+ strings with nothing muted or open between
+    const first = fr.indexOf(min), last = fr.lastIndexOf(min);
+    let barre = min > 0 && last - first >= 3;
+    for(let i = first; barre && i <= last; i++) if(fr[i] < min) barre = false;
+    if(barre){
+      const y = T + (min - base + .5) * SY;
+      s += `<rect x="${L+first*SX-3.5}" y="${y-3.5}" width="${(last-first)*SX+7}" height="7" rx="3.5" fill="var(--accent)"/>`;
+    }
+    fr.forEach((n,i) => {
+      const x = L + i*SX;
+      if(n === -1) s += `<text x="${x}" y="${T-5}" font-size="8" text-anchor="middle" fill="currentColor" fill-opacity=".6" font-family="Rubik,Arial,sans-serif">×</text>`;
+      else if(n === 0) s += `<circle cx="${x}" cy="${T-7}" r="2.6" fill="none" stroke="currentColor" stroke-width="1"/>`;
+      else if(!(barre && n === min)) s += `<circle cx="${x}" cy="${T+(n-base+.5)*SY}" r="3.6" fill="var(--accent)"/>`;
+    });
+    return `<figure class="shape">${s}</svg><figcaption dir="ltr">${esc(name)}</figcaption></figure>`;
+  }
+
+  const app = document.getElementById('app');
+  const listEl = document.getElementById('list');
+  const chipsEl = document.getElementById('chips');
+  const sheet = document.getElementById('sheet');
+  const qEl = document.getElementById('q');
+  document.getElementById('count').textContent = `${SONGS.length} שירים, באחיזות קלות לגיטרה`;
+
+  function filtered(){
+    const q = normQ(state.q);
+    return SONGS.filter(s => (state.cat === 'הכל' || s.cats.includes(state.cat))
+      && (!q || normQ(s.title + ' ' + (s.artist||'')).includes(q)));
+  }
+
+  function renderChips(){
+    chipsEl.innerHTML = CATS.map(c => {
+      const n = c === 'הכל' ? SONGS.length : SONGS.filter(s => s.cats.includes(c)).length;
+      if(!n) return '';
+      return `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${state.cat === c}">${esc(c)}<small>${n}</small></button>`;
+    }).join('');
+  }
+
+  function renderIndex(){
+    const items = filtered();
+    listEl.innerHTML = items.length
+      ? items.map(s => `<li><button type="button" data-id="${s.id}" aria-current="${s.id === state.id}"><span class="t">${esc(s.title)}</span><span class="a">${esc(s.artist||'')}</span></button></li>`).join('')
+      : `<li class="empty">לא נמצא שיר כזה. אפשר לנסות מילה אחרת מהשם.</li>`;
+  }
+
+  function renderSong(song){
+    const easy = state.mode === 'easy';
+    const auto = bestCapo(song);
+    const capo = easy ? (state.capos[song.id] ?? auto) : 0;
+    const show = raw => { const p = parse(raw); return (!easy || !p) ? raw : nameOf(p.root - capo, p.q); };
+
+    const used = [];
+    song.sections.forEach(s => s.lines.forEach(l => l.c.forEach(c => { const n = show(c); if(!used.includes(n)) used.push(n); })));
+
+    const seen = new Map();
+    let n = 0;
+    const secs = song.sections.map((s, idx) => {
+      const key = s.lines.map(l => l.c.join(' ') + '|' + (l.r||0)).join('/');
+      if(seen.has(key)){
+        const chords = s.lines.flatMap(l => l.c).map(c => `<span class="ch" dir="ltr">${esc(show(c))}</span>`).join('');
+        return `<section class="sec again"><h3>${esc(seen.get(key))}, שוב</h3><div class="line">${chords}</div></section>`;
+      }
+      const inst = s.lines.every(l => l.i);
+      const label = s.label || (inst ? (idx === 0 ? 'פתיחה' : 'נגינה') : `קטע ${++n}`);
+      seen.set(key, label);
+      const lines = s.lines.map(l => {
+        const chords = l.c.map(c => `<span class="ch" dir="ltr">${esc(show(c))}</span>`).join('');
+        const rep = l.r > 1 ? `<span class="rep">×${l.r}</span>` : '';
+        return `<div class="line${l.i ? ' inst' : ''}">${chords}${rep}</div>`;
+      }).join('');
+      return `<section class="sec"><h3>${esc(label)}</h3><div class="lines">${lines}</div></section>`;
+    }).join('');
+
+    const items = filtered();
+    const pos = items.findIndex(s => s.id === song.id);
+    const prev = pos > 0 ? items[pos-1] : null;
+    const next = pos >= 0 && pos < items.length - 1 ? items[pos+1] : null;
+
+    const capoText = capo === 0 ? 'בלי קאפו' : `קאפו ${capo}`;
+    const lyricsHref = `https://www.tab4u.com/tabs/songs/${song.id}_song.html${easy && capo ? '?ton=' + (-capo / 2) : ''}#song`;
+    const withLyrics = easy && capo
+      ? ` בכפתור "עם המילים" השיר נפתח ב-Tab4u באותן אחיזות, עם המילים. שמים ${capoText}.`
+      : ` בכפתור "עם המילים" השיר נפתח ב-Tab4u עם המילים.`;
+    const note = easy
+      ? (capo === auto
+          ? `הקאפו נבחר לבד כדי שהאחיזות יהיו הכי קלות. שרים באותו גובה כמו בשיר המקורי.${withLyrics}`
+          : `בחרת ${capoText}.${withLyrics} <button type="button" class="linkish" data-act="auto">לחזור להמלצה (${auto === 0 ? 'בלי קאפו' : 'קאפו ' + auto})</button>`)
+      : `האקורדים כפי שהם כתובים באתר Tab4u, בלי קאפו ובלי פישוט.${withLyrics}`;
+
+    sheet.innerHTML = `
+      <button type="button" class="back" data-act="home">→ לכל השירים</button>
+      <p class="eyebrow">${esc(song.artist||'')}${song.cats.length ? ' · ' + song.cats.map(esc).join(' · ') : ''}</p>
+      <h2 class="title">${esc(song.title)}</h2>
+      <div class="toolbar">
+        <div class="seg" role="group" aria-label="סוג אקורדים">
+          <button type="button" data-mode="easy" aria-pressed="${easy}">קל</button>
+          <button type="button" data-mode="orig" aria-pressed="${!easy}">מקורי</button>
+        </div>
+        ${easy ? `<div class="capo" role="group" aria-label="קאפו">
+          <button type="button" data-capo="-1" aria-label="להוריד קאפו" ${capo <= 0 ? 'disabled' : ''}>−</button>
+          <output>${capoText}</output>
+          <button type="button" data-capo="1" aria-label="להעלות קאפו" ${capo >= 9 ? 'disabled' : ''}>+</button>
+        </div>` : ''}
+        <div class="tools">
+          <button type="button" class="tool" data-size="-1" aria-label="להקטין אקורדים">א−</button>
+          <button type="button" class="tool" data-size="1" aria-label="להגדיל אקורדים">א+</button>
+          ${'wakeLock' in navigator ? `<button type="button" class="tool" data-act="wake" aria-pressed="${!!wake}">מסך דלוק</button>` : ''}
+          <a class="tool lyrics" href="${lyricsHref}" target="_blank" rel="noopener">עם המילים ↗</a>
+        </div>
+      </div>
+      <p class="note">${note}</p>
+      <div class="shapes" dir="ltr">${used.map(diagram).join('')}</div>
+      <div class="sections">${secs}</div>
+      <nav class="pager" aria-label="מעבר בין שירים">
+        <button type="button" data-id="${prev ? prev.id : ''}" ${prev ? '' : 'hidden'}><small>השיר הקודם</small><b>${prev ? esc(prev.title) : ''}</b></button>
+        <button type="button" data-id="${next ? next.id : ''}" ${next ? '' : 'hidden'}><small>השיר הבא</small><b>${next ? esc(next.title) : ''}</b></button>
+      </nav>`;
+    document.documentElement.style.setProperty('--chord-size', state.size + 'rem');
+  }
+
+  const narrow = () => window.matchMedia('(max-width:760px)').matches;
+  const current = () => SONGS.find(s => s.id === state.id);
+
+  function route(){
+    const m = /s=(\d+)/.exec(location.hash);
+    const song = m ? SONGS.find(s => s.id === +m[1]) : null;
+    if(song){
+      state.id = song.id;
+      app.classList.add('show-song');
+      renderSong(song);
+      renderIndex();
+      window.scrollTo(0,0);
+      return;
+    }
+    app.classList.remove('show-song');
+    if(!narrow() && SONGS.length){
+      const first = filtered()[0] || SONGS[0];
+      history.replaceState(null, '', '#s=' + first.id);
+      route();
+      return;
+    }
+    renderIndex();
+  }
+  const open = id => { if(id) location.hash = 's=' + id; };
+
+  let wake = null;
+  async function toggleWake(){
+    try{
+      if(wake){ await wake.release(); wake = null; }
+      else{
+        wake = await navigator.wakeLock.request('screen');
+        wake.addEventListener('release', () => { wake = null; const s = current(); if(s) renderSong(s); });
+      }
+    }catch(e){ wake = null; }
+    const s = current(); if(s) renderSong(s);
+  }
+
+  chipsEl.addEventListener('click', e => {
+    const b = e.target.closest('[data-cat]'); if(!b) return;
+    state.cat = b.dataset.cat;
+    renderChips(); renderIndex();
+    const s = current(); if(s) renderSong(s);
+  });
+  listEl.addEventListener('click', e => { const b = e.target.closest('[data-id]'); if(b) open(b.dataset.id); });
+  qEl.addEventListener('input', () => { state.q = qEl.value; renderIndex(); });
+  qEl.addEventListener('keydown', e => { if(e.key === 'Enter'){ const f = filtered()[0]; if(f) open(f.id); } });
+
+  sheet.addEventListener('click', e => {
+    const song = current(); if(!song) return;
+    const t = e.target.closest('button'); if(!t) return;
+    if(t.dataset.mode){ state.mode = t.dataset.mode; store.set('mode', state.mode); renderSong(song); }
+    else if(t.dataset.capo){
+      const auto = bestCapo(song);
+      const c = Math.max(0, Math.min(9, (state.capos[song.id] ?? auto) + +t.dataset.capo));
+      if(c === auto) delete state.capos[song.id]; else state.capos[song.id] = c;
+      store.set('capos', state.capos); renderSong(song);
+    }
+    else if(t.dataset.size){
+      state.size = Math.round(Math.max(1, Math.min(2.8, state.size + (+t.dataset.size) * .15)) * 100) / 100;
+      store.set('size', state.size); renderSong(song);
+    }
+    else if(t.dataset.act === 'auto'){ delete state.capos[song.id]; store.set('capos', state.capos); renderSong(song); }
+    else if(t.dataset.act === 'home'){ history.pushState(null, '', location.pathname + location.search); route(); }
+    else if(t.dataset.act === 'wake'){ toggleWake(); }
+    else if(t.dataset.id){ open(t.dataset.id); }
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.target === qEl || e.altKey || e.metaKey || e.ctrlKey) return;
+    const song = current(); if(!song || !app.classList.contains('show-song')) return;
+    const items = filtered(); const pos = items.findIndex(s => s.id === song.id);
+    if(e.key === 'ArrowLeft' && items[pos+1]) open(items[pos+1].id);
+    if(e.key === 'ArrowRight' && pos > 0) open(items[pos-1].id);
+  });
+  document.addEventListener('visibilitychange', () => {
+    if(document.visibilityState === 'visible' && wake === null && document.querySelector('[data-act="wake"][aria-pressed="true"]')) toggleWake();
+  });
+
+  window.addEventListener('hashchange', route);
+  window.addEventListener('popstate', route);
+  renderChips();
+  route();
+})();
+</script>

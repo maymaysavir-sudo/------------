@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>הגוף והלב של מאיסה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#faf9f5; --surface:#f0efe8; --sunken:#e7e5db;
+  --ink:#1a2340; --ink-2:#3c4664; --ink-3:#6d7590; --rule:#d6d3c6; --hair:#e4e1d6;
+  --brass:#a2762f; --brass-soft:#f3e9d6;
+  --violet:#5f4a8c; --violet-soft:#efeaf7;
+  --fire:#a8502a; --earth:#4a6b3e; --air:#2f5a86; --water:#5f4a8c;
+  --plate:#ffffff;
+  --serif:'Frank Ruhl Libre','Times New Roman',serif;
+  --sans:'Assistant','Arial Hebrew',-apple-system,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',ui-monospace,monospace;
+  --measure:63ch;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}}
+:root[data-theme="dark"]{
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);direction:rtl;text-align:right;
+  font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.82;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:63rem;margin:0 auto;padding:0 1.5rem 6rem}
+
+/* ---------- shared row: main column + almanac rail ---------- */
+.row{display:grid;grid-template-columns:minmax(0,var(--measure)) 12.5rem;
+  gap:0 2.6rem;justify-content:center;align-items:start}
+.row>.col{grid-column:1;min-width:0}
+.marg{grid-column:2;font-family:var(--mono);font-size:.72rem;line-height:1.65;
+  color:var(--ink-3);border-top:2px solid var(--brass);padding-top:.55rem;
+  margin-top:.5rem;}
+.marg b{display:block;font-family:var(--sans);font-weight:700;font-size:.78rem;
+  color:var(--ink-2);margin-bottom:.45rem}
+.marg .r{display:flex;justify-content:space-between;gap:.6rem;
+  border-bottom:1px solid var(--hair);padding:.2rem 0}
+.marg .r span:first-child{font-family:var(--sans);font-size:.8rem}
+.marg .r span:last-child{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.marg p{margin:.5rem 0 0;font-family:var(--sans);font-size:.78rem;line-height:1.6}
+.narrow{max-width:var(--measure);margin-inline:auto}
+
+/* ---------- sticky nav ---------- */
+html{scroll-behavior:smooth}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:1px solid var(--rule)}
+.nav-in{max-width:63rem;margin:0 auto;padding:.45rem 1.5rem;display:flex;align-items:center;
+  gap:.1rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:.88rem;white-space:nowrap;
+  color:var(--ink);padding-inline-end:.85rem;margin-inline-end:.45rem;
+  border-inline-end:1px solid var(--rule);flex:none}
+.nav a{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--ink-2);
+  text-decoration:none;padding:.34rem .62rem;white-space:nowrap;flex:none;
+  border-bottom:2px solid transparent}
+.nav a:hover{color:var(--brass);background:var(--surface)}
+.nav a.on{color:var(--brass);border-bottom-color:var(--brass)}
+section{scroll-margin-top:3.4rem}
+@media (max-width:680px){.nav-in{padding:.4rem .9rem}.nav-name{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.nav{display:none}}
+
+/* ---------- cover ---------- */
+.cover{max-width:var(--measure);margin:0 auto;padding:5.5rem 0 3rem;text-align:center}
+.cover .eyebrow{font-family:var(--sans);font-weight:700;font-size:.82rem;
+  color:var(--brass);margin:0 0 2.2rem}
+.cover h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,8vw,4.1rem);
+  line-height:1.04;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.cover .sub{font-family:var(--serif);font-weight:500;font-size:1.45rem;color:var(--ink-2);
+  margin:.55rem 0 2.1rem}
+.rule-orn{display:flex;align-items:center;gap:.9rem;justify-content:center;margin:0 0 2rem}
+.rule-orn i{height:1px;background:var(--rule);flex:1;max-width:7rem}
+.rule-orn em{font-style:normal;color:var(--brass);font-size:1.05rem;
+  padding-inline-start:.35em}
+.cover .meta{font-family:var(--sans);font-size:.95rem;color:var(--ink-3);line-height:2;
+  display:inline-block;text-align:center}
+.cover .meta span{font-family:var(--mono);font-size:.86rem;direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.cover .ded{margin:2.6rem auto 0;max-width:26rem;font-size:.97rem;color:var(--ink-2);
+  line-height:1.8;font-weight:300}
+
+/* ---------- typography ---------- */
+h2{font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1.22;
+  margin:0 0 1.1rem;letter-spacing:-.015em;text-wrap:balance}
+h3{font-family:var(--serif);font-weight:700;font-size:1.24rem;line-height:1.3;
+  margin:2.4rem 0 .6rem;text-wrap:balance}
+h4{font-family:var(--sans);font-weight:700;font-size:1rem;margin:1.7rem 0 .35rem;
+  color:var(--ink-2)}
+p{margin:0 0 1.05em}
+p.lead{font-size:1.1rem;line-height:1.75;color:var(--ink-2);font-weight:300}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:italic;color:var(--ink-2)}
+ul,ol{margin:0 0 1.15em;padding-inline-start:0;padding-inline-end:1.35em}
+li{margin:.38em 0}
+li::marker{color:var(--brass)}
+a{color:var(--brass)}
+.n{font-family:var(--mono);font-size:.9em;direction:ltr;unicode-bidi:isolate;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* section opener */
+section{margin-top:4.6rem}
+.opener{display:flex;align-items:baseline;gap:.85rem;margin-bottom:1.5rem;
+  border-bottom:2px solid var(--ink);padding-bottom:.55rem}
+.opener .g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.5rem;
+  color:var(--brass);line-height:1}
+.opener .t{font-family:var(--sans);font-weight:600;font-size:.82rem;color:var(--ink-3);
+  margin-inline-start:auto;white-space:nowrap}
+.opener h2{margin:0;font-size:1.75rem}
+
+/* ---------- plate (chart wheel) ---------- */
+.plate{background:var(--plate);border:1px solid var(--rule);padding:1.5rem 1.2rem 1rem;
+  margin:2rem auto;max-width:44rem}
+.plate svg{display:block;width:100%;height:auto}
+.plate figcaption{font-family:var(--mono);font-size:.7rem;color:#6d7590;text-align:center;
+  border-top:1px solid #e4e1d6;margin-top:.9rem;padding-top:.7rem;
+  direction:rtl}
+
+/* ---------- legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.15rem 1.6rem;
+  margin:1.4rem 0 0;font-size:.88rem}
+.legend div{display:flex;align-items:center;gap:.55rem;padding:.28rem 0;
+  border-bottom:1px solid var(--hair)}
+.sw{width:.95rem;height:.95rem;border-radius:50%;flex:none;border:2px solid}
+.sw.fire{background:var(--fire);border-color:var(--fire)}
+.sw.earth{background:var(--earth);border-color:var(--earth)}
+.sw.air{background:var(--air);border-color:var(--air)}
+.sw.water{background:var(--water);border-color:var(--water)}
+.sw.sure{background:var(--sunken);border-color:var(--ink-3)}
+.sw.gold{background:var(--brass-soft);border-color:var(--brass)}
+.sw.moonr{background:var(--violet-soft);border-color:var(--violet);border-style:dashed}
+.ln{width:1.6rem;height:0;flex:none;border-top:2.5px solid}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:1.5rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.55}
+th,td{text-align:right;padding:.6rem .7rem;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{font-family:var(--sans);font-weight:700;font-size:.76rem;
+  color:var(--ink-2);border-bottom:2px solid var(--ink);white-space:nowrap;
+  padding-bottom:.45rem}
+tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+td.d{font-family:var(--mono);font-size:.82rem;direction:ltr;unicode-bidi:isolate;
+  text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+td.gl{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.15rem;
+  text-align:center;width:2.1rem;padding-inline:.2rem}
+.grade{font-family:var(--mono);font-size:.78rem;white-space:nowrap}
+.grade.hi{color:var(--brass);font-weight:500}
+.grade.lo{color:var(--ink-3)}
+
+/* ---------- pull / notes ---------- */
+.thesis{border-top:3px solid var(--ink);border-bottom:1px solid var(--rule);
+  padding:1.5rem 0 1.3rem;margin:2rem 0}
+.thesis p{font-family:var(--serif);font-size:1.28rem;line-height:1.55;margin:0 0 .8rem;
+  font-weight:500}
+.thesis p:last-child{margin-bottom:0}
+.note{background:var(--surface);border-inline-start:3px solid var(--brass);
+  padding:1rem 1.15rem;margin:1.6rem 0;font-size:.94rem;line-height:1.7}
+.note.v{border-inline-start-color:var(--violet);background:var(--violet-soft)}
+.note>:last-child{margin-bottom:0}
+.note b{display:block;margin-bottom:.25rem;font-size:.82rem;
+  color:var(--brass)}
+.note.v b{color:var(--violet)}
+
+/* ---------- timeline ---------- */
+.tl{margin:2rem 0;border-top:2px solid var(--ink)}
+.tl-item{display:grid;grid-template-columns:6.6rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--hair);align-items:start}
+.tl-date{font-family:var(--mono);font-size:.79rem;line-height:1.45;color:var(--ink-2);
+  direction:ltr;unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums;
+  padding-top:.22rem}
+.tl-item.key{background:var(--brass-soft);margin-inline:-1rem;padding-inline:1rem}
+.tl-item.key .tl-date{color:var(--brass);font-weight:500}
+.tl-h{font-family:var(--serif);font-weight:700;font-size:1.06rem;margin:0 0 .18rem;
+  line-height:1.35}
+.tl-b{margin:0;font-size:.93rem;line-height:1.65;color:var(--ink-2)}
+.tl-tag{font-family:var(--sans);font-weight:600;font-size:.76rem;color:var(--brass);
+  display:block;margin-top:.35rem}
+
+/* ---------- epicentre ---------- */
+.epi{border:2px solid var(--ink);padding:1.8rem 1.6rem 1.5rem;margin:2.4rem 0;
+  background:var(--surface)}
+.epi h3{margin:0 0 .2rem;font-size:1.4rem}
+.epi .when{font-family:var(--mono);font-size:.8rem;color:var(--brass);
+  direction:ltr;unicode-bidi:isolate;text-align:right;margin:0 0 1.1rem}
+.epi ol{counter-reset:e;list-style:none;padding:0;margin:1.2rem 0 0}
+.epi ol li{counter-increment:e;display:grid;grid-template-columns:2.4rem minmax(0,1fr);
+  gap:.15rem .9rem;padding:.95rem 0;border-top:1px solid var(--rule);font-size:.95rem;
+  line-height:1.7}
+.epi ol li::before{content:counter(e);font-family:var(--mono);font-size:1.4rem;
+  color:var(--brass);line-height:1.3}
+.epi-c{min-width:0}
+.epi-c b{display:block;font-family:var(--sans);font-weight:700;line-height:1.45;
+  margin-bottom:.2rem}
+.epi-c span{display:block;color:var(--ink-2)}
+
+/* ---------- planet entries ---------- */
+.planets{margin:2.2rem 0 0;border-top:2px solid var(--ink)}
+.pl{display:grid;grid-template-columns:3.9rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.9rem 0 1.6rem;border-bottom:1px solid var(--rule);scroll-margin-top:4rem}
+.pl:target{background:var(--brass-soft);box-shadow:0 0 0 .9rem var(--brass-soft)}
+.plate svg a{outline:none}
+.pl-g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:2.5rem;line-height:1;
+  color:var(--brass);text-align:center;padding-top:.35rem}
+.pl-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.55rem .9rem;margin-bottom:.15rem}
+.pl-head h3{margin:0;font-size:1.32rem}
+.pl-pos{font-family:var(--mono);font-size:.82rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.chip{font-family:var(--sans);font-size:.7rem;font-weight:700;
+  padding:.12rem .5rem;border:1px solid var(--rule);color:var(--ink-3);white-space:nowrap}
+.chip.hi{color:var(--brass);border-color:var(--brass);background:var(--brass-soft)}
+.chip.lo{color:var(--ink-3);border-style:dashed}
+.pl-role{font-family:var(--sans);font-size:.86rem;color:var(--ink-3);margin:0 0 .85rem;
+  padding-bottom:.5rem;border-bottom:1px solid var(--hair)}
+.pl p{margin:0 0 .8em;font-size:.97rem;line-height:1.75}
+.pl p:last-child{margin-bottom:0}
+.pl-key{font-family:var(--sans),'Apple Symbols','Segoe UI Symbol',serif;font-size:.86rem;color:var(--ink-2);background:var(--surface);
+  padding:.5rem .7rem;margin-top:.9rem;line-height:1.9}
+.pl-key i{font-style:normal;color:var(--ink-3);font-size:.84rem;display:block;margin-top:.3rem}
+@media (max-width:640px){.pl{grid-template-columns:minmax(0,1fr);gap:.5rem}
+  .pl-g{text-align:right;font-size:2rem}}
+@media print{.pl{break-inside:avoid;padding:1.1rem 0 .9rem}
+  .pl-g{font-size:1.9rem}.pl p{font-size:9.9pt;margin-bottom:.55em}}
+
+/* ---------- numerology ---------- */
+.num-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin:2rem 0}
+.num-hero div{background:var(--paper);padding:1.3rem .9rem 1.15rem;text-align:center}
+.num-hero .v{font-family:var(--serif);font-weight:900;font-size:2.7rem;line-height:1.02;
+  color:var(--brass)}
+.num-hero .k{font-family:var(--sans);font-weight:700;font-size:.78rem;margin-top:.4rem;
+  line-height:1.3;color:var(--ink-2)}
+.num-hero .s{font-family:var(--sans);font-size:.75rem;color:var(--ink-3);line-height:1.45;
+  margin-top:.2rem}
+.months{margin:1.8rem 0;border-top:2px solid var(--ink)}
+.mo{display:grid;grid-template-columns:5.6rem 2.3rem minmax(0,1fr);gap:0 1rem;
+  padding:.72rem 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.mo-when{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums}
+.mo-n{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--brass);
+  text-align:center;line-height:1}
+.mo-t{font-size:.93rem;line-height:1.6}
+.mo-t b{font-weight:700}
+.mo.mark{background:var(--brass-soft);margin-inline:-.9rem;padding-inline:.9rem}
+@media (max-width:640px){.mo{grid-template-columns:4.6rem 2rem minmax(0,1fr);gap:0 .7rem}}
+@media print{.mo,.num-hero{break-inside:avoid}.num-hero .v{font-size:2.1rem}}
+
+/* ---------- closing ---------- */
+.close{max-width:var(--measure);margin:5rem auto 0;text-align:center;
+  border-top:1px solid var(--rule);padding-top:2.6rem}
+.close p{font-family:var(--serif);font-size:1.15rem;line-height:1.7;color:var(--ink-2)}
+.sign{font-family:var(--sans);font-weight:700;font-size:.92rem;color:var(--brass);
+  margin-top:1.8rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .row{grid-template-columns:minmax(0,1fr)}
+  .row>.col,.marg{grid-column:1}
+  .marg{margin-top:1.6rem;border-top-width:2px;max-width:none}
+  .tl-item{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .tl-date{text-align:right;direction:ltr}
+  body{font-size:16px}
+}
+
+
+/* ---------- phone: give the text its full width back ---------- */
+@media (max-width:640px){
+  .page{padding-inline:1.05rem}
+  .epi{padding:1.4rem 1.15rem 1.2rem}
+  .epi h3{font-size:1.25rem}
+  .epi ol{margin-top:.9rem}
+  .epi ol li{display:block;padding:.95rem 0}
+  .epi ol li::before{display:none}
+  .mo{grid-template-columns:2.1rem minmax(0,1fr);gap:.12rem .7rem}
+  .mo-n{grid-column:1;grid-row:1/span 2;font-size:1.3rem;padding-top:.1rem}
+  .mo-when{grid-column:2;grid-row:1;text-align:right;font-size:.73rem}
+  .mo-t{grid-column:2;grid-row:2}
+  .mo.mark{margin-inline:-.7rem;padding-inline:.7rem}
+  .tl-item.key{margin-inline:-.7rem;padding-inline:.7rem}
+  .num-hero{grid-template-columns:repeat(2,1fr)}
+  .num-hero div{padding:1rem .35rem .9rem}
+  .num-hero .v{font-size:2.1rem}
+  .num-hero .k{font-size:.72rem}
+  .num-hero .s{font-size:.68rem}
+  .letter{padding:1.6rem 1.15rem 1.4rem}
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:17mm 16mm 18mm}
+@media print{
+  :root{--paper:#fff;--surface:#f4f3ee;--sunken:#eceae2;--ink:#12182c;--ink-2:#3a4258;
+    --ink-3:#6a7186;--rule:#c9c6b9;--hair:#e0ddd2;--brass:#8a6425;--brass-soft:#f6efe0;
+    --violet:#54427c;--violet-soft:#f0ecf8;--plate:#fff}
+  body{font-size:10.4pt;line-height:1.7;background:#fff}
+  .page{max-width:none;padding:0}
+  .row{grid-template-columns:minmax(0,1fr) 10rem;gap:0 1.6rem}
+  .cover{padding:2rem 0 1rem;break-after:page}
+  section{margin-top:2.2rem;break-inside:auto}
+  .opener{break-after:avoid}
+  h2,h3,h4{break-after:avoid}
+  .plate{break-inside:avoid;max-width:none;padding:.6rem}
+  .note,.thesis,.epi,.tl-item,table,figure{break-inside:avoid}
+  .brk{break-before:page}
+  a{color:inherit;text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+</style>
+<style>html,body{background:var(--paper)}img{max-width:100%}</style>
+<style>
+.mute{color:var(--ink-3)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.6rem 2.4rem;margin:1.8rem 0 0}
+.toc-part h4{margin:0 0 .5rem;font-family:var(--serif);font-size:1.05rem;color:var(--brass);border-bottom:1px solid var(--rule);padding-bottom:.35rem}
+.toc-part ol{margin:0;padding-inline-end:1.3rem}
+.toc-part li{margin:.28rem 0;font-size:.95rem;line-height:1.5}
+.toc-part li::marker{font-family:var(--mono);font-size:.78rem;color:var(--ink-3)}
+.toc-part a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
+.toc-part a:hover{color:var(--brass);border-bottom-color:var(--brass)}
+.toc-part li span{display:block;font-size:.8rem;color:var(--ink-3);line-height:1.45}
+.part{max-width:var(--measure);margin:6rem auto 0;text-align:center}
+.part .k{font-family:var(--mono);font-size:.78rem;color:var(--brass)}
+.part h2{font-size:2.3rem;margin:.3rem 0 .4rem}
+.part p{color:var(--ink-2);margin:0}
+table.grid{width:auto;margin-inline:auto;border-collapse:collapse}
+table.grid th,table.grid td{padding:0;border:1px solid var(--hair);text-align:center;vertical-align:middle}
+table.grid thead th{border-bottom:1px solid var(--hair);padding:.3rem 0;font-size:1.05rem}
+table.grid .gl,table.grid .gh{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.05rem;color:var(--ink-2);width:2.6rem;background:var(--surface)}
+table.grid .gc{width:2.6rem;height:2.6rem;line-height:1.05}
+table.grid .gc b{display:block;font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1rem;font-weight:400}
+table.grid .gc i{display:block;font-style:normal;font-family:var(--mono);font-size:.62rem;color:var(--ink-3)}
+table.grid .gx{border:0;background:transparent}
+.gc.fl b,.tone.fl{color:var(--earth)}
+.gc.tn b,.tone.tn{color:var(--fire)}
+.gc.cj b,.tone.cj{color:var(--brass)}
+.gc.qx b{color:var(--ink-3)}
+.tone{font-family:var(--sans);font-size:.78rem;font-weight:700;white-space:nowrap}
+table.tr td{font-size:.84rem}
+.ptab td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.do{list-style:none;padding:0;margin:1.2rem 0 1.6rem;border-top:2px solid var(--ink)}
+.do li{display:grid;grid-template-columns:1.6rem minmax(0,1fr);gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--hair);margin:0;font-size:.95rem;line-height:1.7}
+.do li::before{content:"✓";color:var(--brass);font-weight:700;font-family:var(--sans);text-align:center}
+.do li.no::before{content:"✕";color:var(--fire)}
+.q{display:block;margin-top:.45rem;font-size:.86rem;color:var(--violet);font-weight:600}
+.q::before{content:"לבדוק מול מה שהיה: "}
+.fx td{font-size:.86rem;line-height:1.55;min-width:9rem}
+.fx td:first-child{font-family:var(--serif);font-weight:700;white-space:nowrap;min-width:6.5rem}
+.fx td b{display:block;font-family:var(--sans);font-size:.74rem;color:var(--brass);margin-bottom:.15rem}
+.meter{display:inline-flex;gap:3px;vertical-align:middle;margin-inline-start:.35rem}
+.meter i{width:.55rem;height:.55rem;border-radius:50%;border:1.5px solid var(--brass)}
+.meter i.on{background:var(--brass)}
+.tl-item.past .tl-date{color:var(--violet)}
+.tl-item.past{border-inline-start:3px solid var(--violet-soft)}
+.domain-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin:0 0 1rem}
+.domain-head .when{font-family:var(--mono);font-size:.8rem;color:var(--ink-3)}
+.plate{background:#ffffff}
+@media (max-width:640px){.part h2{font-size:1.8rem}table.grid .gc,table.grid .gl,table.grid .gh{width:2.2rem;height:2.2rem}}
+@media print{.toc-grid{display:block}.toc-part{break-inside:avoid;margin-bottom:1rem}.part{break-before:page;margin-top:0}}
+</style>
+<style>
+.tl-item.fl,.tl-item.tn,.tl-item.cj{border-inline-start:4px solid var(--rule);padding-inline-start:.9rem}
+.tl-item.fl{border-inline-start-color:var(--earth)}
+.tl-item.tn{border-inline-start-color:var(--fire)}
+.tl-item.cj{border-inline-start-color:var(--brass)}
+.chipline{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;margin:.9rem 0 1.4rem;font-size:.86rem}
+.chipline span{display:inline-flex;align-items:center;gap:.45rem}
+.chipline i{width:1.1rem;height:.3rem;display:inline-block}
+.chipline i.fl{background:var(--earth)}.chipline i.tn{background:var(--fire)}.chipline i.cj{background:var(--brass)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.2rem 2rem;margin:1.6rem 0}
+.split>div{border-top:3px solid var(--rule);padding-top:.7rem}
+.split>div.fl{border-top-color:var(--earth)}.split>div.tn{border-top-color:var(--fire)}.split>div.cj{border-top-color:var(--brass)}
+.split h4{margin:0 0 .5rem;font-family:var(--serif);font-size:1.08rem;color:var(--ink)}
+.split ul{margin:0}.split li{font-size:.93rem;line-height:1.65}
+.phase{border-top:2px solid var(--ink);padding:1.3rem 0 1.1rem;margin-top:1.8rem}
+.phase-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;margin-bottom:.6rem}
+.phase-head h3{margin:0;font-size:1.35rem}
+.phase-head .when{font-family:var(--mono);font-size:.82rem;color:var(--brass);direction:ltr;unicode-bidi:isolate}
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.9rem 1.6rem;margin-top:.8rem}
+.phase-grid>div{background:var(--surface);padding:.8rem .95rem}
+.phase-grid b{display:block;font-size:.8rem;color:var(--brass);margin-bottom:.25rem}
+.phase-grid p,.phase-grid ul{margin:0;font-size:.9rem;line-height:1.65}
+.phase-grid ul{padding-inline-end:1.1rem}
+table.ex td:nth-child(2),table.ex td:nth-child(3){font-family:var(--mono);font-size:.82rem;white-space:nowrap;direction:ltr;unicode-bidi:isolate;text-align:right}
+table.trk td{height:2.1rem;min-width:2.6rem;border:1px solid var(--hair)}
+table.trk th{font-size:.74rem;white-space:nowrap}
+.cmd{list-style:none;counter-reset:c;padding:0;margin:1.4rem 0 0;border-top:2px solid var(--ink)}
+.cmd li{counter-increment:c;display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.2rem 1rem;padding:1rem 0;border-bottom:1px solid var(--hair);margin:0}
+.cmd li::before{content:counter(c,hebrew);font-family:var(--serif);font-weight:900;font-size:1.7rem;color:var(--brass);line-height:1.1;text-align:center}
+.cmd b{display:block;font-family:var(--serif);font-size:1.12rem;margin-bottom:.15rem}
+.cmd span{color:var(--ink-2);font-size:.94rem;line-height:1.65}
+.plate-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.4rem 0}
+.plate-row div{background:var(--paper);padding:.9rem .7rem;text-align:center}
+.plate-row .v{font-family:var(--serif);font-weight:900;font-size:1.35rem;color:var(--brass);line-height:1.2}
+.plate-row .k{font-size:.8rem;color:var(--ink-2);margin-top:.25rem;line-height:1.45}
+@media print{.phase,.split>div,.cmd li{break-inside:avoid}}
+@media (max-width:640px){.cmd li{grid-template-columns:2.2rem minmax(0,1fr)}.cmd li::before{font-size:1.35rem}}
+</style>
+
+</head>
+<body>
+<nav class="nav" aria-label="ניווט במסמך"><div class="nav-in"><span class="nav-name">מאיסה</span><a href="#s-toc">תוכן</a><a href="#s-how">איך לקרוא</a><a href="#s-body-map">הגוף במפה</a><a href="#s-body-past">גוף: ציר זמן</a><a href="#s-body-sum">חלונות</a><a href="#s-body-lessons">מה עובד</a><a href="#s-love-map">הלב במפה</a><a href="#s-love-past">זוגיות: ציר זמן</a><a href="#s-love-patterns">דפוסים</a><a href="#s-link">גוף ולב</a><a href="#s-sum">סיכום</a></div></nav>
+<div class="page">
+<header class="cover">
+  <p class="eyebrow">מה היה עד עכשיו</p>
+  <h1>הגוף והלב</h1>
+  <p class="sub">בריאות, תזונה, כושר וזוגיות במפה של מאיסה, 2003 עד 2026</p>
+  <div class="rule-orn"><i></i><em>☽︎</em><i></i></div>
+  <p class="meta"><span>03.05.1993</span> &middot; <span>23:50</span> &middot; פתח תקווה<br>אופק עולה בגדי &middot; ירח במאזניים, שליט בית 7</p>
+  <p class="ded">מתי הגוף קיבל רוח גבית ומתי נבלם, מה תמך בירידה במשקל ומה החמיר, ואיך הזוגיות נעה לאורך השנים. כל תאריך מחושב ומאומת, ולצד כל אחד שאלה לבדוק מול הזיכרון.</p>
+</header>
+
+<section id="s-toc">
+  <div class="narrow">
+    <div class="opener"><span class="g">✦</span><h2>תוכן העניינים</h2><span class="t">שני חלקים</span></div>
+    <div class="toc-grid">
+      <div class="toc-part"><h4>חלק א: הגוף</h4><ol>
+        <li><a href="#s-how">איך לקרוא את המסמך</a></li>
+        <li><a href="#s-body-map">הגוף במפה</a><span>מה נוטה להעלות ומה להוריד</span></li>
+        <li><a href="#s-body-past">ציר הזמן של הגוף</a><span>2003 עד 2026</span></li>
+        <li><a href="#s-body-sum">חלונות טובים ובעייתיים</a><span>טבלה מרוכזת</span></li>
+        <li><a href="#s-body-lessons">מה עובד אצלך ומה מחמיר</a></li>
+      </ol></div>
+      <div class="toc-part"><h4>חלק ב: הלב</h4><ol start="6">
+        <li><a href="#s-love-map">הזוגיות במפה</a></li>
+        <li><a href="#s-love-past">ציר הזמן של הזוגיות</a><span>2003 עד 2026</span></li>
+        <li><a href="#s-love-patterns">הדפוסים שחוזרים</a><span>מחזורים של 8, 9 ו-12 שנים</span></li>
+        <li><a href="#s-link">איפה הגוף והלב נפגשים</a></li>
+        <li><a href="#s-sum">מה לקחת מזה קדימה</a></li>
+      </ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-how">
+  <div class="narrow">
+    <div class="opener"><span class="g">☉︎</span><h2>איך לקרוא את המסמך</h2><span class="t">פתיחה</span></div>
+    <p class="lead">המפה לא יודעת כמה שקלת בכל שנה. היא יודעת מתי הכוכבים שקשורים לגוף, לתיאבון, לאנרגיה ולרגש נגעו בנקודות הרגישות שלך. המטרה כאן היא להניח את זה ליד מה שאת זוכרת, ולגלות את הדפוס שלך.</p>
+    <p>כל פריט בציר הזמן מסומן לפי הכיוון שהמפה מצביעה עליו:</p>
+    <div class="chipline">
+      <span><i class="fl"></i>תומך: משמעת, תנועה, שינוי שעובד</span>
+      <span><i class="tn"></i>מאתגר: עלייה, עייפות, פציעה, אכילה רגשית</span>
+      <span><i class="cj"></i>מעורב: שני הכיוונים יחד, תלוי מה עשית איתו</span>
+    </div>
+    <h3>הכוכבים שקובעים את הסיפור של הגוף</h3>
+    <ul>
+      <li><strong>צדק</strong> מרחיב. כשהוא עובר על האופק, על השמש או על הירח, התיאבון, השמחה והמשקל נוטים לגדול.</li>
+      <li><strong>שבתאי</strong> מכווץ ומסדר. על האופק או בבית 1 הוא תומך בירידה ובמשמעת, וגם מביא עייפות.</li>
+      <li><strong>פלוטו</strong> מחליף עור. על האופק הוא מסמן שינוי גופני עמוק, לכל כיוון.</li>
+      <li><strong>נפטון</strong> מטשטש: מתוקים, אלכוהול, אגירת נוזלים, עייפות לא מוסברת.</li>
+      <li><strong>מאדים</strong> הוא האנרגיה. בבית 1 קל להתחיל לזוז. כשהוא נסוג, פציעות ועצירות.</li>
+      <li><strong>מרקורי</strong> שולט בבית 6, בית השגרה והבריאות. מה שקורה לו קורה להרגלים.</li>
+    </ul>
+    <p style="font-size:.9rem;color:var(--ink-3)">זו קריאה אסטרולוגית של נטיות ותזמון, לא אבחנה רפואית ולא תחליף לרופאה או לדיאטנית.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-body-map">
+  <div class="narrow">
+    <div class="opener"><span class="g">♑︎</span><h2>הגוף במפה</h2><span class="t">מלידה</span></div>
+    <div class="split">
+      <div class="tn"><h4>מה נוטה להעלות</h4><ul>
+        <li><strong>ונוס מול צדק, אורב <span class="n">0.10°</span>:</strong> אהבה להנאות, קושי לעצור ב"מספיק".</li>
+        <li><strong>שמש בשור:</strong> הגוף רוצה נחמה, טעם ומרקם. אוכל הוא שפה של אהבה.</li>
+        <li><strong>ירח בריבוע לאופק:</strong> כל רגש עובר דרך הגוף, כולל דרך הפה.</li>
+        <li><strong>צלב המתח על האופק:</strong> כשהרצון והרצוי מתנגשים, הגוף סופג.</li>
+        <li><strong>נפטון בבית 1:</strong> רגישות לסוכר ולאלכוהול, ותחושת רעב לא ברורה.</li>
+      </ul></div>
+      <div class="fl"><h4>מה נוטה להוריד ולבנות</h4><ul>
+        <li><strong>שבתאי חזק, שליט המפה:</strong> כשיש כללים ברורים, את עומדת בהם.</li>
+        <li><strong>גדי עולה:</strong> גוף שמגיב מצוין לכוח, לעקביות ולזמן.</li>
+        <li><strong>מרקורי בסקסטיל לשבתאי:</strong> תכנון כתוב הופך להרגל.</li>
+        <li><strong>רום השמיים בעקרב:</strong> כשמחליטים באמת, השינוי עמוק ומחזיק.</li>
+        <li><strong>מאדים באריה:</strong> תנועה שיש בה במה, מוזיקה ואנשים.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-body-past">
+  <div class="narrow">
+    <div class="opener"><span class="g">⟲</span><h2>ציר הזמן של הגוף</h2><span class="t">2003 - 2026</span></div>
+
+    <h3>ילדות ונעורים</h3>
+    <div class="tl">
+      <div class="tl-item cj"><div class="tl-date">1993<br>01.2008</div><div>
+        <p class="tl-h">נפטון בבית 1 כל הילדות</p>
+        <p class="tl-b">גוף רגיש, דימוי גוף מעורפל, וקושי לזהות רעב ושובע. בין סתיו 1999 לסתיו 2002 גם הירח המתקדם עבר בבית 1: שנים שבהן הגוף והמראה היו בחזית.</p>
+        <span class="q">רגישויות, אלרגיות, או הערות על הגוף בילדות?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">01.2003<br>10.2003</div><div>
+        <p class="tl-h">כירון על האופק העולה</p>
+        <p class="tl-b">21.1.03, 25.8.03, 11.10.03. גיל 9 עד 10. פצע שקשור בגוף או במראה: הקנטה, פציעה, תחושה של "משהו לא בסדר בי". כירון נשאר בבית 1 עד 2008.</p>
+        <span class="q">רגע בילדות שבו התחלת להתבייש בגוף?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">10.2003<br>06.2004</div><div>
+        <p class="tl-h">שבתאי מול האופק ובריבוע לירח</p>
+        <p class="tl-b">2.10.03, 18.11.03, 6.6.04, ושבתאי בבית 6 עד יוני 2004. כובד, דאגה, והרגלי אכילה שנבנו תחת לחץ. צדק בטריגון לאופק ולשמש באותה תקופה ריכך.</p>
+        <span class="q">שינוי בבית או בבית הספר שגרם לאכול אחרת?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">11.2004<br>05.2006</div><div>
+        <p class="tl-h">צדק על הירח ובריבוע לאופק, ושנת הגוף הראשונה</p>
+        <p class="tl-b">צדק על הירח 23.11.04, 19.4.05, 22.7.05. במפת השנה של 2005 פלוטו בבית 1, ומאי 2005 עד מאי 2006 הייתה שנת בית 1. התבגרות מינית, גדילה ותיאבון. באוגוסט 2005 שבתאי עבר על מאדים: ירידה באנרגיה או עזיבת פעילות.</p>
+        <span class="q">עלייה במשקל בגיל ההתבגרות, או הפסקה של חוג ספורט?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">09.2007<br>04.2008</div><div>
+        <p class="tl-h">מאדים בבית 6 במשך שבעה חודשים, כולל נסיגה</p>
+        <p class="tl-b">8.9.07 עד 5.4.08, נסוג מאמצע נובמבר עד סוף ינואר. שגרה שבורה, מחלות חורף, עייפות.</p>
+        <span class="q">חורף 2007 שבו היית חולה או הפסקת לזוז?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">02.2008<br>11.2009</div><div>
+        <p class="tl-h">צדק בבית 1 ועל האופק</p>
+        <p class="tl-b">כניסה 14.2.08, על האופק שלוש פעמים ב-2008, ועל אורנוס ונפטון. גיל 15 עד 16. <strong>סימן קלאסי לעלייה במשקל ולהתרחבות של הגוף.</strong> שבתאי בטריגון לשמש ולאופק מספטמבר 2008 איזן חלקית.</p>
+        <span class="q">שנתיים של עלייה במשקל בתיכון?</span><span class="tl-tag">מאתגר לתזונה</span></div></div>
+    </div>
+
+    <h3>2010 עד 2016</h3>
+    <div class="tl">
+      <div class="tl-item tn"><div class="tl-date">11.2010<br>08.2011</div><div>
+        <p class="tl-h">שבתאי על הירח ובריבוע לאופק</p>
+        <p class="tl-b">6.11.10, 29.4.11, 27.7.11. גיל 17 עד 18. עומס רגשי שיושב בגוף: אכילה לנחמה או איבוד תיאבון. במפת השנה של 2010 צדק ואורנוס בבית 1: תנודות. חלון תנועה טוב אחד: מאדים בבית 1, 24.12.10 עד 11.2.11.</p>
+        <span class="q">שנת י"ב, עם אכילה רגשית או ירידה חדה?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">04.2012<br>05.2013</div><div>
+        <p class="tl-h">צדק על השמש, ואז צדק בבית 5</p>
+        <p class="tl-b">צדק על השמש 1.4.12, בבית ההנאות מ-30.5.12 עד 11.5.13. בילויים, אוכל בחוץ, "מגיע לי".</p>
+        <span class="q">שנה חברתית ומהנה שהשאירה קילוגרמים?</span><span class="tl-tag">מאתגר לתזונה</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">07.2012<br>04.2014</div><div>
+        <p class="tl-h">הירח המתקדם בבית 6: שנתיים של גוף ושגרה</p>
+        <p class="tl-b">19.7.12 עד 14.4.14. במפת השנה של מאי 2013 השמש, מרקורי, ונוס ומאדים כולם בבית 6, החתימה הבריאותית החזקה ביותר עד היום. אבל אורנוס מול הירח (12.6.13 עד 25.3.14) הביא תנודות באכילה ובשינה.</p>
+        <span class="q">התחלת דיאטה, ספורט או טיפול רפואי ב-2013, אולי בקיצוניות?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">02.2014<br>11.2015</div><div>
+        <p class="tl-h">פלוטו על האופק: השינוי הגופני הגדול</p>
+        <p class="tl-b">פלוטו על האופק 15.2.14, 16.6.14, 19.12.14, אורנוס בריבוע לאופק מאפריל 2014 עד ינואר 2015, ופלוטו בטריגון לשמש עד נובמבר 2015. <strong>החתימה החזקה ביותר במפה לשינוי גוף ודימוי.</strong> מאדים בבית 1 מ-12.11 עד 31.12.14. הצד הקשה: פלוטו בריבוע לירח (2014 עד 2015) מסמן אובססיביות סביב אוכל.</p>
+        <span class="q">ירידה משמעותית במשקל או שינוי מראה חד ב-2014 עד 2015?</span><span class="tl-tag">תומך</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">05.2016<br>05.2017</div><div>
+        <p class="tl-h">צדק בבית 1 של מפת השנה, וחזרת צדק</p>
+        <p class="tl-b">חזרת צדק 7.10.16 וצדק על הירח 5.11.16. אורנוס בריבוע לאורנוס מתח את מערכת העצבים. מאדים בבית 1 מ-16.10 עד 6.12.16.</p>
+        <span class="q">חזרה של קילוגרמים אחרי השינוי של 2014?</span><span class="tl-tag">מאתגר</span></div></div>
+    </div>
+
+    <h3>2017 עד 2022</h3>
+    <div class="tl">
+      <div class="tl-item fl"><div class="tl-date">02.2017<br>05.2018</div><div>
+        <p class="tl-h">מרקורי המתקדם נכנס לבית 6, ושנת גוף</p>
+        <p class="tl-b">10.2.17: שליט בית 6 נכנס לבית 6, ונשאר עד 2030. במפת השנה של 2017 השמש, מרקורי ואורנוס בבית 6, ומאי 2017 עד מאי 2018 הייתה שנת בית 1. נפטון בסקסטיל לאופק ולשמש: יוגה, מחול, שחייה.</p>
+        <span class="q">תחילת שגרת אימונים או שיטת תזונה שהחזיקה?</span><span class="tl-tag">תומך</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">04.2018<br>10.2018</div><div>
+        <p class="tl-h">מאדים בבית 1 שבעה חודשים, עם נסיגה</p>
+        <p class="tl-b">9.4 עד 30.10.18, נסוג מסוף יוני עד סוף אוגוסט. זינוק באנרגיה ואז תסכול, דלקת או פציעה. שבתאי בריבוע לונוס (פברואר, יוני, נובמבר 2018): הגבלה של הנאות, ואז התפרצות.</p>
+        <span class="q">פציעה בקיץ 2018, או דיאטה נוקשה שנשברה?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">01.2019<br>12.2022</div><div>
+        <p class="tl-h">שבתאי בבית 1</p>
+        <p class="tl-b">חצה את האופק ב-12.1.19 ובטריגון לשמש ב-18.1.19. ארבע שנים של מבנה, אחריות ומשמעת גופנית. <strong>אחת החתימות התומכות ביותר בירידה במשקל.</strong> באותה תקופה אורנוס בריבוע למאדים (אפריל 2019 עד פברואר 2020): פציעות ואנרגיה לא סדירה.</p>
+        <span class="q">ירידה הדרגתית ב-2019, או גב וברכיים שהתחילו לכאוב?</span><span class="tl-tag">תומך</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">01.2020<br>02.2021</div><div>
+        <p class="tl-h">צדק על האופק, כירון על ונוס, והסגרים</p>
+        <p class="tl-b">צדק חצה את האופק ב-27.1.20 ונשאר בבית 1 עד מרץ 2021, ועבר על נפטון ואורנוס. כירון על ונוס (6.4.20 עד 4.2.21) פגע בערך העצמי. במפת השנה של 2020 צדק, שבתאי ופלוטו בבית 6. <strong>החתימה החזקה ביותר לעלייה במשקל בעשור</strong>, דווקא בשנה שהעולם נסגר.</p>
+        <span class="q">עלייה בתקופת הקורונה, למרות שבתאי בבית 1?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">06.2021<br>02.2023</div><div>
+        <p class="tl-h">אורנוס על השמש, כירון על האופק ומול הירח</p>
+        <p class="tl-b">אורנוס על השמש 21.6.21 עד 11.4.22, שבתאי בריבוע לשמש. כירון בריבוע לאופק ומול הירח עד פברואר 2023. שינוי פתאומי בסגנון החיים, ופצעים ישנים של גוף ורגש שעולים.</p>
+        <span class="q">שינוי חד בשגרה, או תקופה של כאבים ותסמינים ישנים?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">05.2022<br>05.2023</div><div>
+        <p class="tl-h">שבתאי ופלוטו בבית 1 של מפת השנה, ושנת בית 6</p>
+        <p class="tl-b">שנת הבריאות בשיטת הבתים, מרקורי מנהל אותה. מאדים בבית 1 מ-11.2 עד 2.4.22 פתח אותה. <strong>שנה שתומכת בשינוי גופני מובנה.</strong> וב-28.2.23 חזרת שבתאי.</p>
+        <span class="q">התוכנית הכי מסודרת שהייתה לך?</span><span class="tl-tag">תומך</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">09.2022<br>04.2023</div><div>
+        <p class="tl-h">מאדים נסוג בבית 6</p>
+        <p class="tl-b">בבית 6 מ-30.9 עד 28.11.22 ושוב מ-2.3 עד 19.4.23, נסוג מסוף אוקטובר עד אמצע ינואר. מחלה, פציעה, או שגרה שהתפרקה באמצע השנה הטובה.</p>
+        <span class="q">חורף 2022 שעצר את הרצף?</span><span class="tl-tag">מאתגר</span></div></div>
+    </div>
+
+    <h3>2023 עד היום</h3>
+    <div class="tl">
+      <div class="tl-item cj"><div class="tl-date">03.2023<br>12.2024</div><div>
+        <p class="tl-h">פלוטו בריבוע למרקורי, שליט בית 6</p>
+        <p class="tl-b">19.3.23 עד 15.11.24. שליטה אובססיבית בהרגלים, או פירוק מלא שלהם. עיכול ומערכת עצבים.</p>
+        <span class="q">ספירת קלוריות קפדנית, או תחושה שאין שליטה?</span><span class="tl-tag">מעורב</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">07.2023<br>03.2024</div><div>
+        <p class="tl-h">צדק על השמש</p>
+        <p class="tl-b">29.7.23, 11.10.23, 12.3.24. יותר חיוניות ויותר תיאבון. במפת השנה של 2023 הירח בבית 6: מצב הרוח קבע את האכילה.</p>
+        <span class="q">שנה טובה בהרגשה שהוסיפה משקל?</span><span class="tl-tag">מאתגר לתזונה</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">01.2024<br>08.2025</div><div>
+        <p class="tl-h">מאדים בבית 1, פלוטו בבית 6 של מפת השנה, צדק בבית 6</p>
+        <p class="tl-b">מאדים בבית 1 מ-21.1 עד 10.3.24. פלוטו בבית 6 במפת השנה של 2024. צדק בבית 6 מ-7.9 עד 9.11.24 ומ-22.4 עד 5.8.25. הזדמנות לבנות מחדש את השגרה.</p>
+        <span class="q">שיפור בבדיקות, או שיטה חדשה ב-2024?</span><span class="tl-tag">תומך</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">02.2025<br>05.2026</div><div>
+        <p class="tl-h">פלוטו מול מאדים, ומתוקים בבית 6</p>
+        <p class="tl-b">פלוטו מול מאדים 27.2.25, 14.7.25, 5.1.26: תשישות, או אימון יתר. במפת השנה של מאי 2025 מרקורי, ונוס ונפטון בבית 6: מתוקים, אכילה רגשית, תסמינים לא ברורים. ביוני 2025 הירח המתקדם נכנס לבית 12: הגוף מבקש מנוחה.</p>
+        <span class="q">שנה של עייפות ואכילה מתוקה?</span><span class="tl-tag">מאתגר</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">01.2026<br>היום</div><div>
+        <p class="tl-h">מאדים בבית 1, שבתאי על ונוס, שבתאי מול הירח</p>
+        <p class="tl-b">מאדים בבית 1 מ-1.1 עד 18.2.26. שבתאי על ונוס ב-5.4.26: ריסון של הנאות ועבודה על ערך עצמי. מ-29.5.26 שבתאי מול הירח ובריבוע לאופק, עד פברואר 2027: כבדות וסיכון לאכילה רגשית, וגם הזדמנות לבנות מבנה.</p>
+        <span class="q">איך הגוף מרגיש בחודשים האחרונים?</span><span class="tl-tag">מעורב</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-body-sum">
+  <div class="narrow">
+    <div class="opener"><span class="g">⚖︎</span><h2>חלונות טובים ובעייתיים</h2><span class="t">מרוכז</span></div>
+    <div class="tw"><table><thead><tr><th>תקופה</th><th>כיוון</th><th>החתימה</th></tr></thead><tbody>
+      <tr><td class="d">02.2008 - 11.2009</td><td><span class="tone tn">עלייה</span></td><td>צדק בבית 1 ועל האופק</td></tr>
+      <tr><td class="d">11.2010 - 08.2011</td><td><span class="tone tn">אכילה רגשית</span></td><td>שבתאי על הירח</td></tr>
+      <tr><td class="d">04.2012 - 05.2013</td><td><span class="tone tn">עלייה</span></td><td>צדק על השמש ובבית 5</td></tr>
+      <tr><td class="d">02.2014 - 11.2015</td><td><span class="tone fl">שינוי וירידה</span></td><td>פלוטו על האופק, טריגון לשמש</td></tr>
+      <tr><td class="d">05.2016 - 05.2017</td><td><span class="tone tn">עלייה</span></td><td>צדק בבית 1 של מפת השנה</td></tr>
+      <tr><td class="d">02.2017 - 05.2018</td><td><span class="tone fl">שגרה</span></td><td>מרקורי המתקדם לבית 6, שנת בית 1</td></tr>
+      <tr><td class="d">01.2019 - 12.2022</td><td><span class="tone fl">משמעת</span></td><td>שבתאי בבית 1</td></tr>
+      <tr><td class="d">01.2020 - 02.2021</td><td><span class="tone tn">עלייה</span></td><td>צדק על האופק, כירון על ונוס</td></tr>
+      <tr><td class="d">05.2022 - 05.2023</td><td><span class="tone fl">מבנה</span></td><td>שבתאי ופלוטו בבית 1 של מפת השנה</td></tr>
+      <tr><td class="d">10.2022 - 01.2023</td><td><span class="tone tn">עצירה</span></td><td>מאדים נסוג בבית 6</td></tr>
+      <tr><td class="d">07.2023 - 03.2024</td><td><span class="tone tn">עלייה</span></td><td>צדק על השמש</td></tr>
+      <tr><td class="d">05.2025 - 05.2026</td><td><span class="tone tn">מתוקים ועייפות</span></td><td>נפטון וונוס בבית 6 של מפת השנה, פלוטו מול מאדים</td></tr>
+    </tbody></table></div>
+    <h3>חלונות התנועה של מאדים</h3>
+    <p>כשמאדים עובר בבית 1, בערך פעם בשנתיים, הכי קל להתחיל לזוז.</p>
+    <div class="tw"><table><thead><tr><th>מאדים בבית 1</th><th>מאדים בבית 6</th></tr></thead><tbody>
+      <tr><td class="d">24.12.2010 - 11.02.2011</td><td class="d">19.07.2011 - 22.08.2011</td></tr>
+      <tr><td class="d">03.12.2012 - 21.01.2013</td><td class="d">28.06.2013 - 01.08.2013</td></tr>
+      <tr><td class="d">12.11.2014 - 31.12.2014</td><td class="d">09.06.2015 - 13.07.2015</td></tr>
+      <tr><td class="d">16.10.2016 - 06.12.2016</td><td class="d">20.05.2017 - 24.06.2017</td></tr>
+      <tr><td class="d">09.04.2018 - 30.10.2018</td><td class="d">30.04.2019 - 05.06.2019</td></tr>
+      <tr><td class="d">06.03.2020 - 29.04.2020</td><td class="d">06.04.2021 - 14.05.2021</td></tr>
+      <tr><td class="d">11.02.2022 - 02.04.2022</td><td class="d">30.09.2022 - 19.04.2023, עם הפסקה</td></tr>
+      <tr><td class="d">21.01.2024 - 10.03.2024</td><td class="d">19.08.2024 - 27.09.2024</td></tr>
+      <tr><td class="d">01.01.2026 - 18.02.2026</td><td class="d">27.07.2026 - 31.08.2026</td></tr>
+    </tbody></table></div>
+    <div class="note"><b>הדפוס של 12 שנה</b>
+    <p>צדק חוצה את האופק שלך פעם ב-12 שנה: 2008, 2020, והפעם הבאה ב-11 בינואר 2032. בשתי הפעמים הקודמות המפה מסמנת עלייה. זה לא גורל, זו התראה מוקדמת.</p></div>
+  </div>
+</section>
+
+<section class="brk" id="s-body-lessons">
+  <div class="narrow">
+    <div class="opener"><span class="g">✓</span><h2>מה עובד אצלך, ומה מחמיר</h2><span class="t">המסקנות</span></div>
+    <div class="split">
+      <div class="fl"><h4>מה תמך בירידה ובבריאות</h4><ul>
+        <li><strong>מבנה ולא כוח רצון.</strong> התקופות הטובות היו תקופות שבתאי: כללים, שעות קבועות, מעקב.</li>
+        <li><strong>החלטה עמוקה.</strong> 2014 הראתה שכשיש סיבה פנימית אמיתית, השינוי מחזיק.</li>
+        <li><strong>תכנון כתוב.</strong> מרקורי, שליט בית 6, עבד כשהיה רשום.</li>
+        <li><strong>לזוז עם אנשים.</strong> מאדים בבית 7: מאמנת, חברה, קבוצה.</li>
+        <li><strong>בית רגוע.</strong> השמש בבית 4: כשהבית יציב, האכילה יציבה.</li>
+      </ul></div>
+      <div class="tn"><h4>מה החמיר</h4><ul>
+        <li><strong>תקופות של שמחה והתרחבות.</strong> צדק על האופק, השמש או הירח.</li>
+        <li><strong>עומס רגשי על הירח.</strong> שבתאי, פלוטו ואורנוס על הירח הביאו אכילה רגשית.</li>
+        <li><strong>מתוקים ואלכוהול בתקופות נפטון.</strong></li>
+        <li><strong>פציעה שעצרה הכל.</strong> נסיגות של מאדים בבית 1 ובבית 6.</li>
+        <li><strong>הכל או כלום.</strong> אפס מזלות גמישים: שבוע אחד שנשבר הפך לחודשים.</li>
+        <li><strong>משבר בזוגיות.</strong> הלב והצלחת נמצאים באותה לולאה.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-love-map">
+  <div class="narrow">
+    <div class="opener"><span class="g">♀︎</span><h2>הזוגיות במפה</h2><span class="t">חלק ב</span></div>
+    <p class="lead">בית 7 בסרטן, עם מאדים, כירון ונקודת המזל באריה. שליטו הירח במאזניים. ונוס בטלה באופוזיציה מדויקת לצדק.</p>
+    <ul>
+      <li><strong>המשיכה נדלקת מיוזמה</strong> (ונוס בטלה) ומאנשים חזקים ונוכחים (מאדים באריה בבית 7).</li>
+      <li><strong>הציפייה גבוהה</strong> (צדק מול ונוס), ולכן אכזבות כואבות.</li>
+      <li><strong>פצע ישן של "לא רואים אותי"</strong> (כירון בבית 7, והשמש משתקפת עליו).</li>
+      <li><strong>הרגש והזוגיות הם אותו נושא</strong> (הירח שולט בבית 7), ולכן כל שינוי זוגי מורגש גם בגוף.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="brk" id="s-love-past">
+  <div class="narrow">
+    <div class="opener"><span class="g">⟲</span><h2>ציר הזמן של הזוגיות</h2><span class="t">2003 - 2026</span></div>
+    <div class="chipline">
+      <span><i class="fl"></i>פתיחה וחום</span><span><i class="tn"></i>קושי, פרידה, מבחן</span><span><i class="cj"></i>נקודת מפנה</span>
+    </div>
+
+    <h3>נעורים</h3>
+    <div class="tl">
+      <div class="tl-item tn"><div class="tl-date">10.2003<br>06.2007</div><div>
+        <p class="tl-h">שבתאי בבית 7, ואז על כירון והוורטקס</p>
+        <p class="tl-b">שבתאי בבית 7 מ-2.10.03 עד 22.9.06, ואז על נקודת המזל (1.8.06), כירון (27.8.06) והוורטקס (עד 18.6.07). ביישנות, רצינות מוקדמת, ואכזבה ראשונה.</p>
+        <span class="q">שברון לב ראשון בגיל 13 עד 14?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">06.2008<br>07.2009</div><div>
+        <p class="tl-h">ליקויים בבית 7 ואורנוס על לילית</p>
+        <p class="tl-b">ליקויי חמה בבית 7 ב-1.8.08 וב-22.7.09. ראש הדרקון מול הוורטקס, כירון ונקודת המזל ביוני עד נובמבר 2008. משיכה מרדנית.</p>
+        <span class="q">החבר הראשון, או משיכה למישהו "לא מתאים"?</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">03.2009<br>05.2010</div><div>
+        <p class="tl-h">שנת הרומנטיקה הראשונה</p>
+        <p class="tl-b">ונוס נסוגה בטלה מעל ונוס שלך (מרץ עד אפריל 2009), צדק מול כירון, הוורטקס ונקודת המזל לאורך 2009, ומאי 2009 עד מאי 2010 שנת בית 5.</p>
+        <span class="q">אהבה ראשונה בגיל 16?</span></div></div>
+    </div>
+
+    <h3>2010 עד 2017</h3>
+    <div class="tl">
+      <div class="tl-item tn"><div class="tl-date">2010<br>10.2012</div><div>
+        <p class="tl-h">פלוטו בריבוע לונוס, שבתאי על הירח</p>
+        <p class="tl-b">פלוטו בריבוע לונוס (21.1, 4.7, 24.11.11), שבתאי מול ונוס (17.9.10) ועל הירח (נובמבר 2010 עד אוגוסט 2011). אהבה אובססיבית, תלות, כאב.</p>
+        <span class="q">קשר שבלע אותך?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">05.2011<br>05.2012</div><div>
+        <p class="tl-h">שנת בית 7 וחזרת הצמתים</p>
+        <p class="tl-b">צדק על ונוס ומול הירח בפברואר עד מרץ 2011, חזרת צמתים ב-14.12.11. גיל 18, שנת השותפות הראשונה.</p>
+        <span class="q">הקשר הרציני הראשון?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">04.2012<br>05.2013</div><div>
+        <p class="tl-h">אורנוס על ונוס, צדק בבית 5</p>
+        <p class="tl-b">אורנוס על ונוס 21.4.12, 12.10.12, 10.2.13. צדק בבית ההנאות מ-30.5.12. ונוס נסוגה בתאומים ממאי עד יוני 2012. התחלות וסיומים פתאומיים.</p>
+        <span class="q">קשר שהתחיל או נגמר בבת אחת?</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">08.2013<br>07.2015</div><div>
+        <p class="tl-h">צדק בבית 7: חלון האהבה של העשור</p>
+        <p class="tl-b">צדק בבית 7 מ-25.8.13, במפת השנה של 2013 צדק בבית 7, במפת השנה של 2014 הירח וצדק בבית 5, וצדק עבר על נקודת המזל, כירון והוורטקס מספטמבר 2014 עד יולי 2015.</p>
+        <span class="q">פגישה משמעותית בין סוף 2013 לאמצע 2015?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">04.2014<br>01.2017</div><div>
+        <p class="tl-h">הירח המתקדם בבית 7</p>
+        <p class="tl-b">14.4.14 עד 11.1.17. שלוש שנים שבהן החיים הרגשיים סבבו סביב בן זוג. במקביל פלוטו על האופק ואורנוס מול הירח: שינוי זהות שמטלטל גם את הקשר.</p>
+        <span class="q">קשר ארוך שהגדיר את 2014 עד 2016?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">10.2016<br>04.2017</div><div>
+        <p class="tl-h">חזרת צדק מול ונוס, הירח המתקדם על כירון</p>
+        <p class="tl-b">צדק מול ונוס 7.10.16 ועל הירח 5.11.16, הירח המתקדם על כירון 25.10.16, וונוס נסוגה בטלה מעל ונוס שלך במרץ עד אפריל 2017.</p>
+        <span class="q">סיום של הקשר מ-2014, או חזרה של אקס?</span></div></div>
+    </div>
+
+    <h3>2018 עד היום</h3>
+    <div class="tl">
+      <div class="tl-item tn"><div class="tl-date">01.2018<br>01.2019</div><div>
+        <p class="tl-h">שבתאי בריבוע לונוס, ליקויים בבית 7</p>
+        <p class="tl-b">שבתאי בריבוע לונוס 13.2, 25.6, 13.11.18. ליקויים: 31.1.18 על נקודת המזל, 13.7.18 מול אורנוס ונפטון, 11.8.18 על כירון, 21.1.19 על מאדים. עונת ליקויים שלמה בבית 7.</p>
+        <span class="q">פרידה, בדידות, או הכרעה קשה ב-2018?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">01.2019<br>05.2020</div><div>
+        <p class="tl-h">שבתאי על האופק, צדק בבית 7 של מפת השנה</p>
+        <p class="tl-b">רצינות ומחויבות, ובמקביל אורנוס בריבוע למאדים: משיכות ופרידות פתאומיות.</p>
+        <span class="q">קשר חדש ורציני ב-2019?</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">03.2020<br>02.2021</div><div>
+        <p class="tl-h">כירון על ונוס, והקשר בסגר</p>
+        <p class="tl-b">כירון על ונוס 6.4.20 עד 4.2.21. הירח המתקדם מול ונוס ועל צדק במרץ 2020, וחזר למקומו ב-26.8.20.</p>
+        <span class="q">כאב זוגי בתקופת הקורונה?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">05.2021<br>01.2023</div><div>
+        <p class="tl-h">שנת זוגיות גדולה ושינוי פתאומי</p>
+        <p class="tl-b">במפת השנה של 2021 השמש, מרקורי וונוס בבית 7, ושנת בית 5. אורנוס על השמש עד אפריל 2022. ב-2022 שבתאי מול כירון והוורטקס, וצדק על ונוס מיוני 2022 עד ינואר 2023.</p>
+        <span class="q">התחלה חזקה, מבחן קשה, ושפע רגשי בסוף 2022?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">02.2023<br>09.2023</div><div>
+        <p class="tl-h">חזרת שבתאי, שנת בית 7, ונוס נסוגה בבית 7</p>
+        <p class="tl-b">חזרת שבתאי 28.2.23, מאי 2023 עד מאי 2024 שנת בית 7, וונוס נסוגה באריה מעל כירון והוורטקס בסוף יולי עד תחילת ספטמבר 2023.</p>
+        <span class="q">הכרעה על קשר, או אקס שחזר בקיץ 2023?</span></div></div>
+      <div class="tl-item fl"><div class="tl-date">05.2024<br>04.2025</div><div>
+        <p class="tl-h">צדק בבית 5, ראש הדרקון על ונוס</p>
+        <p class="tl-b">צדק בבית הרומנטיקה ממאי 2024. ראש הדרקון מול הירח (16.6.24) ועל ונוס (7.10.24): מפגש שמרגיש גורלי.</p>
+        <span class="q">התאהבות בסוף 2024?</span></div></div>
+      <div class="tl-item tn"><div class="tl-date">12.2024<br>01.2026</div><div>
+        <p class="tl-h">מאדים נסוג בבית 7, פלוטו מול מאדים</p>
+        <p class="tl-b">מאדים נסוג בבית 7 מתחילת דצמבר 2024 עד סוף פברואר 2025. הירח המלא המתקדם ב-5.1.25 על ציר הצמתים. ונוס נסוגה שוב מעל ונוס שלך במרץ עד אפריל 2025. פלוטו מול מאדים עד ינואר 2026: מאבקי כוח ואינטנסיביות.</p>
+        <span class="q">קשר שהגיע לשיא ולעימות בתחילת 2025?</span></div></div>
+      <div class="tl-item cj"><div class="tl-date">04.2026<br>היום</div><div>
+        <p class="tl-h">שבתאי על ונוס, צדק על מאדים, ליקוי על הוורטקס</p>
+        <p class="tl-b">שבתאי על ונוס 5.4.26, מול הירח 29.5.26, צדק על מאדים 13.7.26 ובטריגון לונוס 27.7.26, ליקוי חמה על הוורטקס 12.8.26, צדק על נקודת המזל 3.9.26.</p>
+        <span class="q">מה השתנה בזוגיות מאז אפריל 2026?</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="brk" id="s-love-patterns">
+  <div class="narrow">
+    <div class="opener"><span class="g">∞</span><h2>הדפוסים שחוזרים</h2><span class="t">מחזורים</span></div>
+    <h3>מחזור ונוס: כל 8 שנים</h3>
+    <p>ונוס נסוגה באותו אזור בגלגל פעם ב-8 שנים, ולכן נושאי האהבה חוזרים באותו מקצב. בדקי אם השנים בכל שורה מדברות זו עם זו.</p>
+    <div class="tw"><table><thead><tr><th>איפה</th><th>שנים</th><th>הבאה</th><th>הנושא</th></tr></thead><tbody>
+      <tr><td>טלה, מעל ונוס שלך</td><td class="d">2009 · 2017 · 2025</td><td class="d">2033</td><td>אקסים חוזרים, ערך עצמי באהבה</td></tr>
+      <tr><td>אריה, בית 7, על כירון</td><td class="d">2007 · 2015 · 2023</td><td class="d">2031</td><td>פצע ההכרה בקשר</td></tr>
+      <tr><td>תאומים, בית 5 ו-6</td><td class="d">2004 · 2012 · 2020</td><td class="d">2028</td><td>רומנטיקה קלילה מול שגרה</td></tr>
+      <tr><td>גדי, בית 1</td><td class="d">2005 · 2013 · 2021</td><td class="d">2029</td><td>מה את צריכה לעצמך בתוך קשר</td></tr>
+      <tr><td>עקרב ומאזניים, בית 10 ו-9</td><td class="d">2010 · 2018 · 2026</td><td class="d">עכשיו</td><td>זוגיות מול קריירה ומעמד</td></tr>
+    </tbody></table></div>
+    <div class="note"><b>שימי לב</b>
+    <p>הנסיגה של אוקטובר עד נובמבר 2026 היא ההמשך של 2018. מה שקרה אז בזוגיות הוא רמז למה שיעלה עכשיו.</p></div>
+    <h3>ליקויים בבית 7: גלים של 9 שנים</h3>
+    <p>2008 עד 2009, 2018 עד 2019, והגל הנוכחי מ-2026 עד 2029. כל גל פתח או סגר פרק זוגי גדול.</p>
+    <h3>צדק בבית 7: כל 12 שנה</h3>
+    <p>2013 עד 2015, ועכשיו 2025 עד 2027. שנת בית 7 בשיטת הבתים חוזרת גם היא כל 12 שנה: 2011, 2023, ו-2035.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-link">
+  <div class="narrow">
+    <div class="opener"><span class="g">☽︎</span><h2>איפה הגוף והלב נפגשים</h2><span class="t">הלולאה</span></div>
+    <p class="lead">הירח שולט בזוגיות ועומד בריבוע לגוף. ונוס, כוכב האהבה, היא גם כוכב ההנאה והאוכל. <strong>אצלך אי אפשר להפריד בין הצלחת ללב.</strong></p>
+    <div class="tw"><table><thead><tr><th>תקופה</th><th>בזוגיות</th><th>בגוף</th></tr></thead><tbody>
+      <tr><td class="d">2010 - 2011</td><td>שבתאי על הירח ופלוטו על ונוס: אהבה כואבת</td><td>אכילה רגשית או איבוד תיאבון</td></tr>
+      <tr><td class="d">2014 - 2016</td><td>הירח המתקדם בבית 7: קשר מרכזי</td><td>פלוטו על האופק: גוף חדש</td></tr>
+      <tr><td class="d">2020 - 2021</td><td>כירון על ונוס: פצע בערך העצמי</td><td>צדק על האופק: עלייה</td></tr>
+      <tr><td class="d">2025 - 2026</td><td>פלוטו מול מאדים בבית 7: מאבק</td><td>מתוקים ועייפות, ונוס ונפטון בבית 6 של מפת השנה</td></tr>
+    </tbody></table></div>
+    <p>המשמעות המעשית: <strong>בתקופות זוגיות קשות, תוכנית התזונה צריכה להיות הכי פשוטה והכי מוגנת</strong>, ולא הכי שאפתנית. והפוך: קשר טוב הוא אחד הכלים החזקים שלך לבריאות.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-sum">
+  <div class="narrow">
+    <div class="opener"><span class="g">⚷</span><h2>מה לקחת מזה קדימה</h2><span class="t">סיכום</span></div>
+    <ol>
+      <li>הגוף שלך מגיב למבנה, לא לכוח רצון. התקופות הטובות היו תקופות של כללים.</li>
+      <li>צדק מגדיל. בתקופות של שמחה, להגן על השגרה.</li>
+      <li>כשהירח בלחץ, האוכל הופך לנחמה. לזהות את זה מראש.</li>
+      <li>פציעה היא הסיבה הנפוצה לעצירה. לחמם, להדרג, ולנוח בנסיגות של מאדים.</li>
+      <li>לזוז עם אנשים. מאדים שלך נמצא בבית 7.</li>
+      <li>הכל או כלום הרס רצפים. גרסה מקוצרת מצילה אותם.</li>
+      <li>ונוס חוזרת כל 8 שנים. מה שקרה ב-2018 רלוונטי לסתיו 2026.</li>
+      <li>הזוגיות והתזונה הן לולאה אחת. לטפל בשתיהן יחד.</li>
+    </ol>
+    <p>התוכנית המעשית לשנה הקרובה, שבנויה על כל המסקנות האלה, נמצאת במסמך "התנ״ך של הגוף".</p>
+  </div>
+</section>
+
+<footer class="close"><p>מה שהיה הוא לא גזרה. הוא מפה של איך את מגיבה לזמן,<br>וזה בדיוק מה שמאפשר לתכנן את מה שבא.</p><p class="sign">מחושב ל-3 במאי 1993, 23:50, פתח תקווה · נכתב בספטמבר 2026</p></footer>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  var map={};links.forEach(function(l){var s=document.getElementById(l.hash.slice(1));if(s)map[s.id]=l;});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id);});
+  if(!secs.length||!('IntersectionObserver' in window))return;
+  var seen={};
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){seen[e.target.id]=e.isIntersecting;});
+    var cur=null;
+    for(var i=0;i<secs.length;i++){if(seen[secs[i].id]){cur=secs[i].id;break;}}
+    links.forEach(function(l){l.classList.remove('on');});
+    if(cur){map[cur].classList.add('on');map[cur].scrollIntoView({block:'nearest',inline:'nearest'});}
+  },{rootMargin:'-56px 0px -70% 0px'});
+  secs.forEach(function(s){io.observe(s);});
+})();
+</script>
+</body>
+</html>

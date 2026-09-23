@@ -19,6 +19,11 @@ for i, l in enumerate(lines):
         break
 md_text = "\n".join(lines)
 
+SVGS = []
+def _stash(m):
+    SVGS.append(m.group(0)); return "@@SVG%d@@" % (len(SVGS)-1)
+md_text = re.sub(r"<svg\b.*?</svg>", _stash, md_text, flags=re.S)
+
 html_body = markdown.markdown(
     md_text,
     extensions=["tables", "attr_list", "sane_lists", "md_in_html"],
@@ -89,6 +94,9 @@ blockquote>:last-child{margin-bottom:0}
 blockquote.green{border-inline-start-color:var(--green);background:var(--green-bg)}
 blockquote.red{border-inline-start-color:var(--red);background:var(--red-bg)}
 blockquote.amber{border-inline-start-color:var(--amber);background:var(--amber-bg)}
+.wheel{margin:2rem 0;padding:1rem .5rem;background:var(--card);border:1px solid var(--line);
+border-radius:.5rem;color:var(--fg)}
+.wheel svg{color:var(--fg)}
 .tablewrap{overflow-x:auto;margin:1.4em 0;-webkit-overflow-scrolling:touch}
 table{border-collapse:collapse;width:100%;min-width:32rem;direction:rtl;font-size:.94rem;
 background:var(--card);border:1px solid var(--line);border-radius:.5rem;overflow:hidden}
@@ -134,5 +142,8 @@ out = f"""<!doctype html>
 </body>
 </html>
 """
+for _i, _sv in enumerate(SVGS):
+    out = out.replace("@@SVG%d@@" % _i, _sv)
+assert "@@SVG" not in out
 io.open(DST, "w", encoding="utf-8").write(out)
 print(f"built {DST}  ({len(out):,} bytes, {len(toc_items)} sections)")

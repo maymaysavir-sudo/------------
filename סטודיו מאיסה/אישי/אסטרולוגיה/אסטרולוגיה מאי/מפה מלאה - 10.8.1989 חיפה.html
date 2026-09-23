@@ -1,0 +1,1484 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מפת הלידה של דנה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#faf9f5; --surface:#f0efe8; --sunken:#e7e5db;
+  --ink:#1a2340; --ink-2:#3c4664; --ink-3:#6d7590; --rule:#d6d3c6; --hair:#e4e1d6;
+  --brass:#a2762f; --brass-soft:#f3e9d6;
+  --violet:#5f4a8c; --violet-soft:#efeaf7;
+  --fire:#a8502a; --earth:#4a6b3e; --air:#2f5a86; --water:#5f4a8c;
+  --plate:#ffffff;
+  --serif:'Frank Ruhl Libre','Times New Roman',serif;
+  --sans:'Assistant','Arial Hebrew',-apple-system,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',ui-monospace,monospace;
+  --measure:63ch;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}}
+:root[data-theme="dark"]{
+  --paper:#12151f; --surface:#1a1e2c; --sunken:#232838;
+  --ink:#e8e6de; --ink-2:#c2c0b8; --ink-3:#8e94a8;
+  --rule:#333a4d; --hair:#272d3d;
+  --brass:#d3a765; --brass-soft:#2b2417;
+  --violet:#a998d8; --violet-soft:#221d33;
+  --fire:#d98a5f; --earth:#8cb377; --air:#79a9d6; --water:#a998d8;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);direction:rtl;text-align:right;
+  font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.82;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:63rem;margin:0 auto;padding:0 1.5rem 6rem}
+
+/* ---------- shared row: main column + almanac rail ---------- */
+.row{display:grid;grid-template-columns:minmax(0,var(--measure)) 12.5rem;
+  gap:0 2.6rem;justify-content:center;align-items:start}
+.row>.col{grid-column:1;min-width:0}
+.marg{grid-column:2;font-family:var(--mono);font-size:.72rem;line-height:1.65;
+  color:var(--ink-3);border-top:2px solid var(--brass);padding-top:.55rem;
+  margin-top:.5rem;letter-spacing:.01em}
+.marg b{display:block;font-family:var(--sans);font-weight:700;font-size:.78rem;
+  color:var(--ink-2);letter-spacing:.04em;margin-bottom:.45rem}
+.marg .r{display:flex;justify-content:space-between;gap:.6rem;
+  border-bottom:1px solid var(--hair);padding:.2rem 0}
+.marg .r span:first-child{font-family:var(--sans);font-size:.8rem}
+.marg .r span:last-child{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.marg p{margin:.5rem 0 0;font-family:var(--sans);font-size:.78rem;line-height:1.6}
+.narrow{max-width:var(--measure);margin-inline:auto}
+
+/* ---------- sticky nav ---------- */
+html{scroll-behavior:smooth}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:1px solid var(--rule)}
+.nav-in{max-width:63rem;margin:0 auto;padding:.45rem 1.5rem;display:flex;align-items:center;
+  gap:.1rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-name{font-family:var(--serif);font-weight:700;font-size:.88rem;white-space:nowrap;
+  color:var(--ink);padding-inline-end:.85rem;margin-inline-end:.45rem;
+  border-inline-end:1px solid var(--rule);flex:none}
+.nav a{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--ink-2);
+  text-decoration:none;padding:.34rem .62rem;white-space:nowrap;flex:none;
+  border-bottom:2px solid transparent}
+.nav a:hover{color:var(--brass);background:var(--surface)}
+.nav a.on{color:var(--brass);border-bottom-color:var(--brass)}
+section{scroll-margin-top:3.4rem}
+@media (max-width:680px){.nav-in{padding:.4rem .9rem}.nav-name{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.nav{display:none}}
+
+/* ---------- cover ---------- */
+.cover{max-width:var(--measure);margin:0 auto;padding:5.5rem 0 3rem;text-align:center}
+.cover .eyebrow{font-family:var(--sans);font-weight:700;font-size:.82rem;
+  color:var(--brass);margin:0 0 2.2rem}
+.cover h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,8vw,4.1rem);
+  line-height:1.04;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.cover .sub{font-family:var(--serif);font-weight:500;font-size:1.45rem;color:var(--ink-2);
+  margin:.55rem 0 2.1rem}
+.rule-orn{display:flex;align-items:center;gap:.9rem;justify-content:center;margin:0 0 2rem}
+.rule-orn i{height:1px;background:var(--rule);flex:1;max-width:7rem}
+.rule-orn em{font-style:normal;color:var(--brass);font-size:1.05rem;letter-spacing:.35em;
+  padding-inline-start:.35em}
+.cover .meta{font-family:var(--sans);font-size:.95rem;color:var(--ink-3);line-height:2;
+  display:inline-block;text-align:center}
+.cover .meta span{font-family:var(--mono);font-size:.86rem;direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.cover .ded{margin:2.6rem auto 0;max-width:26rem;font-size:.97rem;color:var(--ink-2);
+  line-height:1.8;font-weight:300}
+
+/* ---------- typography ---------- */
+h2{font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1.22;
+  margin:0 0 1.1rem;letter-spacing:-.015em;text-wrap:balance}
+h3{font-family:var(--serif);font-weight:700;font-size:1.24rem;line-height:1.3;
+  margin:2.4rem 0 .6rem;text-wrap:balance}
+h4{font-family:var(--sans);font-weight:700;font-size:1rem;margin:1.7rem 0 .35rem;
+  color:var(--ink-2)}
+p{margin:0 0 1.05em}
+p.lead{font-size:1.1rem;line-height:1.75;color:var(--ink-2);font-weight:300}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:italic;color:var(--ink-2)}
+ul,ol{margin:0 0 1.15em;padding-inline-start:0;padding-inline-end:1.35em}
+li{margin:.38em 0}
+li::marker{color:var(--brass)}
+a{color:var(--brass)}
+.n{font-family:var(--mono);font-size:.9em;direction:ltr;unicode-bidi:isolate;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* section opener */
+section{margin-top:4.6rem}
+.opener{display:flex;align-items:baseline;gap:.85rem;margin-bottom:1.5rem;
+  border-bottom:2px solid var(--ink);padding-bottom:.55rem}
+.opener .g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.5rem;
+  color:var(--brass);line-height:1}
+.opener .t{font-family:var(--sans);font-weight:600;font-size:.82rem;color:var(--ink-3);
+  margin-inline-start:auto;white-space:nowrap}
+.opener h2{margin:0;font-size:1.75rem}
+
+/* ---------- plate (chart wheel) ---------- */
+.plate{background:var(--plate);border:1px solid var(--rule);padding:1.5rem 1.2rem 1rem;
+  margin:2rem auto;max-width:44rem}
+.plate svg{display:block;width:100%;height:auto}
+.plate figcaption{font-family:var(--mono);font-size:.7rem;color:#6d7590;text-align:center;
+  border-top:1px solid #e4e1d6;margin-top:.9rem;padding-top:.7rem;letter-spacing:.06em;
+  direction:rtl}
+
+/* ---------- legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.15rem 1.6rem;
+  margin:1.4rem 0 0;font-size:.88rem}
+.legend div{display:flex;align-items:center;gap:.55rem;padding:.28rem 0;
+  border-bottom:1px solid var(--hair)}
+.sw{width:.95rem;height:.95rem;border-radius:50%;flex:none;border:2px solid}
+.sw.fire{background:var(--fire);border-color:var(--fire)}
+.sw.earth{background:var(--earth);border-color:var(--earth)}
+.sw.air{background:var(--air);border-color:var(--air)}
+.sw.water{background:var(--water);border-color:var(--water)}
+.sw.sure{background:var(--sunken);border-color:var(--ink-3)}
+.sw.gold{background:var(--brass-soft);border-color:var(--brass)}
+.sw.moonr{background:var(--violet-soft);border-color:var(--violet);border-style:dashed}
+.ln{width:1.6rem;height:0;flex:none;border-top:2.5px solid}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:1.5rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.55}
+th,td{text-align:right;padding:.6rem .7rem;border-bottom:1px solid var(--hair);vertical-align:top}
+thead th{font-family:var(--sans);font-weight:700;font-size:.76rem;letter-spacing:.06em;
+  color:var(--ink-2);border-bottom:2px solid var(--ink);white-space:nowrap;
+  padding-bottom:.45rem}
+tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+td.d{font-family:var(--mono);font-size:.82rem;direction:ltr;unicode-bidi:isolate;
+  text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+td.gl{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:1.15rem;
+  text-align:center;width:2.1rem;padding-inline:.2rem}
+.grade{font-family:var(--mono);font-size:.78rem;white-space:nowrap}
+.grade.hi{color:var(--brass);font-weight:500}
+.grade.lo{color:var(--ink-3)}
+
+/* ---------- pull / notes ---------- */
+.thesis{border-top:3px solid var(--ink);border-bottom:1px solid var(--rule);
+  padding:1.5rem 0 1.3rem;margin:2rem 0}
+.thesis p{font-family:var(--serif);font-size:1.28rem;line-height:1.55;margin:0 0 .8rem;
+  font-weight:500}
+.thesis p:last-child{margin-bottom:0}
+.note{background:var(--surface);border-inline-start:3px solid var(--brass);
+  padding:1rem 1.15rem;margin:1.6rem 0;font-size:.94rem;line-height:1.7}
+.note.v{border-inline-start-color:var(--violet);background:var(--violet-soft)}
+.note>:last-child{margin-bottom:0}
+.note b{display:block;margin-bottom:.25rem;font-size:.82rem;letter-spacing:.05em;
+  color:var(--brass)}
+.note.v b{color:var(--violet)}
+
+/* ---------- timeline ---------- */
+.tl{margin:2rem 0;border-top:2px solid var(--ink)}
+.tl-item{display:grid;grid-template-columns:6.6rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--hair);align-items:start}
+.tl-date{font-family:var(--mono);font-size:.79rem;line-height:1.45;color:var(--ink-2);
+  direction:ltr;unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums;
+  padding-top:.22rem}
+.tl-item.key{background:var(--brass-soft);margin-inline:-1rem;padding-inline:1rem}
+.tl-item.key .tl-date{color:var(--brass);font-weight:500}
+.tl-h{font-family:var(--serif);font-weight:700;font-size:1.06rem;margin:0 0 .18rem;
+  line-height:1.35}
+.tl-b{margin:0;font-size:.93rem;line-height:1.65;color:var(--ink-2)}
+.tl-tag{font-family:var(--sans);font-weight:600;font-size:.76rem;color:var(--brass);
+  display:block;margin-top:.35rem}
+
+/* ---------- epicentre ---------- */
+.epi{border:2px solid var(--ink);padding:1.8rem 1.6rem 1.5rem;margin:2.4rem 0;
+  background:var(--surface)}
+.epi h3{margin:0 0 .2rem;font-size:1.4rem}
+.epi .when{font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;color:var(--brass);
+  direction:ltr;unicode-bidi:isolate;text-align:right;margin:0 0 1.1rem}
+.epi ol{counter-reset:e;list-style:none;padding:0;margin:1.2rem 0 0}
+.epi ol li{counter-increment:e;display:grid;grid-template-columns:2.4rem minmax(0,1fr);
+  gap:.15rem .9rem;padding:.95rem 0;border-top:1px solid var(--rule);font-size:.95rem;
+  line-height:1.7}
+.epi ol li::before{content:counter(e);font-family:var(--mono);font-size:1.4rem;
+  color:var(--brass);line-height:1.3}
+.epi-c{min-width:0}
+.epi-c b{display:block;font-family:var(--sans);font-weight:700;line-height:1.45;
+  margin-bottom:.2rem}
+.epi-c span{display:block;color:var(--ink-2)}
+
+/* ---------- planet entries ---------- */
+.planets{margin:2.2rem 0 0;border-top:2px solid var(--ink)}
+.pl{display:grid;grid-template-columns:3.9rem minmax(0,1fr);gap:0 1.3rem;
+  padding:1.9rem 0 1.6rem;border-bottom:1px solid var(--rule);scroll-margin-top:4rem}
+.pl:target{background:var(--brass-soft);box-shadow:0 0 0 .9rem var(--brass-soft)}
+.plate svg a{outline:none}
+.pl-g{font-family:'Apple Symbols','Segoe UI Symbol',serif;font-size:2.5rem;line-height:1;
+  color:var(--brass);text-align:center;padding-top:.35rem}
+.pl-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.55rem .9rem;margin-bottom:.15rem}
+.pl-head h3{margin:0;font-size:1.32rem}
+.pl-pos{font-family:var(--mono);font-size:.82rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.chip{font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.04em;
+  padding:.12rem .5rem;border:1px solid var(--rule);color:var(--ink-3);white-space:nowrap}
+.chip.hi{color:var(--brass);border-color:var(--brass);background:var(--brass-soft)}
+.chip.lo{color:var(--ink-3);border-style:dashed}
+.pl-role{font-family:var(--sans);font-size:.86rem;color:var(--ink-3);margin:0 0 .85rem;
+  padding-bottom:.5rem;border-bottom:1px solid var(--hair)}
+.pl p{margin:0 0 .8em;font-size:.97rem;line-height:1.75}
+.pl p:last-child{margin-bottom:0}
+.pl-key{font-family:var(--sans),'Apple Symbols','Segoe UI Symbol',serif;font-size:.86rem;color:var(--ink-2);background:var(--surface);
+  padding:.5rem .7rem;margin-top:.9rem;line-height:1.9}
+.pl-key i{font-style:normal;color:var(--ink-3);font-size:.84rem;display:block;margin-top:.3rem}
+@media (max-width:640px){.pl{grid-template-columns:minmax(0,1fr);gap:.5rem}
+  .pl-g{text-align:right;font-size:2rem}}
+@media print{.pl{break-inside:avoid;padding:1.1rem 0 .9rem}
+  .pl-g{font-size:1.9rem}.pl p{font-size:9.9pt;margin-bottom:.55em}}
+
+/* ---------- numerology ---------- */
+.num-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin:2rem 0}
+.num-hero div{background:var(--paper);padding:1.3rem .9rem 1.15rem;text-align:center}
+.num-hero .v{font-family:var(--serif);font-weight:900;font-size:2.7rem;line-height:1.02;
+  color:var(--brass)}
+.num-hero .k{font-family:var(--sans);font-weight:700;font-size:.78rem;margin-top:.4rem;
+  line-height:1.3;color:var(--ink-2)}
+.num-hero .s{font-family:var(--sans);font-size:.75rem;color:var(--ink-3);line-height:1.45;
+  margin-top:.2rem}
+.months{margin:1.8rem 0;border-top:2px solid var(--ink)}
+.mo{display:grid;grid-template-columns:5.6rem 2.3rem minmax(0,1fr);gap:0 1rem;
+  padding:.72rem 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.mo-when{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);direction:ltr;
+  unicode-bidi:isolate;text-align:left;font-variant-numeric:tabular-nums}
+.mo-n{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--brass);
+  text-align:center;line-height:1}
+.mo-t{font-size:.93rem;line-height:1.6}
+.mo-t b{font-weight:700}
+.mo.mark{background:var(--brass-soft);margin-inline:-.9rem;padding-inline:.9rem}
+@media (max-width:640px){.mo{grid-template-columns:4.6rem 2rem minmax(0,1fr);gap:0 .7rem}}
+@media print{.mo,.num-hero{break-inside:avoid}.num-hero .v{font-size:2.1rem}}
+
+/* ---------- closing ---------- */
+.close{max-width:var(--measure);margin:5rem auto 0;text-align:center;
+  border-top:1px solid var(--rule);padding-top:2.6rem}
+.close p{font-family:var(--serif);font-size:1.15rem;line-height:1.7;color:var(--ink-2)}
+.sign{font-family:var(--sans);font-weight:700;font-size:.92rem;color:var(--brass);
+  margin-top:1.8rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .row{grid-template-columns:minmax(0,1fr)}
+  .row>.col,.marg{grid-column:1}
+  .marg{margin-top:1.6rem;border-top-width:2px;max-width:none}
+  .tl-item{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .tl-date{text-align:right;direction:ltr}
+  body{font-size:16px}
+}
+
+
+/* ---------- phone: give the text its full width back ---------- */
+@media (max-width:640px){
+  .page{padding-inline:1.05rem}
+  .epi{padding:1.4rem 1.15rem 1.2rem}
+  .epi h3{font-size:1.25rem}
+  .epi ol{margin-top:.9rem}
+  .epi ol li{display:block;padding:.95rem 0}
+  .epi ol li::before{display:none}
+  .mo{grid-template-columns:2.1rem minmax(0,1fr);gap:.12rem .7rem}
+  .mo-n{grid-column:1;grid-row:1/span 2;font-size:1.3rem;padding-top:.1rem}
+  .mo-when{grid-column:2;grid-row:1;text-align:right;font-size:.73rem}
+  .mo-t{grid-column:2;grid-row:2}
+  .mo.mark{margin-inline:-.7rem;padding-inline:.7rem}
+  .tl-item.key{margin-inline:-.7rem;padding-inline:.7rem}
+  .num-hero{grid-template-columns:repeat(2,1fr)}
+  .num-hero div{padding:1rem .35rem .9rem}
+  .num-hero .v{font-size:2.1rem}
+  .num-hero .k{font-size:.72rem}
+  .num-hero .s{font-size:.68rem}
+  .letter{padding:1.6rem 1.15rem 1.4rem}
+}
+
+/* ---------- print ---------- */
+@page{size:A4;margin:17mm 16mm 18mm}
+@media print{
+  :root{--paper:#fff;--surface:#f4f3ee;--sunken:#eceae2;--ink:#12182c;--ink-2:#3a4258;
+    --ink-3:#6a7186;--rule:#c9c6b9;--hair:#e0ddd2;--brass:#8a6425;--brass-soft:#f6efe0;
+    --violet:#54427c;--violet-soft:#f0ecf8;--plate:#fff}
+  body{font-size:10.4pt;line-height:1.7;background:#fff}
+  .page{max-width:none;padding:0}
+  .row{grid-template-columns:minmax(0,1fr) 10rem;gap:0 1.6rem}
+  .cover{padding:2rem 0 1rem;break-after:page}
+  section{margin-top:2.2rem;break-inside:auto}
+  .opener{break-after:avoid}
+  h2,h3,h4{break-after:avoid}
+  .plate{break-inside:avoid;max-width:none;padding:.6rem}
+  .note,.thesis,.epi,.tl-item,table,figure{break-inside:avoid}
+  .brk{break-before:page}
+  a{color:inherit;text-decoration:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+</style>
+<style>html,body{background:var(--paper)}img{max-width:100%}</style>
+<style>.sw.pt{background:var(--paper);border-color:var(--ink-3);border-style:dashed}td.h{font-family:var(--mono);font-size:.82rem;text-align:center;width:2rem}</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="ניווט במסמך"><div class="nav-in">
+<span class="nav-name">דנה</span>
+<a href="#s-intro">פתיחה</a>
+<a href="#s-wheel">הגלגל</a>
+<a href="#s-brief">בקצרה</a>
+<a href="#s-planets">הכוכבים</a>
+<a href="#s-areas">התחומים</a>
+<a href="#s-year">השנה</a>
+<a href="#s-dates">עיתויים</a>
+<a href="#s-numbers">נומרולוגיה</a>
+<a href="#s-summary">לסיכום</a>
+</div></nav>
+
+<div class="page">
+
+<header class="cover">
+  <h1>דנה</h1>
+  <p class="sub">מפת הלידה</p>
+  <div class="rule-orn"><i></i><em>♌︎</em><i></i></div>
+  <p class="meta">
+    <span>10.08.1989 &middot; 23:30</span><br>
+    חיפה, ישראל<br>
+    שמש באריה &middot; ירח בקשת &middot; אופק עולה בשור
+  </p>
+  <p class="ded">המפה המלאה עם האופק העולה ושנים עשר הבתים, פירוש לכל אחד מחמישה עשר הגורמים,<br>והעיתויים לשנה שנפתחה ב-10 באוגוסט 2026.</p>
+</header>
+
+<section class="brk" id="s-intro">
+  <div class="narrow">
+    <div class="opener"><span class="g">☉︎</span><h2>מה יש כאן</h2><span class="t">פתיחה</span></div>
+
+    <p class="lead">מפת לידה היא תמונה של השמיים ברגע ובמקום שבו נולדת. לא נבואה, ולא הבטחה. פשוט צילום מצב: איפה עמד כל אחד מעשרת גרמי השמיים ביחס לרקע של שנים עשר המזלות, ב-10 באוגוסט 1989, בשעה 23:30, מעל חיפה.</p>
+
+    <p>מה שאסטרולוגיה עושה עם התמונה הזאת הוא לתרגם אותה לשפה של נטיות. לא "יקרה לך X", אלא "ככה את בנויה לפגוש דברים". המסמך הזה כתוב למי שלא מכירה את התחום, ולכן כל מונח מוסבר במקום שבו הוא מופיע, ואפשר גם לקפוץ ישר לפרק שמסקרן.</p>
+
+    <h3>שלוש אבני הבניין</h3>
+
+    <p>כל משפט אסטרולוגי כאן מורכב משלושה דברים בלבד. ברגע שמבינים אותם, אפשר לקרוא כל מפה.</p>
+
+    <h4>1. הכוכב אומר <em>מה</em></h4>
+    <p>כל גרם שמיים מייצג תפקוד אחד. מרקורי הוא החשיבה והדיבור. ונוס היא האהבה, הטעם והערך. מאדים הוא הרצון והפעולה. שבתאי הוא המבנה, המשמעת והמגבלה. השמש היא הזהות והכיוון. הירח הוא הרגש, מה שמרגיע. זה הפועל במשפט.</p>
+
+    <h4>2. המזל אומר <em>איך</em></h4>
+    <p>המזל שבו הכוכב יושב הוא הסגנון שבו התפקוד הזה פועל. מרקורי בבתולה חושב אחרת ממרקורי בקשת: הראשון מדייק ומפרק לפרטים, השני רואה תמונה גדולה ומדלג. אותו תפקוד, מזג אחר. זה תואר הפועל.</p>
+
+    <h4>3. ההיבט אומר <em>עם מי</em></h4>
+    <p>הזווית בין שני כוכבים על הגלגל מתארת את מערכת היחסים ביניהם. זווית של <span class="n">0°</span> (צמידות) היא שני כוכבים שנמסים לתפקוד אחד. <span class="n">120°</span> (טריגון) היא שיתוף פעולה שעובד מעצמו. <span class="n">60°</span> (סקסטיל) היא הזדמנות שצריך לקחת. <span class="n">90°</span> (ריבוע) היא חיכוך, ולכן גם מנוע. <span class="n">180°</span> (אופוזיציה) היא מתיחות בין שני קטבים. <span class="n">150°</span> (קווינקונקס) היא שני כוכבים שלא מדברים אותה שפה וצריכים כל הזמן להתאים את עצמם.</p>
+
+    <p>ככל שהזווית מדויקת יותר, ההיבט חזק יותר. הסטייה מהזווית המושלמת נקראת <strong>אורב</strong>, ואצלך יש שלושה היבטים מרכזיים עם אורב של פחות ממעלה אחת. הם מהדברים המעניינים ביותר במפה.</p>
+
+    <h3>הנדבך הרביעי: הבתים</h3>
+    <p>יש נדבך רביעי, <strong>הבית</strong>, שאומר <em>באיזה תחום בחיים</em> כל זה קורה: קריירה, בית, זוגיות, כסף. הנדבך הזה תלוי בשעת הלידה המדויקת. כל ארבע דקות נקודה אחרת ברקיע עולה במזרח, והנקודה הזאת, <strong>האופק העולה</strong> (האסצנדנט), קובעת את חלוקת הבתים.</p>
+
+    <p>אצלך השעה ידועה, ולכן המפה שלמה: כל הכוכבים, כל הקשרים ביניהם, האופק העולה, <strong>רום השמיים</strong> (הנקודה הגבוהה בגלגל, שקשורה לכיוון המקצועי) ושנים עשר הבתים.</p>
+
+    <div class="note v"><b>מה ודאי, ומה רגיש לדקות</b>
+    <p>רוב המפה עמידה לגמרי לטעות קטנה בשעה. <strong>האופק העולה בשור</strong> נכון לכל לידה בין 20:02 ל-00:19, ולכן הוא ודאי. <strong>הירח בקשת</strong> נכנס למזל הזה בערך ב-22:02, שעה וחצי לפני שנולדת, ולכן גם הוא ודאי. וכל המזלות של כל הכוכבים וכל ההיבטים ביניהם לא משתנים.</p>
+    <p>מה שכן רגיש הוא כמה גבולות בין בתים, כי בחיפה בשעה הזאת הבתים זזים מהר. <strong>רום השמיים</strong> עומד בגדי <span class="n">29°37′</span>, פחות מחצי מעלה מסוף המזל, ואם נולדת אחרי 23:32 הוא כבר בתחילת דלי. גם אז השליט שלו נשאר שבתאי, כך שהקריאה המקצועית כמעט לא זזה. באותו אופן ראש הדרקון, שבתאי ופלוטו יושבים כל אחד כמה דקות מגבול של בית. בכל מקום שזה משנה משהו, זה כתוב בערך של הכוכב.</p></div>
+
+    <p>כדאי לדעת שבתעודות לידה השעה מעוגלת לא פעם לחצי שעה הקרובה. אם תמצאי שעה מדויקת יותר, אפשר לחדד את הפרטים האלה.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-wheel">
+  <div class="narrow">
+    <div class="opener"><span class="g">♈︎</span><h2>הגלגל</h2><span class="t">המפה</span></div>
+    <p>זה הציור של השמיים מעל חיפה ברגע שנולדת. הטבעת החיצונית היא שנים עשר המזלות, והכוכבים ממוקמים עליה במעלה המדויקת שלהם. הגלגל מסובב כמו שנהוג לצייר מפת לידה: האופק העולה משמאל, כלומר הצד השמאלי הוא המזרח, והחלק העליון הוא השמיים שמעל הראש.</p>
+  </div>
+
+  <figure class="plate">
+<svg viewBox="-34 -34 868 868" width="100%" role="img" aria-label="גלגל מפת הלידה של דנה, 10 באוגוסט 1989, 23:30, חיפה" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.gl{font-size:23px;font-family:'Apple Symbols','Segoe UI Symbol','Noto Sans Symbols2','Noto Sans Symbols 2','DejaVu Sans',serif}.pg{font-size:24px;font-family:'Apple Symbols','Segoe UI Symbol','Noto Sans Symbols2','Noto Sans Symbols 2','DejaVu Sans',serif}.dg{font-size:12px;font-family:'IBM Plex Mono',ui-monospace,monospace}.hn{font-size:12px;font-family:'IBM Plex Mono',ui-monospace,monospace}.ax{font-size:15px;font-weight:700;font-family:Assistant,'Arial Hebrew',Arial,sans-serif}a.pw{cursor:pointer}a.pw .ring{transition:stroke-width .12s,stroke .12s}a.pw:hover .ring,a.pw:focus .ring{stroke:#a2762f;stroke-width:3.6}a.pw:hover .glyph,a.pw:focus .glyph,a.pw:hover .lab,a.pw:focus .lab{fill:#a2762f}@media (prefers-reduced-motion:reduce){a.pw .ring{transition:none}}</style></defs>
+<circle cx="400" cy="400" r="384" fill="#ffffff" stroke="#c5c1b4" stroke-width="1.5"/>
+<path d="M 129.29 127.65 A 384 384 0 0 0 29.39 299.49 L 75.71 312.05 A 336 336 0 0 1 163.13 161.69 Z" fill="#f7ebe4" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="88.8" y="219.1" fill="#a8502a" text-anchor="middle" dominant-baseline="central">♈︎</text>
+<path d="M 29.39 299.49 A 384 384 0 0 0 28.79 498.26 L 75.19 485.98 A 336 336 0 0 1 75.71 312.05 Z" fill="#ecf1e8" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="40.0" y="398.9" fill="#4a6b3e" text-anchor="middle" dominant-baseline="central">♉︎</text>
+<path d="M 28.79 498.26 A 384 384 0 0 0 127.65 670.71 L 161.69 636.87 A 336 336 0 0 1 75.19 485.98 Z" fill="#e7eef6" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="87.7" y="579.1" fill="#2f5a86" text-anchor="middle" dominant-baseline="central">♊︎</text>
+<path d="M 127.65 670.71 A 384 384 0 0 0 299.49 770.61 L 312.05 724.29 A 336 336 0 0 1 161.69 636.87 Z" fill="#efebf7" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="219.1" y="711.2" fill="#5f4a8c" text-anchor="middle" dominant-baseline="central">♋︎</text>
+<path d="M 299.49 770.61 A 384 384 0 0 0 498.26 771.21 L 485.98 724.81 A 336 336 0 0 1 312.05 724.29 Z" fill="#f7ebe4" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="398.9" y="760.0" fill="#a8502a" text-anchor="middle" dominant-baseline="central">♌︎</text>
+<path d="M 498.26 771.21 A 384 384 0 0 0 670.71 672.35 L 636.87 638.31 A 336 336 0 0 1 485.98 724.81 Z" fill="#ecf1e8" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="579.1" y="712.3" fill="#4a6b3e" text-anchor="middle" dominant-baseline="central">♍︎</text>
+<path d="M 670.71 672.35 A 384 384 0 0 0 770.61 500.51 L 724.29 487.95 A 336 336 0 0 1 636.87 638.31 Z" fill="#e7eef6" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="711.2" y="580.9" fill="#2f5a86" text-anchor="middle" dominant-baseline="central">♎︎</text>
+<path d="M 770.61 500.51 A 384 384 0 0 0 771.21 301.74 L 724.81 314.02 A 336 336 0 0 1 724.29 487.95 Z" fill="#efebf7" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="760.0" y="401.1" fill="#5f4a8c" text-anchor="middle" dominant-baseline="central">♏︎</text>
+<path d="M 771.21 301.74 A 384 384 0 0 0 672.35 129.29 L 638.31 163.13 A 336 336 0 0 1 724.81 314.02 Z" fill="#f7ebe4" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="712.3" y="220.9" fill="#a8502a" text-anchor="middle" dominant-baseline="central">♐︎</text>
+<path d="M 672.35 129.29 A 384 384 0 0 0 500.51 29.39 L 487.95 75.71 A 336 336 0 0 1 638.31 163.13 Z" fill="#ecf1e8" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="580.9" y="88.8" fill="#4a6b3e" text-anchor="middle" dominant-baseline="central">♑︎</text>
+<path d="M 500.51 29.39 A 384 384 0 0 0 301.74 28.79 L 314.02 75.19 A 336 336 0 0 1 487.95 75.71 Z" fill="#e7eef6" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="401.1" y="40.0" fill="#2f5a86" text-anchor="middle" dominant-baseline="central">♒︎</text>
+<path d="M 301.74 28.79 A 384 384 0 0 0 129.29 127.65 L 163.13 161.69 A 336 336 0 0 1 314.02 75.19 Z" fill="#efebf7" stroke="#c5c1b4" stroke-width="1"/>
+<text class="gl" x="220.9" y="87.7" fill="#5f4a8c" text-anchor="middle" dominant-baseline="central">♓︎</text>
+<line x1="163.13" y1="161.69" x2="172.30" y2="170.91" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="159.01" y1="165.86" x2="161.88" y2="168.65" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="154.96" y1="170.11" x2="157.88" y2="172.84" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="150.99" y1="174.42" x2="153.95" y2="177.10" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="147.09" y1="178.80" x2="150.10" y2="181.43" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="143.26" y1="183.24" x2="149.38" y2="188.41" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="139.52" y1="187.76" x2="142.62" y2="190.28" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="135.86" y1="192.34" x2="139.00" y2="194.81" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="132.27" y1="196.98" x2="135.46" y2="199.40" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="128.77" y1="201.68" x2="132.00" y2="204.04" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="125.35" y1="206.45" x2="135.98" y2="213.93" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="122.01" y1="211.27" x2="125.32" y2="213.51" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="118.76" y1="216.15" x2="122.11" y2="218.34" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="115.60" y1="221.08" x2="118.98" y2="223.21" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="112.52" y1="226.08" x2="115.94" y2="228.15" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="109.53" y1="231.12" x2="116.44" y2="235.14" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="106.62" y1="236.21" x2="110.12" y2="238.16" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="103.81" y1="241.36" x2="107.33" y2="243.25" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="101.09" y1="246.55" x2="104.64" y2="248.38" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="98.45" y1="251.79" x2="102.04" y2="253.56" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="95.91" y1="257.08" x2="107.68" y2="262.61" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="93.46" y1="262.41" x2="97.11" y2="264.05" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="91.11" y1="267.78" x2="94.79" y2="269.35" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="88.85" y1="273.19" x2="92.55" y2="274.70" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="86.68" y1="278.64" x2="90.41" y2="280.08" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="84.61" y1="284.13" x2="92.12" y2="286.88" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="82.64" y1="289.65" x2="86.42" y2="290.96" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="80.76" y1="295.20" x2="84.56" y2="296.45" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="78.98" y1="300.79" x2="82.80" y2="301.97" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="77.30" y1="306.41" x2="81.14" y2="307.52" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="75.71" y1="312.05" x2="88.26" y2="315.46" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="74.23" y1="317.73" x2="78.11" y2="318.71" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="72.84" y1="323.42" x2="76.74" y2="324.34" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="71.56" y1="329.15" x2="75.47" y2="329.99" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="70.37" y1="334.89" x2="74.29" y2="335.66" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="69.28" y1="340.65" x2="77.16" y2="342.07" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="68.30" y1="346.43" x2="72.25" y2="347.07" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="67.41" y1="352.23" x2="71.37" y2="352.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="66.63" y1="358.04" x2="70.60" y2="358.54" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="65.95" y1="363.87" x2="69.93" y2="364.30" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="65.37" y1="369.70" x2="78.32" y2="370.87" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="64.89" y1="375.55" x2="68.88" y2="375.84" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.52" y1="381.40" x2="68.51" y2="381.62" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.24" y1="387.26" x2="68.24" y2="387.41" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.07" y1="393.12" x2="68.07" y2="393.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.00" y1="398.98" x2="72.00" y2="399.01" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="64.03" y1="404.85" x2="68.03" y2="404.79" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.17" y1="410.71" x2="68.17" y2="410.58" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.41" y1="416.57" x2="68.40" y2="416.37" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="64.75" y1="422.42" x2="68.74" y2="422.16" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="65.19" y1="428.27" x2="78.15" y2="427.18" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="65.74" y1="434.11" x2="69.72" y2="433.70" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="66.38" y1="439.94" x2="70.35" y2="439.46" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="67.13" y1="445.75" x2="71.09" y2="445.21" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="67.98" y1="451.56" x2="71.93" y2="450.94" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="68.93" y1="457.34" x2="76.81" y2="455.98" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="69.98" y1="463.11" x2="73.91" y2="462.36" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="71.13" y1="468.86" x2="75.05" y2="468.04" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="72.38" y1="474.59" x2="76.28" y2="473.70" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="73.74" y1="480.30" x2="77.62" y2="479.34" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="75.19" y1="485.98" x2="87.75" y2="482.65" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="76.74" y1="491.64" x2="80.59" y2="490.54" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="78.39" y1="497.26" x2="82.21" y2="496.11" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="80.13" y1="502.86" x2="83.94" y2="501.64" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="81.98" y1="508.43" x2="85.76" y2="507.14" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="83.92" y1="513.96" x2="91.44" y2="511.25" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="85.95" y1="519.46" x2="89.69" y2="518.04" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="88.09" y1="524.92" x2="91.80" y2="523.44" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="90.31" y1="530.35" x2="94.00" y2="528.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="92.64" y1="535.73" x2="96.30" y2="534.12" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="95.05" y1="541.08" x2="106.85" y2="535.62" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="97.56" y1="546.38" x2="101.16" y2="544.63" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="100.16" y1="551.63" x2="103.73" y2="549.83" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="102.85" y1="556.84" x2="106.39" y2="554.98" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="105.64" y1="562.00" x2="109.14" y2="560.08" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="108.51" y1="567.12" x2="115.45" y2="563.14" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="111.47" y1="572.18" x2="114.90" y2="570.13" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="114.52" y1="577.19" x2="117.92" y2="575.08" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="117.65" y1="582.14" x2="121.01" y2="579.98" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="120.88" y1="587.04" x2="124.20" y2="584.82" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="124.18" y1="591.89" x2="134.85" y2="584.46" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="127.57" y1="596.67" x2="130.82" y2="594.33" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="131.05" y1="601.40" x2="134.25" y2="599.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="134.60" y1="606.06" x2="137.76" y2="603.61" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="138.24" y1="610.66" x2="141.36" y2="608.15" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="141.96" y1="615.20" x2="148.10" y2="610.07" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="145.75" y1="619.67" x2="148.78" y2="617.05" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="149.62" y1="624.07" x2="152.60" y2="621.40" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="153.57" y1="628.41" x2="156.51" y2="625.69" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="157.60" y1="632.67" x2="160.48" y2="629.90" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="161.69" y1="636.87" x2="170.91" y2="627.70" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="165.86" y1="640.99" x2="168.65" y2="638.12" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="170.11" y1="645.04" x2="172.84" y2="642.12" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="174.42" y1="649.01" x2="177.10" y2="646.05" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="178.80" y1="652.91" x2="181.43" y2="649.90" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="183.24" y1="656.74" x2="188.41" y2="650.62" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="187.76" y1="660.48" x2="190.28" y2="657.38" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="192.34" y1="664.14" x2="194.81" y2="661.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="196.98" y1="667.73" x2="199.40" y2="664.54" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="201.68" y1="671.23" x2="204.04" y2="668.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="206.45" y1="674.65" x2="213.93" y2="664.02" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="211.27" y1="677.99" x2="213.51" y2="674.68" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="216.15" y1="681.24" x2="218.34" y2="677.89" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="221.08" y1="684.40" x2="223.21" y2="681.02" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="226.08" y1="687.48" x2="228.15" y2="684.06" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="231.12" y1="690.47" x2="235.14" y2="683.56" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="236.21" y1="693.38" x2="238.16" y2="689.88" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="241.36" y1="696.19" x2="243.25" y2="692.67" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="246.55" y1="698.91" x2="248.38" y2="695.36" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="251.79" y1="701.55" x2="253.56" y2="697.96" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="257.08" y1="704.09" x2="262.61" y2="692.32" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="262.41" y1="706.54" x2="264.05" y2="702.89" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="267.78" y1="708.89" x2="269.35" y2="705.21" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="273.19" y1="711.15" x2="274.70" y2="707.45" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="278.64" y1="713.32" x2="280.08" y2="709.59" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="284.13" y1="715.39" x2="286.88" y2="707.88" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="289.65" y1="717.36" x2="290.96" y2="713.58" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="295.20" y1="719.24" x2="296.45" y2="715.44" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="300.79" y1="721.02" x2="301.97" y2="717.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="306.41" y1="722.70" x2="307.52" y2="718.86" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="312.05" y1="724.29" x2="315.46" y2="711.74" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="317.73" y1="725.77" x2="318.71" y2="721.89" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="323.42" y1="727.16" x2="324.34" y2="723.26" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="329.15" y1="728.44" x2="329.99" y2="724.53" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="334.89" y1="729.63" x2="335.66" y2="725.71" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="340.65" y1="730.72" x2="342.07" y2="722.84" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="346.43" y1="731.70" x2="347.07" y2="727.75" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="352.23" y1="732.59" x2="352.80" y2="728.63" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="358.04" y1="733.37" x2="358.54" y2="729.40" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="363.87" y1="734.05" x2="364.30" y2="730.07" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="369.70" y1="734.63" x2="370.87" y2="721.68" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="375.55" y1="735.11" x2="375.84" y2="731.12" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="381.40" y1="735.48" x2="381.62" y2="731.49" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="387.26" y1="735.76" x2="387.41" y2="731.76" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="393.12" y1="735.93" x2="393.20" y2="731.93" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="398.98" y1="736.00" x2="399.01" y2="728.00" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="404.85" y1="735.97" x2="404.79" y2="731.97" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="410.71" y1="735.83" x2="410.58" y2="731.83" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="416.57" y1="735.59" x2="416.37" y2="731.60" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="422.42" y1="735.25" x2="422.16" y2="731.26" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="428.27" y1="734.81" x2="427.18" y2="721.85" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="434.11" y1="734.26" x2="433.70" y2="730.28" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="439.94" y1="733.62" x2="439.46" y2="729.65" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="445.75" y1="732.87" x2="445.21" y2="728.91" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="451.56" y1="732.02" x2="450.94" y2="728.07" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="457.34" y1="731.07" x2="455.98" y2="723.19" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="463.11" y1="730.02" x2="462.36" y2="726.09" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="468.86" y1="728.87" x2="468.04" y2="724.95" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="474.59" y1="727.62" x2="473.70" y2="723.72" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="480.30" y1="726.26" x2="479.34" y2="722.38" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="485.98" y1="724.81" x2="482.65" y2="712.25" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="491.64" y1="723.26" x2="490.54" y2="719.41" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="497.26" y1="721.61" x2="496.11" y2="717.79" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="502.86" y1="719.87" x2="501.64" y2="716.06" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="508.43" y1="718.02" x2="507.14" y2="714.24" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="513.96" y1="716.08" x2="511.25" y2="708.56" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="519.46" y1="714.05" x2="518.04" y2="710.31" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="524.92" y1="711.91" x2="523.44" y2="708.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="530.35" y1="709.69" x2="528.80" y2="706.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="535.73" y1="707.36" x2="534.12" y2="703.70" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="541.08" y1="704.95" x2="535.62" y2="693.15" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="546.38" y1="702.44" x2="544.63" y2="698.84" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="551.63" y1="699.84" x2="549.83" y2="696.27" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="556.84" y1="697.15" x2="554.98" y2="693.61" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="562.00" y1="694.36" x2="560.08" y2="690.86" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="567.12" y1="691.49" x2="563.14" y2="684.55" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="572.18" y1="688.53" x2="570.13" y2="685.10" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="577.19" y1="685.48" x2="575.08" y2="682.08" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="582.14" y1="682.35" x2="579.98" y2="678.99" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="587.04" y1="679.12" x2="584.82" y2="675.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="591.89" y1="675.82" x2="584.46" y2="665.15" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="596.67" y1="672.43" x2="594.33" y2="669.18" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="601.40" y1="668.95" x2="599.00" y2="665.75" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="606.06" y1="665.40" x2="603.61" y2="662.24" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="610.66" y1="661.76" x2="608.15" y2="658.64" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="615.20" y1="658.04" x2="610.07" y2="651.90" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="619.67" y1="654.25" x2="617.05" y2="651.22" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="624.07" y1="650.38" x2="621.40" y2="647.40" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="628.41" y1="646.43" x2="625.69" y2="643.49" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="632.67" y1="642.40" x2="629.90" y2="639.52" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="636.87" y1="638.31" x2="627.70" y2="629.09" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="640.99" y1="634.14" x2="638.12" y2="631.35" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="645.04" y1="629.89" x2="642.12" y2="627.16" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="649.01" y1="625.58" x2="646.05" y2="622.90" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="652.91" y1="621.20" x2="649.90" y2="618.57" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="656.74" y1="616.76" x2="650.62" y2="611.59" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="660.48" y1="612.24" x2="657.38" y2="609.72" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="664.14" y1="607.66" x2="661.00" y2="605.19" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="667.73" y1="603.02" x2="664.54" y2="600.60" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="671.23" y1="598.32" x2="668.00" y2="595.96" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="674.65" y1="593.55" x2="664.02" y2="586.07" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="677.99" y1="588.73" x2="674.68" y2="586.49" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="681.24" y1="583.85" x2="677.89" y2="581.66" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="684.40" y1="578.92" x2="681.02" y2="576.79" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="687.48" y1="573.92" x2="684.06" y2="571.85" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="690.47" y1="568.88" x2="683.56" y2="564.86" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="693.38" y1="563.79" x2="689.88" y2="561.84" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="696.19" y1="558.64" x2="692.67" y2="556.75" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="698.91" y1="553.45" x2="695.36" y2="551.62" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="701.55" y1="548.21" x2="697.96" y2="546.44" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="704.09" y1="542.92" x2="692.32" y2="537.39" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="706.54" y1="537.59" x2="702.89" y2="535.95" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="708.89" y1="532.22" x2="705.21" y2="530.65" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="711.15" y1="526.81" x2="707.45" y2="525.30" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="713.32" y1="521.36" x2="709.59" y2="519.92" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="715.39" y1="515.87" x2="707.88" y2="513.12" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="717.36" y1="510.35" x2="713.58" y2="509.04" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="719.24" y1="504.80" x2="715.44" y2="503.55" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="721.02" y1="499.21" x2="717.20" y2="498.03" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="722.70" y1="493.59" x2="718.86" y2="492.48" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="724.29" y1="487.95" x2="711.74" y2="484.54" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="725.77" y1="482.27" x2="721.89" y2="481.29" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="727.16" y1="476.58" x2="723.26" y2="475.66" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="728.44" y1="470.85" x2="724.53" y2="470.01" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="729.63" y1="465.11" x2="725.71" y2="464.34" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="730.72" y1="459.35" x2="722.84" y2="457.93" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="731.70" y1="453.57" x2="727.75" y2="452.93" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="732.59" y1="447.77" x2="728.63" y2="447.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="733.37" y1="441.96" x2="729.40" y2="441.46" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="734.05" y1="436.13" x2="730.07" y2="435.70" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="734.63" y1="430.30" x2="721.68" y2="429.13" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="735.11" y1="424.45" x2="731.12" y2="424.16" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.48" y1="418.60" x2="731.49" y2="418.38" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.76" y1="412.74" x2="731.76" y2="412.59" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.93" y1="406.88" x2="731.93" y2="406.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="736.00" y1="401.02" x2="728.00" y2="400.99" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="735.97" y1="395.15" x2="731.97" y2="395.21" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.83" y1="389.29" x2="731.83" y2="389.42" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.59" y1="383.43" x2="731.60" y2="383.63" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="735.25" y1="377.58" x2="731.26" y2="377.84" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="734.81" y1="371.73" x2="721.85" y2="372.82" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="734.26" y1="365.89" x2="730.28" y2="366.30" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="733.62" y1="360.06" x2="729.65" y2="360.54" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="732.87" y1="354.25" x2="728.91" y2="354.79" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="732.02" y1="348.44" x2="728.07" y2="349.06" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="731.07" y1="342.66" x2="723.19" y2="344.02" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="730.02" y1="336.89" x2="726.09" y2="337.64" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="728.87" y1="331.14" x2="724.95" y2="331.96" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="727.62" y1="325.41" x2="723.72" y2="326.30" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="726.26" y1="319.70" x2="722.38" y2="320.66" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="724.81" y1="314.02" x2="712.25" y2="317.35" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="723.26" y1="308.36" x2="719.41" y2="309.46" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="721.61" y1="302.74" x2="717.79" y2="303.89" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="719.87" y1="297.14" x2="716.06" y2="298.36" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="718.02" y1="291.57" x2="714.24" y2="292.86" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="716.08" y1="286.04" x2="708.56" y2="288.75" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="714.05" y1="280.54" x2="710.31" y2="281.96" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="711.91" y1="275.08" x2="708.20" y2="276.56" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="709.69" y1="269.65" x2="706.00" y2="271.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="707.36" y1="264.27" x2="703.70" y2="265.88" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="704.95" y1="258.92" x2="693.15" y2="264.38" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="702.44" y1="253.62" x2="698.84" y2="255.37" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="699.84" y1="248.37" x2="696.27" y2="250.17" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="697.15" y1="243.16" x2="693.61" y2="245.02" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="694.36" y1="238.00" x2="690.86" y2="239.92" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="691.49" y1="232.88" x2="684.55" y2="236.86" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="688.53" y1="227.82" x2="685.10" y2="229.87" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="685.48" y1="222.81" x2="682.08" y2="224.92" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="682.35" y1="217.86" x2="678.99" y2="220.02" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="679.12" y1="212.96" x2="675.80" y2="215.18" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="675.82" y1="208.11" x2="665.15" y2="215.54" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="672.43" y1="203.33" x2="669.18" y2="205.67" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="668.95" y1="198.60" x2="665.75" y2="201.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="665.40" y1="193.94" x2="662.24" y2="196.39" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="661.76" y1="189.34" x2="658.64" y2="191.85" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="658.04" y1="184.80" x2="651.90" y2="189.93" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="654.25" y1="180.33" x2="651.22" y2="182.95" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="650.38" y1="175.93" x2="647.40" y2="178.60" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="646.43" y1="171.59" x2="643.49" y2="174.31" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="642.40" y1="167.33" x2="639.52" y2="170.10" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="638.31" y1="163.13" x2="629.09" y2="172.30" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="634.14" y1="159.01" x2="631.35" y2="161.88" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="629.89" y1="154.96" x2="627.16" y2="157.88" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="625.58" y1="150.99" x2="622.90" y2="153.95" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="621.20" y1="147.09" x2="618.57" y2="150.10" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="616.76" y1="143.26" x2="611.59" y2="149.38" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="612.24" y1="139.52" x2="609.72" y2="142.62" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="607.66" y1="135.86" x2="605.19" y2="139.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="603.02" y1="132.27" x2="600.60" y2="135.46" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="598.32" y1="128.77" x2="595.96" y2="132.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="593.55" y1="125.35" x2="586.07" y2="135.98" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="588.73" y1="122.01" x2="586.49" y2="125.32" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="583.85" y1="118.76" x2="581.66" y2="122.11" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="578.92" y1="115.60" x2="576.79" y2="118.98" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="573.92" y1="112.52" x2="571.85" y2="115.94" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="568.88" y1="109.53" x2="564.86" y2="116.44" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="563.79" y1="106.62" x2="561.84" y2="110.12" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="558.64" y1="103.81" x2="556.75" y2="107.33" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="553.45" y1="101.09" x2="551.62" y2="104.64" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="548.21" y1="98.45" x2="546.44" y2="102.04" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="542.92" y1="95.91" x2="537.39" y2="107.68" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="537.59" y1="93.46" x2="535.95" y2="97.11" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="532.22" y1="91.11" x2="530.65" y2="94.79" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="526.81" y1="88.85" x2="525.30" y2="92.55" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="521.36" y1="86.68" x2="519.92" y2="90.41" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="515.87" y1="84.61" x2="513.12" y2="92.12" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="510.35" y1="82.64" x2="509.04" y2="86.42" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="504.80" y1="80.76" x2="503.55" y2="84.56" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="499.21" y1="78.98" x2="498.03" y2="82.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="493.59" y1="77.30" x2="492.48" y2="81.14" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="487.95" y1="75.71" x2="484.54" y2="88.26" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="482.27" y1="74.23" x2="481.29" y2="78.11" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="476.58" y1="72.84" x2="475.66" y2="76.74" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="470.85" y1="71.56" x2="470.01" y2="75.47" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="465.11" y1="70.37" x2="464.34" y2="74.29" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="459.35" y1="69.28" x2="457.93" y2="77.16" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="453.57" y1="68.30" x2="452.93" y2="72.25" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="447.77" y1="67.41" x2="447.20" y2="71.37" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="441.96" y1="66.63" x2="441.46" y2="70.60" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="436.13" y1="65.95" x2="435.70" y2="69.93" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="430.30" y1="65.37" x2="429.13" y2="78.32" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="424.45" y1="64.89" x2="424.16" y2="68.88" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="418.60" y1="64.52" x2="418.38" y2="68.51" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="412.74" y1="64.24" x2="412.59" y2="68.24" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="406.88" y1="64.07" x2="406.80" y2="68.07" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="401.02" y1="64.00" x2="400.99" y2="72.00" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="395.15" y1="64.03" x2="395.21" y2="68.03" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="389.29" y1="64.17" x2="389.42" y2="68.17" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="383.43" y1="64.41" x2="383.63" y2="68.40" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="377.58" y1="64.75" x2="377.84" y2="68.74" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="371.73" y1="65.19" x2="372.82" y2="78.15" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="365.89" y1="65.74" x2="366.30" y2="69.72" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="360.06" y1="66.38" x2="360.54" y2="70.35" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="354.25" y1="67.13" x2="354.79" y2="71.09" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="348.44" y1="67.98" x2="349.06" y2="71.93" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="342.66" y1="68.93" x2="344.02" y2="76.81" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="336.89" y1="69.98" x2="337.64" y2="73.91" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="331.14" y1="71.13" x2="331.96" y2="75.05" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="325.41" y1="72.38" x2="326.30" y2="76.28" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="319.70" y1="73.74" x2="320.66" y2="77.62" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="314.02" y1="75.19" x2="317.35" y2="87.75" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="308.36" y1="76.74" x2="309.46" y2="80.59" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="302.74" y1="78.39" x2="303.89" y2="82.21" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="297.14" y1="80.13" x2="298.36" y2="83.94" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="291.57" y1="81.98" x2="292.86" y2="85.76" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="286.04" y1="83.92" x2="288.75" y2="91.44" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="280.54" y1="85.95" x2="281.96" y2="89.69" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="275.08" y1="88.09" x2="276.56" y2="91.80" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="269.65" y1="90.31" x2="271.20" y2="94.00" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="264.27" y1="92.64" x2="265.88" y2="96.30" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="258.92" y1="95.05" x2="264.38" y2="106.85" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="253.62" y1="97.56" x2="255.37" y2="101.16" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="248.37" y1="100.16" x2="250.17" y2="103.73" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="243.16" y1="102.85" x2="245.02" y2="106.39" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="238.00" y1="105.64" x2="239.92" y2="109.14" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="232.88" y1="108.51" x2="236.86" y2="115.45" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="227.82" y1="111.47" x2="229.87" y2="114.90" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="222.81" y1="114.52" x2="224.92" y2="117.92" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="217.86" y1="117.65" x2="220.02" y2="121.01" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="212.96" y1="120.88" x2="215.18" y2="124.20" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="208.11" y1="124.18" x2="215.54" y2="134.85" stroke="#a5a094" stroke-width="1.3"/>
+<line x1="203.33" y1="127.57" x2="205.67" y2="130.82" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="198.60" y1="131.05" x2="201.00" y2="134.25" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="193.94" y1="134.60" x2="196.39" y2="137.76" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="189.34" y1="138.24" x2="191.85" y2="141.36" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="184.80" y1="141.96" x2="189.93" y2="148.10" stroke="#a5a094" stroke-width="0.8"/>
+<line x1="180.33" y1="145.75" x2="182.95" y2="148.78" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="175.93" y1="149.62" x2="178.60" y2="152.60" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="171.59" y1="153.57" x2="174.31" y2="156.51" stroke="#a5a094" stroke-width="0.45"/>
+<line x1="167.33" y1="157.60" x2="170.10" y2="160.48" stroke="#a5a094" stroke-width="0.45"/>
+<circle cx="400" cy="400" r="222" fill="#fdfcfa" stroke="#d8d2c7" stroke-width="1"/>
+<line x1="204.50" y1="505.19" x2="116.44" y2="552.58" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="261.47" y1="573.48" x2="199.07" y2="651.62" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="444.77" y1="617.44" x2="464.94" y2="715.38" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="562.93" y1="550.79" x2="636.32" y2="618.71" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="595.50" y1="294.81" x2="683.56" y2="247.42" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="538.53" y1="226.52" x2="600.93" y2="148.38" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="355.23" y1="182.56" x2="335.06" y2="84.62" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="237.07" y1="249.21" x2="163.68" y2="181.29" stroke="#c9c3b6" stroke-width="1" stroke-dasharray="2 3"/>
+<text class="hn" x="173.1" y="457.2" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">1</text>
+<text class="hn" x="220.3" y="549.9" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">2</text>
+<text class="hn" x="293.5" y="608.3" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">3</text>
+<text class="hn" x="392.0" y="633.9" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">4</text>
+<text class="hn" x="515.0" y="603.8" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">5</text>
+<text class="hn" x="617.9" y="485.3" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">6</text>
+<text class="hn" x="626.9" y="342.8" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">7</text>
+<text class="hn" x="579.7" y="250.1" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">8</text>
+<text class="hn" x="506.5" y="191.7" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">9</text>
+<text class="hn" x="408.0" y="166.1" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">10</text>
+<text class="hn" x="285.0" y="196.2" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">11</text>
+<text class="hn" x="182.1" y="314.7" fill="#8e94a8" text-anchor="middle" dominant-baseline="central">12</text>
+<line x1="411.62" y1="621.70" x2="621.75" y2="410.48" stroke="#a03a30" stroke-width="1.2" stroke-dasharray="none" opacity=".72"/>
+<line x1="613.85" y1="340.40" x2="473.84" y2="609.36" stroke="#a03a30" stroke-width="1.7" stroke-dasharray="none" opacity=".72"/>
+<line x1="613.85" y1="340.40" x2="248.54" y2="562.31" stroke="#8a8580" stroke-width="1.8" stroke-dasharray="5 4" opacity=".72"/>
+<line x1="491.34" y1="602.34" x2="473.84" y2="609.36" stroke="#a2762f" stroke-width="1.6" stroke-dasharray="3 3" opacity=".72"/>
+<line x1="491.34" y1="602.34" x2="533.91" y2="222.93" stroke="#3d6e4f" stroke-width="2.3" stroke-dasharray="none" opacity=".72"/>
+<line x1="491.34" y1="602.34" x2="527.74" y2="218.43" stroke="#3d6e4f" stroke-width="2.5" stroke-dasharray="none" opacity=".72"/>
+<line x1="491.34" y1="602.34" x2="621.75" y2="410.48" stroke="#3d6e4f" stroke-width="1.6" stroke-dasharray="none" opacity=".72"/>
+<line x1="491.34" y1="602.34" x2="280.94" y2="587.37" stroke="#3d6e4f" stroke-width="1.5" stroke-dasharray="none" opacity=".72"/>
+<line x1="473.84" y1="609.36" x2="248.54" y2="562.31" stroke="#3d6e4f" stroke-width="1.8" stroke-dasharray="none" opacity=".72"/>
+<line x1="473.84" y1="609.36" x2="533.91" y2="222.93" stroke="#3d6e4f" stroke-width="1.8" stroke-dasharray="none" opacity=".72"/>
+<line x1="473.84" y1="609.36" x2="552.72" y2="238.87" stroke="#3d6e4f" stroke-width="1.9" stroke-dasharray="none" opacity=".72"/>
+<line x1="473.84" y1="609.36" x2="527.74" y2="218.43" stroke="#3d6e4f" stroke-width="1.3" stroke-dasharray="none" opacity=".72"/>
+<line x1="248.54" y1="562.31" x2="533.91" y2="222.93" stroke="#a03a30" stroke-width="1.3" stroke-dasharray="none" opacity=".72"/>
+<line x1="248.54" y1="562.31" x2="552.72" y2="238.87" stroke="#a03a30" stroke-width="2.5" stroke-dasharray="none" opacity=".72"/>
+<line x1="248.54" y1="562.31" x2="527.74" y2="218.43" stroke="#a03a30" stroke-width="0.9" stroke-dasharray="none" opacity=".72"/>
+<line x1="533.91" y1="222.93" x2="552.72" y2="238.87" stroke="#a2762f" stroke-width="1.2" stroke-dasharray="3 3" opacity=".72"/>
+<line x1="533.91" y1="222.93" x2="527.74" y2="218.43" stroke="#a2762f" stroke-width="2.2" stroke-dasharray="3 3" opacity=".72"/>
+<line x1="533.91" y1="222.93" x2="621.75" y2="410.48" stroke="#3d6e4f" stroke-width="1.1" stroke-dasharray="none" opacity=".72"/>
+<line x1="527.74" y1="218.43" x2="621.75" y2="410.48" stroke="#3d6e4f" stroke-width="1.8" stroke-dasharray="none" opacity=".72"/>
+<line x1="527.74" y1="218.43" x2="280.94" y2="587.37" stroke="#a03a30" stroke-width="2.0" stroke-dasharray="none" opacity=".72"/>
+<line x1="621.75" y1="410.48" x2="280.94" y2="587.37" stroke="#3d6e4f" stroke-width="2.5" stroke-dasharray="none" opacity=".72"/>
+<line x1="178.00" y1="400.00" x2="8.00" y2="400.00" stroke="#1a2340" stroke-width="2.2"/>
+<a class="pw" href="#p-asc"><title>האופק העולה, לפירוש המלא</title><text class="ax lab" x="-12.0" y="400.0" fill="#1a2340" text-anchor="middle" dominant-baseline="central">אופק</text></a>
+<line x1="622.00" y1="400.00" x2="792.00" y2="400.00" stroke="#1a2340" stroke-width="2.2"/>
+<a class="pw" href="#p-asc"><title>האופק העולה, לפירוש המלא</title><text class="ax lab" x="812.0" y="400.0" fill="#1a2340" text-anchor="middle" dominant-baseline="central">שוקע</text></a>
+<line x1="459.53" y1="186.13" x2="505.12" y2="22.36" stroke="#1a2340" stroke-width="2.2"/>
+<a class="pw" href="#p-mc"><title>רום השמיים, לפירוש המלא</title><text class="ax lab" x="510.5" y="3.1" fill="#1a2340" text-anchor="middle" dominant-baseline="central">רום</text></a>
+<line x1="340.47" y1="613.87" x2="294.88" y2="777.64" stroke="#1a2340" stroke-width="2.2"/>
+<a class="pw" href="#p-mc"><title>רום השמיים, לפירוש המלא</title><text class="ax lab" x="289.5" y="796.9" fill="#1a2340" text-anchor="middle" dominant-baseline="central">שורש</text></a>
+<a class="pw" href="#p-sun"><title>השמש, אריה 18°10′, לפירוש המלא</title>
+<line x1="416.85" y1="721.56" x2="416.02" y2="705.58" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="416.85" cy="721.56" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="415.18" cy="689.60" r="16" fill="#fdf4e0" stroke="#a2762f" stroke-width="2.2"/>
+<text class="pg glyph" x="415.2" y="689.6" fill="#1a2340" text-anchor="middle" dominant-baseline="central">☉︎</text>
+<text class="dg lab" x="413.4" y="655.6" fill="#4a5470" text-anchor="middle" dominant-baseline="central">18°10</text>
+<circle cx="415.18" cy="689.60" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-moon"><title>הירח, קשת 00°45′, לפירוש המלא</title>
+<line x1="710.18" y1="313.56" x2="694.77" y2="317.85" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="710.18" cy="313.56" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="679.35" cy="322.15" r="16" fill="#fdf4e0" stroke="#a2762f" stroke-width="2.2"/>
+<text class="pg glyph" x="679.4" y="322.1" fill="#1a2340" text-anchor="middle" dominant-baseline="central">☽︎</text>
+<text class="dg lab" x="646.6" y="331.3" fill="#4a5470" text-anchor="middle" dominant-baseline="central">0°45</text>
+<circle cx="679.35" cy="322.15" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-mercury"><title>מרקורי, בתולה 09°28′, לפירוש המלא</title>
+<line x1="532.48" y1="693.48" x2="534.00" y2="675.10" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="532.48" cy="693.48" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="527.00" cy="660.71" r="16" fill="#fdf4e0" stroke="#a2762f" stroke-width="2.2"/>
+<text class="pg glyph" x="527.0" y="660.7" fill="#1a2340" text-anchor="middle" dominant-baseline="central">☿︎</text>
+<text class="dg lab" x="512.1" y="630.1" fill="#4a5470" text-anchor="middle" dominant-baseline="central">9°28</text>
+<circle cx="527.00" cy="660.71" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-venus"><title>ונוס, בתולה 21°23′, לפירוש המלא</title>
+<line x1="590.18" y1="659.84" x2="580.73" y2="646.92" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="590.18" cy="659.84" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="571.28" cy="634.01" r="16" fill="#fdf4e0" stroke="#a2762f" stroke-width="2.2"/>
+<text class="pg glyph" x="571.3" y="634.0" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♀︎</text>
+<text class="dg lab" x="551.2" y="606.6" fill="#4a5470" text-anchor="middle" dominant-baseline="central">21°23</text>
+<circle cx="571.28" cy="634.01" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-mars"><title>מאדים, בתולה 04°36′, לפירוש המלא</title>
+<line x1="507.10" y1="703.67" x2="493.29" y2="691.43" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="507.10" cy="703.67" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="488.42" cy="676.19" r="16" fill="#fdf4e0" stroke="#a2762f" stroke-width="2.2"/>
+<text class="pg glyph" x="488.4" y="676.2" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♂︎</text>
+<text class="dg lab" x="478.0" y="643.8" fill="#4a5470" text-anchor="middle" dominant-baseline="central">4°36</text>
+<circle cx="488.42" cy="676.19" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-jupiter"><title>צדק, סרטן 02°09′, לפירוש המלא</title>
+<line x1="180.31" y1="635.42" x2="191.23" y2="623.72" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="180.31" cy="635.42" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="202.15" cy="612.02" r="16" fill="#f1f0ea" stroke="#8e94a8" stroke-width="1.8"/>
+<text class="pg glyph" x="202.1" y="612.0" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♃︎</text>
+<text class="dg lab" x="225.3" y="587.2" fill="#4a5470" text-anchor="middle" dominant-baseline="central">2°09</text>
+<circle cx="202.15" cy="612.02" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-saturn"><title>שבתאי, גדי 08°05′, לפירוש המלא</title>
+<line x1="594.22" y1="143.17" x2="590.77" y2="160.75" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="594.22" cy="143.17" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="580.80" cy="173.26" r="16" fill="#f1f0ea" stroke="#8e94a8" stroke-width="1.8"/>
+<text class="pg glyph" x="580.8" y="173.3" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♄︎</text>
+<text class="dg lab" x="559.6" y="199.8" fill="#4a5470" text-anchor="middle" dominant-baseline="central">8°05℞</text>
+<circle cx="580.80" cy="173.26" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-uranus"><title>אורנוס, גדי 01°43′, לפירוש המלא</title>
+<line x1="621.51" y1="166.29" x2="622.97" y2="190.43" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="621.51" cy="166.29" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="611.31" cy="201.39" r="16" fill="#f1f0ea" stroke="#8e94a8" stroke-width="1.8"/>
+<text class="pg glyph" x="611.3" y="201.4" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♅︎</text>
+<text class="dg lab" x="586.5" y="224.7" fill="#4a5470" text-anchor="middle" dominant-baseline="central">1°43℞</text>
+<circle cx="611.31" cy="201.39" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-neptune"><title>נפטון, גדי 10°03′, לפירוש המלא</title>
+<line x1="585.28" y1="136.65" x2="554.61" y2="135.93" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="585.28" cy="136.65" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="546.52" cy="149.74" r="16" fill="#f1f0ea" stroke="#8e94a8" stroke-width="1.8"/>
+<text class="pg glyph" x="546.5" y="149.7" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♆︎</text>
+<text class="dg lab" x="529.3" y="179.1" fill="#4a5470" text-anchor="middle" dominant-baseline="central">10°03℞</text>
+<circle cx="546.52" cy="149.74" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-pluto"><title>פלוטו, עקרב 12°28′, לפירוש המלא</title>
+<line x1="721.64" y1="415.21" x2="705.66" y2="414.45" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="721.64" cy="415.21" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="689.68" cy="413.70" r="16" fill="#f1f0ea" stroke="#8e94a8" stroke-width="1.8"/>
+<text class="pg glyph" x="689.7" y="413.7" fill="#1a2340" text-anchor="middle" dominant-baseline="central">♇︎</text>
+<text class="dg lab" x="655.7" y="412.1" fill="#4a5470" text-anchor="middle" dominant-baseline="central">12°28</text>
+<circle cx="689.68" cy="413.70" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-node"><title>ראש הדרקון, דלי 25°51′, לפירוש המלא</title>
+<line x1="340.33" y1="83.58" x2="343.29" y2="99.30" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="340.33" cy="83.58" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="346.26" cy="115.02" r="16" fill="#ffffff" stroke="#8e94a8" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="pg glyph" x="346.3" y="115.0" fill="#1a2340" text-anchor="middle" dominant-baseline="central">☊︎</text>
+<text class="dg lab" x="352.6" y="148.4" fill="#4a5470" text-anchor="middle" dominant-baseline="central">25°51</text>
+<circle cx="346.26" cy="115.02" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-chiron"><title>כירון, סרטן 12°44′, לפירוש המלא</title>
+<line x1="227.31" y1="671.78" x2="235.89" y2="658.27" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="227.31" cy="671.78" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="244.47" cy="644.77" r="16" fill="#ffffff" stroke="#8e94a8" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="pg glyph" x="244.5" y="644.8" fill="#1a2340" text-anchor="middle" dominant-baseline="central">⚷︎</text>
+<text class="dg lab" x="262.7" y="616.1" fill="#4a5470" text-anchor="middle" dominant-baseline="central">12°44</text>
+<circle cx="244.47" cy="644.77" r="21" fill="transparent"/></a>
+<a class="pw" href="#p-lilith"><title>לילית, מאזניים 20°24′, לפירוש המלא</title>
+<line x1="692.36" y1="534.94" x2="677.84" y2="528.23" stroke="#b3ab9e" stroke-width=".9"/>
+<circle cx="692.36" cy="534.94" r="2.2" fill="#4a5470"/>
+<circle class="ring" cx="663.31" cy="521.53" r="16" fill="#ffffff" stroke="#8e94a8" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="pg glyph" x="663.3" y="521.5" fill="#1a2340" text-anchor="middle" dominant-baseline="central">⚸︎</text>
+<text class="dg lab" x="632.4" y="507.3" fill="#4a5470" text-anchor="middle" dominant-baseline="central">20°24</text>
+<circle cx="663.31" cy="521.53" r="21" fill="transparent"/></a>
+<circle cx="400" cy="400" r="58" fill="none" stroke="#d6d3c6" stroke-width="1"/>
+<circle cx="400" cy="400" r="46" fill="none" stroke="#e4e1d6" stroke-width="1"/>
+<line x1="446.00" y1="400.00" x2="458.00" y2="400.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="439.84" y1="423.00" x2="450.23" y2="429.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="423.00" y1="439.84" x2="429.00" y2="450.23" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="400.00" y1="446.00" x2="400.00" y2="458.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="377.00" y1="439.84" x2="371.00" y2="450.23" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="360.16" y1="423.00" x2="349.77" y2="429.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="354.00" y1="400.00" x2="342.00" y2="400.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="360.16" y1="377.00" x2="349.77" y2="371.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="377.00" y1="360.16" x2="371.00" y2="349.77" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="400.00" y1="354.00" x2="400.00" y2="342.00" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="423.00" y1="360.16" x2="429.00" y2="349.77" stroke="#d6d3c6" stroke-width="1"/>
+<line x1="439.84" y1="377.00" x2="450.23" y2="371.00" stroke="#d6d3c6" stroke-width="1"/>
+<text class="gl" x="400" y="401" fill="#a2762f" text-anchor="middle" dominant-baseline="central" font-size="28">♉︎</text>
+</svg>
+    <figcaption>מפת לידה, 10 באוגוסט 1989, 23:30, חיפה</figcaption>
+  </figure>
+
+  <div class="narrow">
+    <h3>איך קוראים את זה</h3>
+    <p>חמש שכבות, מבחוץ פנימה. הטבעת הצבעונית היא המזלות, והצבע מסמן את היסוד. השנתות הן מעלות. העיגולים הם הכוכבים, וקו דק מחבר כל אחד למקום המדויק שלו על הטבעת, כי כשכוכבים צפופים צריך להזיז את הסמלים כדי שאפשר יהיה לקרוא. המספרים הקטנים בטבעת הפנימית הם שנים עשר הבתים. והקווים במרכז הם ההיבטים, הקשרים בין הכוכבים.</p>
+    <p>ארבעת הקווים העבים הם הצירים של המפה: <strong>אופק</strong> (האופק העולה, משמאל), <strong>שוקע</strong> (מולו, הפתח של בית הזוגיות), <strong>רום</strong> (רום השמיים, הכיוון המקצועי) ו<strong>שורש</strong> (מולו, הבית והמשפחה).</p>
+    <div class="note"><b>הגלגל לחיץ</b>
+    <p>אפשר ללחוץ על כל אחד מהכוכבים ועל הצירים בגלגל, וזה יקפוץ ישר לפירוש המלא בפרק "הכוכבים אחד אחד".</p></div>
+
+    <h4>היסודות</h4>
+    <div class="legend">
+      <div><span class="sw fire"></span>אש: טלה, אריה, קשת</div>
+      <div><span class="sw earth"></span>אדמה: שור, בתולה, גדי</div>
+      <div><span class="sw air"></span>אוויר: תאומים, מאזניים, דלי</div>
+      <div><span class="sw water"></span>מים: סרטן, עקרב, דגים</div>
+    </div>
+
+    <h4>הקווים במרכז</h4>
+    <div class="legend">
+      <div><span class="ln" style="border-color:#3d6e4f"></span>ירוק: זרימה, עובד מעצמו</div>
+      <div><span class="ln" style="border-color:#a03a30"></span>אדום: מתח, וגם מנוע</div>
+      <div><span class="ln" style="border-color:#a2762f;border-top-style:dashed"></span>זהב מקווקו: צמידות</div>
+      <div><span class="ln" style="border-color:#8a8580;border-top-style:dashed"></span>אפור: התאמה מתמדת</div>
+    </div>
+
+    <h4>הטבעות סביב הכוכבים</h4>
+    <div class="legend">
+      <div><span class="sw gold"></span>זהב: הכוכבים האישיים</div>
+      <div><span class="sw sure"></span>אפור: הכוכבים האיטיים</div>
+      <div><span class="sw pt"></span>מקווקו: נקודות רגישות</div>
+    </div>
+    <p style="margin-top:1.1rem">הכוכבים האישיים (שמש, ירח, מרקורי, ונוס, מאדים) הם אלה שמתארים אותך אישית. האיטיים (צדק, שבתאי, אורנוס, נפטון, פלוטו) משותפים לכל מי שנולד בערך באותן שנים, ומה שהופך אותם לאישיים הוא הבית שבו הם נופלים והזוויות שהם יוצרים עם הכוכבים שלך. הנקודות (ראש הדרקון, כירון ולילית) אינן כוכבים במובן הרגיל, אבל יש להן פירוש משלהן.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-brief">
+  <div class="narrow">
+    <div class="opener"><span class="g">✦</span><h2>מי את, בשלושה משפטים</h2><span class="t">בקצרה</span></div>
+
+    <div class="thesis">
+      <p>מבחוץ את נראית רגועה, יציבה ואמינה. מבפנים יש לב של אריה שצריך בית חם ומקום לבטא את עצמו, וראש של בתולה שלא מפסיק לשפר, לדייק ולתקן.</p>
+      <p>הכוח הגדול במפה הוא המלאכה, היכולת לעשות דבר טוב באמת. האתגר הוא ליהנות ממה שאת עושה, ולקבל בחזרה את מה שאת נותנת לאחרים.</p>
+      <p>והשנה שנפתחה ביום ההולדת האחרון היא שנת צדק על השמש, שקורה פעם בשתים עשרה שנה, עם שיא שאפשר לסמן ביומן.</p>
+    </div>
+
+    <p>חמישה דברים שבולטים מיד, וכל אחד מהם מפורט בפרק הבא:</p>
+    <ul>
+      <li><strong>מרקורי בבתולה</strong> מקבל את הציון הגבוה ביותר שכוכב יכול לקבל. הראש שלך הוא כלי עבודה מהשורה הראשונה.</li>
+      <li><strong>שלושה כוכבים בבתולה בבית 5</strong>, הבית של היצירה, ההנאה והילדים. את יוצרת דרך דיוק ומלאכה.</li>
+      <li><strong>השמש באריה</strong> נמצאת במזל שלה, בבית של הבית והשורשים. הבית אצלך הוא מקור הכוח.</li>
+      <li><strong>הירח בקשת וצדק בסרטן</strong> יושבים כל אחד במזל של השני, ולכן מגבים זה את זה. זו רשת ביטחון רגשית מובנית.</li>
+      <li><strong>13 באפריל 2027</strong> צדק עוצר ומשנה כיוון כמעלה אחת מהשמש שלך. השיא של השנה.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="brk" id="s-planets">
+  <div class="narrow">
+    <div class="opener"><span class="g">☿︎</span><h2>הכוכבים אחד אחד</h2><span class="t">הכוכבים</span></div>
+    <p class="lead">חמישה עשר הגורמים במפה שלך: שלושה עשר כוכבים ונקודות, ועוד שני הצירים שהשעה המדויקת נותנת. הם מסודרים לפי סדר החשיבות שלהם אצלך ולא לפי הסדר המקובל. לכל אחד: על מה הוא אחראי, איפה הוא נמצא, ומה זה אומר עלייך בפועל.</p>
+    <p style="font-size:.9rem;color:var(--ink-3)">התווית הראשונה שליד כל כוכב היא הניקוד המסורתי: כמה הכוכב מרגיש בבית במזל שבו נחת. כוכב חזק פועל בקלות ובאופן טבעי. כוכב חלש עובד קשה יותר על אותו תפקוד, וזה בדרך כלל דווקא המקום שבו נמצאת העבודה המעניינת של החיים. התווית השנייה היא הבית, התחום בחיים שבו הכוכב פועל.</p>
+
+    <div class="planets">
+
+      <div class="pl" id="p-asc"><div class="pl-g">AC</div><div>
+        <div class="pl-head"><h3>האופק העולה</h3><span class="pl-pos">שור 15°10′</span><span class="chip hi">שליטה: ונוס בבית 5</span></div>
+        <p class="pl-role">הגוף, הרושם הראשון, הדרך שבה את ניגשת לכל התחלה</p>
+        <p>שור עולה נותן נוכחות רגועה ויציבה. אנשים מרגישים לידך בטוחים עוד לפני שהם יודעים עלייך משהו, כי יש בך קצב שלא ממהר ומשהו מאוד מוחשי: טעם טוב, קול נעים, יחס לגוף, לאוכל, לחומרים. זו גם נקודה עקשנית. מה שנראה מבחוץ כמו רוגע הוא לפעמים פשוט החלטה לא לזוז.</p>
+        <p>שליטת השור היא ונוס, ולכן ונוס היא <strong>שליטת המפה כולה</strong>, הכוכב שהכי מייצג אותך. היא יושבת בבית 5, בית היצירה וההנאה, במזל בתולה. כלומר הדרך שלך אל העולם עוברת דרך מה שאת יוצרת ומטפלת בו. יש על זה פירוט בערך של ונוס.</p>
+        <p><strong>פלוטו עומד מול האופק</strong> (<span class="n">2.71°</span>), כמעט על קו הזוגיות. זה נותן לנוכחות השקטה שלך עומק שאנשים מרגישים גם כשאת לא אומרת כלום, ומושך לחיים שלך קשרים שמשנים אותך מהיסוד. <strong>כירון בסקסטיל</strong> (<span class="n">2.43°</span>) מוסיף רכות: קל לאנשים לספר לך את מה שכואב להם.</p>
+        <p>והשמש בריבוע לאופק (<span class="n">3.00°</span>): מה שאת מרגישה שאת (אריה: חום, ביטוי, לב גדול) ומה שנראה עלייך (שור: שקט ומאופק) לא תמיד תואמים. אנשים מגלים את האריה שבך רק כשהם כבר קרובים.</p>
+        <div class="pl-key">☍&nbsp;פלוטו&nbsp;<span class="n">2.71°</span> &nbsp;·&nbsp; ⚹&nbsp;כירון&nbsp;<span class="n">2.43°</span> &nbsp;·&nbsp; □&nbsp;השמש&nbsp;<span class="n">3.00°</span> &nbsp;·&nbsp; △&nbsp;נפטון&nbsp;<span class="n">5.13°</span> &nbsp;·&nbsp; △&nbsp;מרקורי&nbsp;<span class="n">5.70°</span> &nbsp;·&nbsp; △&nbsp;ונוס&nbsp;<span class="n">6.20°</span><br><i>הטריגונים מבתולה ומגדי יוצרים משולש אדמה סביב האופק. על זה בסוף הפרק.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-mercury"><div class="pl-g">☿</div><div>
+        <div class="pl-head"><h3>מרקורי</h3><span class="pl-pos">בתולה 9°28′</span><span class="chip hi">שיא. שליט ומרומם</span><span class="chip">בית 5</span></div>
+        <p class="pl-role">חשיבה, דיבור, למידה, איך את קולטת ומעבדת מידע</p>
+        <p>אם יש דבר אחד לקחת מהמסמך הזה, זה זה. בתולה היא המזל היחיד בכל הגלגל שבו מרקורי גם שולט וגם מרומם, שתי דרגות הכבוד הגבוהות ביותר בבת אחת. <strong>זה הציון המקסימלי שכוכב יכול לקבל</strong>, ורוב האנשים לא מקבלים אף כוכב בעמדה כזאת.</p>
+        <p>בפועל: עין לפרטים, יכולת לפרק בעיה לגורמים, לארגן, לנסח ולשפר. את רואה מה לא עובד לפני כולם, ובדרך כלל גם יודעת איך לתקן. זה <strong>הנכס המקצועי המרכזי במפה</strong>, ושווה לבנות עליו.</p>
+        <p>הוא יושב בבית 5, ולכן החשיבה שלך לא יבשה, היא נהנית. הלמידה, התכנון, הכתיבה, המלאכה עצמה, כל אלה הם אצלך סוג של יצירה ולא רק עבודה. ושני טריגונים מדויקים, לנפטון (<span class="n">0.58°</span>) ולשבתאי (<span class="n">1.39°</span>), מחברים את הראש גם לדמיון וגם למבנה: את יודעת לחלום משהו וגם לבנות אותו שלב אחרי שלב.</p>
+        <p>הצד השני של מרקורי בבתולה הוא הדאגה. ראש שרואה כל פגם רואה גם את כל מה שעלול להשתבש, ולכן ביקורת עצמית ומחשבות שמתגלגלות בלילה מוכרות לך. הכלי הזה מצוין לבעיות, ופחות טוב כשמפנים אותו פנימה.</p>
+        <p>ועוד משהו מבני: מרקורי הוא הבוס של שלושה כוכבים אחרים. ונוס ומאדים יושבים איתו בבתולה, ופלוטו כפוף לו דרך מאדים. כלומר <strong>האהבה, הרצון והעוצמה שלך עוברים כולם דרך הראש</strong>. קודם מבינים, אחר כך מרגישים ופועלים.</p>
+        <div class="pl-key">△&nbsp;נפטון&nbsp;<span class="n">0.58°</span> &nbsp;·&nbsp; △&nbsp;שבתאי&nbsp;<span class="n">1.39°</span> &nbsp;·&nbsp; ⚹&nbsp;פלוטו&nbsp;<span class="n">3.00°</span> &nbsp;·&nbsp; ⚹&nbsp;כירון&nbsp;<span class="n">3.27°</span> &nbsp;·&nbsp; ☌&nbsp;מאדים&nbsp;<span class="n">4.87°</span><br><i>הטריגון לנפטון עוד היה מתהדק ברגע הלידה, וזה נחשב להיבט שממשיך להתפתח לאורך החיים.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-sun"><div class="pl-g">☉</div><div>
+        <div class="pl-head"><h3>השמש</h3><span class="pl-pos">אריה 18°10′</span><span class="chip hi">חזקה. במזלה</span><span class="chip">בית 4</span></div>
+        <p class="pl-role">הזהות, החיוניות, הכיוון שאליו את הולכת</p>
+        <p>השמש שולטת באריה, ולכן כאן היא בבית שלה. זו זהות חמה, נדיבה ונאמנה, שרוצה ליצור, להאיר ולהיות גאה במה שהיא עושה. יש לה לב גדול, והיא צריכה מקום לבטא אותו.</p>
+        <p>היא יושבת <strong>בבית 4, בית הבית, המשפחה והשורשים</strong>. הזהות שלך נבנית מבפנים החוצה: מהבית, מהמשפחה, מהמקום הפרטי. כשהבית שלך יציב וחם, את מלאה כוח. כשהוא לא, שום הצלחה בחוץ לא ממש מפצה על זה. יש כאן גם נטייה להיות השמש של הבית, זו שמחזיקה את החום לכולם.</p>
+        <p>שני ריבועים נותנים לשמש את החיכוך שלה. הריבוע לאופק (<span class="n">3.00°</span>) הוא הפער בין הלב האריה לבין החזות השקטה של השור. הריבוע לפלוטו (<span class="n">5.71°</span>) מוסיף מאבקי כוח מוכרים סביב הזהות, לא פעם מול דמות חזקה במשפחה, ומלמד אותך לאורך החיים לעמוד על שלך בלי לשרוף גשרים.</p>
+        <p>ועוד פרט: הירח החדש האחרון לפני שנולדת, שלפי המסורת צובע את כל המפה, נפל גם הוא באריה ובבית 4. <strong>בית, משפחה ושייכות הם ציר שהמפה חוזרת אליו שוב ושוב.</strong></p>
+        <div class="pl-key">□&nbsp;האופק&nbsp;<span class="n">3.00°</span> &nbsp;·&nbsp; ⚹&nbsp;לילית&nbsp;<span class="n">2.22°</span> &nbsp;·&nbsp; □&nbsp;פלוטו&nbsp;<span class="n">5.71°</span><br><i>זו השמש שעליה צדק עובר השנה שלוש פעמים. פירוט בפרק השנה.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-moon"><div class="pl-g">☽</div><div>
+        <div class="pl-head"><h3>הירח</h3><span class="pl-pos">קשת 0°45′</span><span class="chip hi">מוגן. בהדדיות עם צדק</span><span class="chip">בית 7</span></div>
+        <p class="pl-role">הרגש, מה שמרגיע, התגובה האוטומטית, מה שאת צריכה כדי להרגיש בטוחה</p>
+        <p>הירח בקשת צריך מרחב. תנועה, אופק פתוח, משמעות, צחוק וכנות. הוא נרגע כשיש לאן ללכת ומה ללמוד, ונחנק כשסוגרים עליו. יש לו אופטימיות טבעית ויכולת להתאושש מהר, והוא מעדיף אמת ישירה על פני נימוס.</p>
+        <p>הוא יושב <strong>בבית 7, בית הזוגיות והשותפויות</strong>. הביטחון הרגשי שלך קשור מאוד לאנשים הקרובים: לבן או בת הזוג, לשותפים, לחברה הטובה. את מרגישה את עצמך דרך הקשר. זה יפה, וזה גם אומר שקשר לא טוב משפיע עלייך יותר מאשר על אחרים.</p>
+        <p><strong>וכאן פרט מבני חשוב.</strong> הירח יושב בקשת, המזל של צדק, וצדק יושב בסרטן, המזל של הירח. כל אחד מהם נמצא בבית של השני. זה נקרא הדדיות, והמשמעות היא ששני הכוכבים עובדים כצוות. הירח עצמו לא מקבל ניקוד מסורתי בקשת, אבל בזכות ההדדיות הוא לא לבד: <strong>יש לרגש שלך רשת ביטחון מובנית</strong>, תחושה בסיסית שבסוף יהיה בסדר.</p>
+        <p>הירח גם עמד ברגע הלידה מחוץ לגבולות הרגילים שלו בשמיים, דרומה יותר מכל נקודה שהשמש מגיעה אליה. כוכב כזה נחשב לפועל בעוצמה ובחופש שלא לפי הכללים: רגשות גדולים, תגובות חזקות, ועצמאות רגשית שלא תמיד מתיישבת עם מה שמצפים ממך.</p>
+        <p>הריבוע למאדים (<span class="n">3.85°</span>) הוא החיכוך: הירח רוצה ספונטניות ומרחב, ומאדים בבתולה רוצה שהדברים ייעשו נכון. כשזה לא מסתדר, הכעס מתלקח מהר סביב פרטים קטנים, ונרגע מהר באותה מידה.</p>
+        <div class="pl-key">⚹&nbsp;רום השמיים&nbsp;<span class="n">1.13°</span> &nbsp;·&nbsp; ⚻&nbsp;צדק&nbsp;<span class="n">1.41°</span> &nbsp;·&nbsp; □&nbsp;מאדים&nbsp;<span class="n">3.85°</span> &nbsp;·&nbsp; □&nbsp;ראש הדרקון&nbsp;<span class="n">4.89°</span><br><i>הסקסטיל לרום השמיים קושר את הרגש לדרך המקצועית: העבודה צריכה להרגיש משמעותית, לא רק נכונה.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-jupiter"><div class="pl-g">♃</div><div>
+        <div class="pl-head"><h3>צדק</h3><span class="pl-pos">סרטן 2°09′</span><span class="chip hi">חזק. מרומם</span><span class="chip">בית 2</span></div>
+        <p class="pl-role">התרחבות, אמונה, נדיבות, איפה יש לך מזל</p>
+        <p>סרטן הוא המזל שבו צדק מרומם, אחת העמדות הטובות שלו. צדק בסרטן מתרחב דרך חום, משפחה, טיפול ושייכות. הנדיבות שלך היא מהסוג שמאכיל, מארח ודואג שלכולם יהיה טוב.</p>
+        <p>הוא יושב <strong>בבית 2, בית הכסף, הערך העצמי והמשאבים</strong>. זו אחת העמדות הנוחות לכסף שיש: נטייה שדברים יסתדרו כלכלית, ונדיבות כלפי אחרים, לפעמים יותר מדי. המשאבים שלך קשורים לבית ולמשפחה, בין אם כתמיכה משם ובין אם כמה שאת בונה בשבילם.</p>
+        <p><strong>האופוזיציה לאורנוס, באורב של פחות מחצי מעלה, היא ההיבט השני הכי מדויק במפה.</strong> צדק בבית 2 מול אורנוס בבית 8: הכסף שלך לא זורם בקו ישר. יש קפיצות, הזדמנויות פתאומיות ושינויים לא צפויים, ויש צורך עמוק בחופש כלכלי. מה שעובד: כרית ביטחון יציבה מצד אחד, ומקום מוגדר לרעיון חדש מצד שני.</p>
+        <p>צדק עומד למעשה מול שלושת הכוכבים בגדי, אורנוס, שבתאי ונפטון. זה ציר שלם במפה: מצד אחד הבית, הרגש והמשפחה (סרטן), ומצד שני המבנה, השאיפה והמערכת (גדי). הרבה מהחיים שלך הם תנועה בין שני הקטבים האלה, והמשימה היא לא לבחור ביניהם.</p>
+        <div class="pl-key">☍&nbsp;אורנוס&nbsp;<span class="n">0.45°</span> &nbsp;·&nbsp; ⚻&nbsp;הירח&nbsp;<span class="n">1.41°</span> &nbsp;·&nbsp; ⚹&nbsp;מאדים&nbsp;<span class="n">2.45°</span> &nbsp;·&nbsp; ☍&nbsp;שבתאי&nbsp;<span class="n">5.92°</span> &nbsp;·&nbsp; ☍&nbsp;נפטון&nbsp;<span class="n">7.89°</span><br><i>צדק נמצא בהדדיות עם הירח. ראי את הערך של הירח.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-venus"><div class="pl-g">♀</div><div>
+        <div class="pl-head"><h3>ונוס</h3><span class="pl-pos">בתולה 21°23′</span><span class="chip lo">חלשה. בנפילה</span><span class="chip">בית 5</span></div>
+        <p class="pl-role">אהבה, ערך, טעם, הנאה, מה שנראה לך יפה</p>
+        <p>ונוס אוהבת שפע, יופי והנאה בלי חשבון, ובתולה מבקשת בדיוק את ההפך: לבדוק, לשפר, לתקן, לתת שירות. לכן בתולה נחשבת למזל שבו ונוס ב"נפילה". זה לא אומר שאת לא יודעת לאהוב. זה אומר ש<strong>את אוהבת דרך מעשים</strong>: דרך דאגה לפרטים, עזרה מעשית, לזכור מה מישהו צריך עוד לפני שביקש.</p>
+        <p>הקושי הוא בכיוון ההפוך. ונוס בבתולה מתקשה לקבל. מחמאה נשמעת לה חשודה, מתנה מרגישה כמו חוב, ורגע של הנאה נקטע מהר בגלל מה שעוד לא מושלם. <strong>הסטנדרט שאת מחזיקה לעצמך גבוה בהרבה מזה שאת מחזיקה לאחרים.</strong></p>
+        <p>וזה חשוב במיוחד כי ונוס היא <strong>שליטת המפה שלך</strong>, השליטה של האופק העולה בשור. ועוד פרט: ונוס כמעט לא יוצרת היבטים מרכזיים עם אף כוכב אחר. כוכב כזה פועל בנפרד, בקצב משלו, והנושאים שלו, אהבה, יופי והנאה, לא תמיד מתחברים לשאר החיים. יש תקופות שהם בכלל לא בתמונה, ויש תקופות שהם כל התמונה.</p>
+        <p>היא יושבת בבית 5, בית היצירה, הרומנטיקה וההנאה, ושולטת גם בבית 6, בית השגרה והבריאות. העצה שנגזרת מזה פשוטה וקשה: <strong>להכניס הנאה לשגרה בכוונה</strong>, כמו משימה, כי מעצמה היא לא תבוא. ויצירה שנעשית בידיים, ביופי ובדיוק, היא המקום שבו ונוס שלך נושמת הכי טוב.</p>
+        <div class="pl-key">△&nbsp;האופק&nbsp;<span class="n">6.20°</span><br><i>מלבד הטריגון הרחב לאופק, ונוס לא יוצרת אף היבט מרכזי. היא עובדת לבד.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-mars"><div class="pl-g">♂</div><div>
+        <div class="pl-head"><h3>מאדים</h3><span class="pl-pos">בתולה 4°36′</span><span class="chip">רגיל</span><span class="chip">בית 5</span></div>
+        <p class="pl-role">רצון, פעולה, תשוקה, כעס, איך את הולכת על מה שאת רוצה</p>
+        <p>מאדים בבתולה הוא רצון מדויק. לא הסוג שמתפרץ קדימה, אלא זה שמתכנן, משפר ועובד קשה עד שהדבר יוצא נכון. יש בו חריצות אמיתית ויכולת לעבוד לאורך זמן על פרטים שאחרים היו מוותרים עליהם. הכעס שלו יוצא כביקורת, כתיקון, כ"אפשר לעשות את זה יותר טוב".</p>
+        <p>מאדים שולט <strong>בבית 7, בית הזוגיות</strong>, ולכן הוא מתאר גם את מה שמושך אותך: אנשים מוכשרים, חרוצים, שיודעים לעשות דברים בידיים ובראש. והוא יושב בבית 5, בית הרומנטיקה, ליד מרקורי. לכן <strong>שיחה טובה ועשייה משותפת הן אצלך חלק מהמשיכה</strong>.</p>
+        <p>שלושה טריגונים מגדי, לאורנוס (<span class="n">2.89°</span>), לשבתאי (<span class="n">3.48°</span>) ולנפטון (<span class="n">5.45°</span>), הופכים אותו לכוכב יעיל במיוחד. הרצון שלך יודע לעבוד בתוך מערכת, לבנות לאורך זמן ולהכניס שינוי בלי לשבור. והסקסטיל לצדק (<span class="n">2.45°</span>) נותן לו אופטימיות ומזל בפעולה.</p>
+        <p>המתח היחיד שלו הוא הריבוע לירח. כשהוא מופעל, זה נראה כמו עצבנות מהירה סביב דברים קטנים. שווה לזכור שזה חולף מהר, ולא לקבל החלטות גדולות בתוך הרגע הזה.</p>
+        <div class="pl-key">⚹&nbsp;צדק&nbsp;<span class="n">2.45°</span> &nbsp;·&nbsp; △&nbsp;אורנוס&nbsp;<span class="n">2.89°</span> &nbsp;·&nbsp; △&nbsp;שבתאי&nbsp;<span class="n">3.48°</span> &nbsp;·&nbsp; □&nbsp;הירח&nbsp;<span class="n">3.85°</span> &nbsp;·&nbsp; ☌&nbsp;מרקורי&nbsp;<span class="n">4.87°</span> &nbsp;·&nbsp; △&nbsp;נפטון&nbsp;<span class="n">5.45°</span></div>
+      </div></div>
+
+      <div class="pl" id="p-saturn"><div class="pl-g">♄</div><div>
+        <div class="pl-head"><h3>שבתאי</h3><span class="pl-pos">גדי 8°05′ ℞</span><span class="chip hi">חזק. בביתו</span><span class="chip">בית 9</span></div>
+        <p class="pl-role">מבנה, משמעת, אחריות, גבולות, מה שמתבגר לאט</p>
+        <p>שבתאי שולט בגדי, ולכן כאן הוא חזק ובנוי היטב. זו משמעת אמיתית, סבלנות, ויכולת לבנות משהו רציני לאורך שנים. שבתאי חזק לא מבטיח חיים קלים, אבל הוא מבטיח שמה שתבני יחזיק.</p>
+        <p>הוא יושב <strong>בבית 9, בית הלימוד, האמונה, ההוראה והמרחקים</strong>, ושולט גם בבתים 10 ו-11, הקריירה והקהילה. הקריירה שלך קשורה ישירות לידע: ללמוד לעומק, להתמקצע, להגיע לסמכות מקצועית, ללמד. הדרך המקצועית נבנית אצלך לאט ויסודי, ומתחזקת עם השנים.</p>
+        <p>שבתאי צמוד לנפטון (<span class="n">1.97°</span>) ובטווח רחב גם לאורנוס. זה הצירוף הגדול של 1989, משותף לכל מי שנולד אז, אבל אצלך הוא מקבל טריגון מדויק ממרקורי. <strong>את מסוגלת לתת צורה מעשית לחזון</strong>: לקחת רעיון מופשט ולהפוך אותו לתוכנית עם שלבים.</p>
+        <p>הוא נע לאחור, וזה אומר שהסמכות שלך נבנית קודם מבפנים. לא פעם תרגישי שאת צריכה להוכיח לעצמך יותר ממה שמישהו אחר דורש ממך. והשנה הזאת בוחנת אותו: שבתאי שבשמיים עומד בריבוע לשבתאי שלך, פירוט בפרק השנה.</p>
+        <div class="pl-key">△&nbsp;מרקורי&nbsp;<span class="n">1.39°</span> &nbsp;·&nbsp; ☌&nbsp;נפטון&nbsp;<span class="n">1.97°</span> &nbsp;·&nbsp; △&nbsp;מאדים&nbsp;<span class="n">3.48°</span> &nbsp;·&nbsp; ⚹&nbsp;פלוטו&nbsp;<span class="n">4.39°</span> &nbsp;·&nbsp; ☍&nbsp;כירון&nbsp;<span class="n">4.67°</span> &nbsp;·&nbsp; ☍&nbsp;צדק&nbsp;<span class="n">5.92°</span><br><i>שבתאי יושב שבע דקות מגבול הבית. אם נולדת ב-23:37 או אחר כך, הוא בבית 8. המשמעת והמבנה נשארים, והתחום זז לכיוון כסף משותף, משברים ועומק.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-pluto"><div class="pl-g">♇</div><div>
+        <div class="pl-head"><h3>פלוטו</h3><span class="pl-pos">עקרב 12°28′</span><span class="chip hi">חזק. במזלו</span><span class="chip">בית 6</span></div>
+        <p class="pl-role">עוצמה, עומק, שינוי בלי דרך חזרה, מה שמת ונבנה מחדש</p>
+        <p>פלוטו בעקרב נמצא במזל שהוא מושל בו, ולכן הוא חזק. זו עמדה דורית, משותפת לכל מי שנולד בסוף שנות השמונים, אבל אצלך שני דברים הופכים אותה לאישית מאוד.</p>
+        <p>הראשון: <strong>פלוטו בטריגון לכירון באורב של רבע מעלה, ההיבט המדויק ביותר במפה כולה.</strong> זה הקשר בין הפצע לבין הכוח לשנות. בפועל: את יודעת לעבור דברים קשים ולצאת מהם עם משהו ביד, ולעזור לאחרים לעשות את אותו הדבר. יש בך יכולת להישאר ליד כאב בלי לברוח ממנו.</p>
+        <p>השני: פלוטו יושב בבית 6, בית העבודה היומיומית והבריאות, <strong>ממש על הסף של בית 7</strong> ומול האופק העולה. בעבודה זה כוח ריכוז עצום ונטייה להשקיע יותר מדי, עד שחיקה. בגוף זה אומר שהבריאות מגיבה חזק לשגרה, לטוב ולרע, ושהגוף יודע להתחדש כשמשנים הרגלים מהשורש. ובקשרים זה אומר שאנשים קרובים נכנסים לחיים שלך בעוצמה, ומשנים אותם.</p>
+        <div class="pl-key">△&nbsp;כירון&nbsp;<span class="n">0.27°</span> &nbsp;·&nbsp; ⚹&nbsp;נפטון&nbsp;<span class="n">2.42°</span> &nbsp;·&nbsp; ☍&nbsp;האופק&nbsp;<span class="n">2.71°</span> &nbsp;·&nbsp; ⚹&nbsp;מרקורי&nbsp;<span class="n">3.00°</span> &nbsp;·&nbsp; ⚹&nbsp;שבתאי&nbsp;<span class="n">4.39°</span> &nbsp;·&nbsp; □&nbsp;השמש&nbsp;<span class="n">5.71°</span><br><i>אם נולדת ב-23:21 או לפני, פלוטו כבר בבית 7, והנושא של עוצמה ושינוי עובר ישירות לזוגיות.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-neptune"><div class="pl-g">♆</div><div>
+        <div class="pl-head"><h3>נפטון</h3><span class="pl-pos">גדי 10°03′ ℞</span><span class="chip">רגיל</span><span class="chip">בית 9</span></div>
+        <p class="pl-role">דמיון, חמלה, אידיאלים, וגם ערפול והתמוססות</p>
+        <p>נפטון בגדי הוא חלום עם רגליים. האידיאלים שלך מכוונים למשהו שאפשר לבנות: מקצוע, מוסד, דרך. בבית 9 הוא נוגע לאמונה, ללימוד ולמשמעות. יש בך חיפוש אחרי משהו גדול יותר מהיומיום, והוא לא נשאר באוויר.</p>
+        <p><strong>הטריגון למרקורי, באורב של <span class="n">0.58°</span>, הוא ההיבט השלישי הכי מדויק במפה.</strong> הוא מרכך את הדיוק של הבתולה בדמיון ובאינטואיציה. את לא רק רואה פרטים, את גם קולטת את מה שמתחת לפני השטח. זה נכס לכל עבודה יצירתית, טיפולית או כתובה.</p>
+        <p>האופוזיציה לכירון (<span class="n">2.70°</span>) היא הצד הרגיש: נטייה להתמסר לאחרים עד טשטוש, ולשאת את הכאב שלהם כאילו היה שלך. שווה לשים לב מתי עזרה מתחילה להפוך להקרבה.</p>
+        <div class="pl-key">△&nbsp;מרקורי&nbsp;<span class="n">0.58°</span> &nbsp;·&nbsp; ☌&nbsp;שבתאי&nbsp;<span class="n">1.97°</span> &nbsp;·&nbsp; ⚹&nbsp;פלוטו&nbsp;<span class="n">2.42°</span> &nbsp;·&nbsp; ☍&nbsp;כירון&nbsp;<span class="n">2.70°</span> &nbsp;·&nbsp; △&nbsp;האופק&nbsp;<span class="n">5.13°</span> &nbsp;·&nbsp; △&nbsp;מאדים&nbsp;<span class="n">5.45°</span></div>
+      </div></div>
+
+      <div class="pl" id="p-uranus"><div class="pl-g">♅</div><div>
+        <div class="pl-head"><h3>אורנוס</h3><span class="pl-pos">גדי 1°43′ ℞</span><span class="chip">רגיל</span><span class="chip">בית 8</span></div>
+        <p class="pl-role">חופש, מקוריות, שבירת מוסכמות, השינוי הפתאומי</p>
+        <p>אורנוס בגדי הוא מהפכה מסודרת: שינוי שבא מתוך המערכת ולא נגדה. גם זו עמדה דורית, והיא נעשית אישית דרך הבית וההיבטים.</p>
+        <p>אצלך הוא בבית 8, בית המשברים, האינטימיות והכסף המשותף, <strong>ובאופוזיציה מדויקת לצדק</strong> (<span class="n">0.45°</span>). משם מגיעים השינויים הפתאומיים שלך: שותפות כלכלית, משבר שהופך להזדמנות, פרק שנסגר בבת אחת ופותח אחר. החיים שלך מתקדמים לא פעם בקפיצות ולא בקו ישר.</p>
+        <p>הטריגון למאדים (<span class="n">2.89°</span>) הוא הצד הנוח: כשצריך לשנות משהו, את יודעת לעשות את זה ביעילות ובלי דרמה. ואורנוס, כמו הירח, עמד מעט מחוץ לגבולות הרגילים בשמיים, מה שמחזק עוד את הצורך שלך בעצמאות.</p>
+        <div class="pl-key">☍&nbsp;צדק&nbsp;<span class="n">0.45°</span> &nbsp;·&nbsp; △&nbsp;מאדים&nbsp;<span class="n">2.89°</span> &nbsp;·&nbsp; ☌&nbsp;שבתאי&nbsp;<span class="n">6.37°</span></div>
+      </div></div>
+
+      <div class="pl" id="p-chiron"><div class="pl-g">⚷</div><div>
+        <div class="pl-head"><h3>כירון</h3><span class="pl-pos">סרטן 12°44′</span><span class="chip">רגיל</span><span class="chip">בית 3</span></div>
+        <p class="pl-role">הפצע שדרכו מרפאים אחרים</p>
+        <p>כירון מסמן נקודה רגישה שלא נסגרת לגמרי, ושבגללה את מיטיבה לעזור לאחרים באותו נושא. בסרטן זה נוגע לשייכות, לבית, לתחושה של מקום בטוח ושל מישהו ששומר עלייך. לפעמים זה זיכרון של רגע שבו לא הייתה מספיק הגנה, או שהיה צריך לגדול מהר.</p>
+        <p>בבית 3, בית התקשורת, האחים והלמידה, זה יכול להיות גם פצע סביב הקול: מתי הקשיבו לך, איך דיברו אלייך, או הקשר עם אח או אחות. ומשם גם הריפוי: <strong>המילים שלך יודעות להרגיע</strong>, ואנשים מרגישים מובנים לידך.</p>
+        <p>הטריגון המדויק לפלוטו (<span class="n">0.27°</span>) והסקסטיל לאופק (<span class="n">2.43°</span>) הופכים את הפצע הזה למשאב. הוא לא נשאר כאב, הוא נעשה יכולת. האופוזיציות לנפטון ולשבתאי מזכירות שהריפוי כאן עובר דרך גבולות: לדאוג לאחרים בלי לוותר על עצמך.</p>
+        <div class="pl-key">△&nbsp;פלוטו&nbsp;<span class="n">0.27°</span> &nbsp;·&nbsp; ⚹&nbsp;האופק&nbsp;<span class="n">2.43°</span> &nbsp;·&nbsp; ☍&nbsp;נפטון&nbsp;<span class="n">2.70°</span> &nbsp;·&nbsp; ⚹&nbsp;מרקורי&nbsp;<span class="n">3.27°</span> &nbsp;·&nbsp; ☍&nbsp;שבתאי&nbsp;<span class="n">4.67°</span></div>
+      </div></div>
+
+      <div class="pl" id="p-node"><div class="pl-g">☊</div><div>
+        <div class="pl-head"><h3>ראש הדרקון</h3><span class="pl-pos">דלי 25°51′</span><span class="chip">בית 10</span></div>
+        <p class="pl-role">הכיוון שאליו החיים מושכים אותך, מה שדורש מאמץ אבל מזין</p>
+        <p>ראש הדרקון הוא לא כוכב אלא נקודה מתמטית, והוא מסמן את הכיוון שאליו כדאי לגדול. הצד הנגדי, זנב הדרקון, הוא מה שכבר מוכר ונוח, ולכן גם מפתה לחזור אליו.</p>
+        <p>אצלך הראש בדלי, בבית 10, בית הקריירה והנוכחות בעולם. הזנב באריה, בבית 4, באותו מזל של השמש. הכיוון הוא <strong>לצאת מהמעגל הפרטי אל המרחב הציבורי</strong>: לקחת תפקיד, להשפיע על קבוצה, לתרום משהו מקורי שמשרת יותר אנשים מאשר המשפחה הקרובה. הפיתוי המוכר הוא להישאר בבית, במקום החם שבו את כבר מרכז העניינים.</p>
+        <p>זה לא אומר לוותר על הבית. זה אומר ש<strong>הכוח שנבנה בבית נועד לצאת החוצה</strong>. ובנובמבר 2026 ראש הדרקון בשמיים חוזר בדיוק לנקודה הזאת, אירוע שקורה פעם ב-18.6 שנים. פירוט בפרק השנה.</p>
+        <div class="pl-key">□&nbsp;הירח&nbsp;<span class="n">4.89°</span> &nbsp;·&nbsp; △&nbsp;צדק&nbsp;<span class="n">6.30°</span><br><i>ראש הדרקון יושב ארבע דקות מגבול הבית. אם נולדת ב-23:26 או לפני, הוא בבית 11, והכיוון עובר לקהילה, לחברים ולרשתות. הרוח נשארת זהה.</i></div>
+      </div></div>
+
+      <div class="pl" id="p-lilith"><div class="pl-g">⚸</div><div>
+        <div class="pl-head"><h3>לילית</h3><span class="pl-pos">מאזניים 20°24′</span><span class="chip">בית 6</span></div>
+        <p class="pl-role">הצל, מה שנדחק החוצה, החלק שלא קיבל מקום</p>
+        <p>לילית במאזניים נוגעת לצורך להיות נחמדה. מה שנדחק הצידה הוא הכעס, הרצון העצמאי, ה"לא" שלא נאמר כדי לשמור על השלום. בבית 6 זה מופיע בעבודה ובשגרה: לקחת על עצמך יותר ממה שהוגן, להסכים לתנאים שלא מתאימים לך, ולשלם על זה בגוף.</p>
+        <p>הסקסטיל לשמש (<span class="n">2.22°</span>) אומר שהצל הזה נגיש לך, ואפשר לעבוד איתו. <strong>הרגע שבו את אומרת "זה לא הוגן כלפיי" הוא לא הרגע שבו את מפסיקה להיות נעימה. הוא הרגע שבו את מתחילה להיות שלמה.</strong></p>
+        <div class="pl-key">⚹&nbsp;השמש&nbsp;<span class="n">2.22°</span></div>
+      </div></div>
+
+      <div class="pl" id="p-mc"><div class="pl-g">MC</div><div>
+        <div class="pl-head"><h3>רום השמיים</h3><span class="pl-pos">גדי 29°37′</span><span class="chip hi">שליט: שבתאי בבית 9</span></div>
+        <p class="pl-role">הכיוון המקצועי, השם שלך בעולם, מה שבונים לאורך החיים</p>
+        <p>גדי על רום השמיים מבקש קריירה רצינית: מקצוע, מומחיות, אחריות, ודרך שמתקדמת שלב אחרי שלב. זה לא הסימן של הצלחה מהירה, זה הסימן של מי שעם השנים מגיעה למקום שבנתה בעצמה, והוא מחזיק.</p>
+        <p>השליט שלו, שבתאי, חזק במזלו ויושב בבית 9. <strong>הקריירה שלך עוברת דרך ידע</strong>: לימודים, הכשרה, הוראה, הנחיה, תחום שדורש התמקצעות אמיתית. הסקסטיל של הירח לנקודה הזאת (<span class="n">1.13°</span>) אומר שהעבודה צריכה להרגיש גם משמעותית ואנושית, אחרת את מתייבשת בה. וראש הדרקון בבית 10 מוסיף את הכיוון: קהל רחב יותר, השפעה, משהו חדשני.</p>
+        <div class="pl-key">⚹&nbsp;הירח&nbsp;<span class="n">1.13°</span> &nbsp;·&nbsp; ⚻&nbsp;צדק&nbsp;<span class="n">2.54°</span><br><i>זו הנקודה הרגישה ביותר לשעת הלידה. אם נולדת אחרי 23:32, רום השמיים בתחילת דלי. השליט נשאר שבתאי, ולכן הכיוון נשאר זהה, עם נטייה חזקה יותר לחדשנות ולעבודה עם קהילה.</i></div>
+      </div></div>
+
+    </div>
+
+    <h3>ומה שהמפה אומרת כמכלול</h3>
+    <p><strong>אפס כוכבים באוויר.</strong> מתוך עשרת גרמי השמיים שישה באדמה, שניים באש, שניים במים, ואף אחד באוויר. גם האופק העולה ורום השמיים באדמה. זו מפה מעשית, מוחשית ואמינה מאוד. אין כאן חוסר בחשיבה, יש לך את מרקורי החזק במפה, אבל החשיבה משרתת מטרה מעשית ולא מרחפת. החולשה של מפה בלי אוויר היא המרחק: קשה להסתכל על מצב מבחוץ בלי לקחת אותו אישית, ובדיוק שם שיחה עם מישהו מבחוץ עוזרת.</p>
+    <p><strong>משולש גדול באדמה.</strong> מרקורי בבתולה, נפטון בגדי והאופק העולה בשור יוצרים משולש של שלושה טריגונים (<span class="n">0.58°</span>, <span class="n">5.13°</span>, <span class="n">5.70°</span>), ושבתאי ומאדים מצטרפים אליו מקרוב. זו תבנית של יציבות וזרימה: דברים מעשיים באים לך בקלות. הסכנה היחידה של משולש כזה היא נוחות, להישאר במה שעובד במקום לנסות את מה שדורש מאמץ.</p>
+    <p><strong>ארבעה מרכזי כוח.</strong> בדרך כלל הכוכבים במפה כפופים זה לזה בשרשרת, לפי מי שולט במזל של מי. אצלך אין שליט אחד: השמש עונה רק לעצמה, מרקורי מנהל את ונוס, מאדים ופלוטו, שבתאי מנהל את אורנוס ונפטון, והירח וצדק מחזיקים זה את זה. שלושה כוכבים במזלם ועוד זוג בהדדיות, וזו מפה חזקה מאוד מבחינת כבוד. יש כאן ארבעה מרכזים עצמאיים: הלב (השמש), המלאכה (מרקורי), המבנה (שבתאי) והרגש (הירח וצדק). הם לא תמיד מתייעצים זה עם זה, וזה מסביר למה את יכולה להיות כמעט אדם אחר בבית, בעבודה ובאהבה.</p>
+    <p><strong>תשעה מתוך עשרה בחצי המערבי.</strong> כל הכוכבים חוץ מצדק יושבים בחצי הגלגל שקשור לאחרים, ובית 1 ריק. החיים שלך מתקדמים דרך אנשים: דרך מה שאחרים מביאים, מבקשים ומציעים, ואת מגיבה מצוין להזדמנויות. היוזמה הטהורה, לצאת לדרך לבד בלי שמישהו ביקש, היא השריר שדורש יותר אימון.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-areas">
+  <div class="narrow">
+    <div class="opener"><span class="g">♀︎</span><h2>התחומים</h2><span class="t">תחומי החיים</span></div>
+
+    <h3>שנים עשר הבתים</h3>
+    <p>כל בית הוא תחום חיים. כוכב בתוך בית מביא אליו את התפקוד שלו. בית ריק לא אומר תחום ריק: אז קוראים אותו דרך הכוכב ששולט בו, ודרך המקום שבו הכוכב הזה יושב.</p>
+    <div class="tw"><table>
+      <thead><tr><th>בית</th><th>מתחיל ב</th><th>שליט</th><th>השליט יושב ב</th><th>מה בפנים</th><th>תחום</th></tr></thead>
+      <tbody>
+        <tr><td class="h">1</td><td class="d">שור 15°10′</td><td>ונוס</td><td>בית 5</td><td>ריק</td><td>גוף, מראה, התחלות</td></tr>
+        <tr><td class="h">2</td><td class="d">תאומים 13°27′</td><td>מרקורי</td><td>בית 5</td><td>צדק</td><td>כסף, ערך עצמי, משאבים</td></tr>
+        <tr><td class="h">3</td><td class="d">סרטן 6°34′</td><td>ירח</td><td>בית 7</td><td>כירון</td><td>תקשורת, אחים, לימוד, סביבה קרובה</td></tr>
+        <tr><td class="h">4</td><td class="d">סרטן 29°37′</td><td>ירח</td><td>בית 7</td><td>שמש</td><td>בית, משפחה, שורשים</td></tr>
+        <tr><td class="h">5</td><td class="d">אריה 26°49′</td><td>שמש</td><td>בית 4</td><td>מרקורי, ונוס, מאדים</td><td>יצירה, הנאה, רומנטיקה, ילדים</td></tr>
+        <tr><td class="h">6</td><td class="d">מאזניים 2°23′</td><td>ונוס</td><td>בית 5</td><td>פלוטו, לילית</td><td>שגרה, בריאות, עבודה יומיומית</td></tr>
+        <tr><td class="h">7</td><td class="d">עקרב 15°10′</td><td>מאדים</td><td>בית 5</td><td>ירח</td><td>זוגיות, שותפויות</td></tr>
+        <tr><td class="h">8</td><td class="d">קשת 13°27′</td><td>צדק</td><td>בית 2</td><td>אורנוס</td><td>אינטימיות, משברים, כסף משותף</td></tr>
+        <tr><td class="h">9</td><td class="d">גדי 6°34′</td><td>שבתאי</td><td>בית 9</td><td>שבתאי, נפטון</td><td>לימוד, אמונה, הוראה, מרחקים</td></tr>
+        <tr><td class="h">10</td><td class="d">גדי 29°37′</td><td>שבתאי</td><td>בית 9</td><td>ראש הדרקון</td><td>קריירה, מעמד, שם</td></tr>
+        <tr><td class="h">11</td><td class="d">דלי 26°49′</td><td>שבתאי</td><td>בית 9</td><td>ריק</td><td>חברים, קהילה, חלומות</td></tr>
+        <tr><td class="h">12</td><td class="d">טלה 2°23′</td><td>מאדים</td><td>בית 5</td><td>ריק</td><td>מנוחה, לא מודע, נסיגה, ריפוי</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4>מה עולה מהטבלה</h4>
+    <ul>
+      <li><strong>בית 5 הוא מרכז הכובד.</strong> שלושה כוכבים, ואליו מתנקזים גם השליטים של בית 1 (ונוס), של הזוגיות (מאדים), של הכסף (מרקורי) ושל המנוחה (מאדים). יצירה, הנאה, רומנטיקה וילדים הם לא תחביב אצלך, הם זירה מרכזית בחיים.</li>
+      <li><strong>הבית והיצירה מזינים זה את זה.</strong> השמש בבית 4 שולטת בבית 5.</li>
+      <li><strong>שבתאי שולט בבתים 9, 10 ו-11, ויושב בבית 9.</strong> לימוד, קריירה וקהילה הם אצלך מערכת אחת.</li>
+      <li><strong>הירח שולט בבתים 3 ו-4 ויושב בבית 7.</strong> המשפחה, התקשורת והזוגיות קשורות זו בזו.</li>
+    </ul>
+
+    <h3>איך אחרים רואים אותך</h3>
+    <p>רגועה, אמינה, בעלת טעם, מישהי שיודעת מה היא עושה. אנשים סומכים עלייך מהר, ופונים אלייך כשצריך לסדר משהו. מה שהם לא תמיד קולטים זה כמה חום ורצון להיות נראית יש מתחת לשקט, וכמה עומק ועוצמה. את הצד הזה, השמש באריה ופלוטו מול האופק, הם מגלים רק כשהם כבר קרובים.</p>
+
+    <h3>הבית והמשפחה</h3>
+    <p>השמש בבית 4, הירח החדש שלפני הלידה בבית 4, וזנב הדרקון באותו בית. הבית הוא מקור הכוח, והזהות שלך קשורה עמוקות למשפחה, זו שגדלת בה וזו שאת בונה. הריבוע בין השמש לפלוטו מרמז על דמות חזקה בבית, או על מאבקי כוח מוקדמים שלימדו אותך לעמוד על שלך. המשימה, לפי ראש הדרקון, היא לא להישאר רק שם. הבית הוא בסיס היציאה, לא היעד.</p>
+
+    <h3>אהבה</h3>
+    <p>שלושה דברים מתארים את הזוגיות שלך. <strong>הירח בבית 7</strong> אומר שאת צריכה בן או בת זוג שהם גם חברים להרפתקה: כנות, הומור, מרחב, ותחושה שגדלים יחד. קשר שסוגר עלייך מכבה אותך. <strong>מאדים כשליט הבית</strong> אומר שמה שמושך אותך הוא יכולת: אנשים חכמים, חרוצים, שמתעניינים באמת ויודעים לעשות. ו<strong>פלוטו על הסף</strong> אומר שהקשרים המשמעותיים שלך לא נשארים שטחיים. הם משנים אותך, ולפעמים מגיעים עם מאבקי כוח שכדאי לזהות מוקדם.</p>
+    <p>הנקודה העדינה היא ונוס. ונוס בבתולה שמתקשה לקבל, ובלי היבטים מרכזיים, נוטה לתת הרבה, לבקש מעט, ואז להתאכזב בשקט. <strong>הדבר המועיל ביותר שאת יכולה לעשות הוא לתת לאהבה להיות גם הנאה ולא רק דאגה</strong>, ולאפשר לצד השני לפנק אותך בלי לתקן אותו.</p>
+
+    <h3>עבודה</h3>
+    <p>מרקורי בבתולה, שבתאי בגדי, ורום השמיים בגדי. זו מפה של מקצועיות. את שייכת לכל מקום שדורש דיוק, ידע, סדר ואחריות, ובמיוחד לתחומים שיש בהם גם מלאכה או יצירה (בית 5) וגם לימוד או הוראה (בית 9). לתכנן, לערוך, לעצב, להנחות, ללמד, לשפר מערכות: כל אלה מתאימים למבנה הזה.</p>
+    <p>המכשול הוא לא היכולת. הוא <strong>פרפקציוניזם ועבודה עד שחיקה</strong>: מרקורי בבתולה שלא משחרר, ופלוטו בבית 6 שלא יודע לעצור. והכיוון, לפי ראש הדרקון בבית 10, הוא לקחת את היכולת הזאת לבמה רחבה יותר ממה שנוח לך.</p>
+
+    <h3>כסף</h3>
+    <p>צדק מרומם בבית 2 הוא סימן טוב לכסף: יכולת להרוויח, נדיבות, ותחושה שבסוף יש. השליט של בית הכסף הוא מרקורי, הכוכב החזק במפה, ולכן ההכנסה שלך קשורה ישירות לכישורים שלך ולמה שאת יוצרת. האופוזיציה המדויקת לאורנוס מוסיפה תנודות: הכנסה שקופצת, הוצאה פתאומית, הזדמנות שמגיעה בלי הודעה מראש. מה שעובד לך: בסיס קבוע ומשעמם מצד אחד, ומקום מוגדר לניסויים מצד שני.</p>
+
+    <h3>הראש והרגש</h3>
+    <p>הראש עובד מצוין, ולפעמים יותר מדי. מרקורי בבתולה נוטה לגלגל דאגות ולמצוא את מה שלא בסדר, במיוחד כשאין מה לעשות עם זה. הירח בקשת הוא האיזון הטבעי: הוא צריך תנועה, טבע, מרחב ומשהו לצפות לו.</p>
+    <p><strong>הדבר שהכי מרגיע אותך הוא לא לחשוב יותר.</strong> זה לצאת החוצה, לזוז, לנסוע, לצחוק עם מישהו קרוב, או לעשות משהו בידיים. ובזכות ההדדיות בין הירח לצדק יש לך יכולת התאוששות אמיתית: גם אחרי תקופה קשה, האופטימיות חוזרת.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-year">
+  <div class="narrow">
+    <div class="opener"><span class="g">♃︎</span><h2>השנה שלך</h2><span class="t">10.08.26 עד 10.08.27</span></div>
+
+    <p class="lead">השנה שנפתחה ביום ההולדת האחרון היא אחת השנים הבולטות במחזור של שתים עשרה שנים. היא נפתחה בליקוי חמה על השמש שלך, יש בה תקופת בחינה אחת בסוף 2026, והיא מגיעה לשיא באפריל 2027.</p>
+
+    <h3>מה זה צדק על השמש</h3>
+    <p>צדק, הכוכב של ההתרחבות, ההזדמנות והביטחון, משלים סיבוב של הגלגל בכשתים עשרה שנים. פעם בתקופה כזאת הוא עובר על השמש שלך, הנקודה של הזהות והחיוניות. זו תקופה שבה קל יותר להיראות, לגדול, לקבל הכרה ולהרגיש שהחיים נפתחים. הפעם הקודמת הייתה בין אוקטובר 2014 ליוני 2015, והפעם הבאה תהיה ב-2038.</p>
+    <p><strong>אצלך צדק עובר על השמש שלוש פעמים</strong>, כי הוא נוגע בה, נסוג לאחור ונוגע שוב: 23 בספטמבר 2026, 16 במרץ 2027 ו-11 במאי 2027. ובין לבין, ב-13 באפריל 2027, הוא עוצר ומשנה כיוון כמעלה אחת מהשמש שלך. <strong>כוכב שעוצר על נקודה במפה מפעיל אותה בעוצמה המרבית.</strong></p>
+    <p>וזה קורה בבית 4, בית הבית והמשפחה. המשמעות המעשית: שנה טובה לכל מה שקשור לבסיס הפרטי. מעבר דירה, שיפוץ, התרחבות של המשפחה, או פשוט תחושה חדשה של בית ושל ביטחון עצמי. ובקיץ 2027 צדק עובר סופית לבית 5 ולמזל בתולה, אל שלושת הכוכבים שלך שם. השנה שאחרי זו תהיה שנת היצירה.</p>
+
+    <div class="note"><b>שני ליקויים על ציר השמש</b>
+    <p><strong>ב-12 באוגוסט 2026</strong>, יומיים אחרי יום ההולדת, היה ליקוי חמה מלא באריה, פחות משתי מעלות מהשמש שלך, בבית 4. <strong>ב-6 בפברואר 2027</strong> יהיה ליקוי חמה טבעתי בדלי, בדיוק מול השמש שלך (<span class="n">0.54°</span>), בבית 10. ליקויים נוטים לסמן פרקים שנפתחים ונסגרים, והזוג הזה פועל על הציר שבין הבית לקריירה. שווה לשים לב מה התחיל סביב אוגוסט 2026, כי סביב פברואר 2027 הוא מגיע לנקודת החלטה.</p></div>
+
+    <h3>הבחינה של סוף 2026</h3>
+    <p>לפני השיא יש תקופה פחות נוחה, ושווה לדעת עליה מראש. בין תחילת נובמבר לסוף דצמבר 2026 מצטופפים כמה מעברים של הכוכבים האיטיים:</p>
+    <ul>
+      <li><strong>שבתאי בריבוע לשבתאי שלך</strong>, ב-28 בנובמבר וב-23 בדצמבר, אחרי מעבר ראשון ב-21 באפריל 2026. זה הריבוע הסוגר של מחזור השבתאי, שמונה שנים אחרי החזרת השבתאי שלך ב-2018. הוא שואל מה מהמבנה שבנית עד עכשיו באמת מחזיק, ומה צריך לבנות מחדש.</li>
+      <li><strong>החזרת ראש הדרקון</strong>, ב-10 בנובמבר. פעם ב-18.6 שנים ראש הדרקון חוזר למקום שבו עמד כשנולדת. זו הפעם השנייה בחייך, והפעם הקודמת הייתה באפריל 2008. תקופה שבה הכיוון של החיים מתבהר, לפעמים דרך אירוע.</li>
+      <li><strong>נפטון בריבוע לאורנוס שלך</strong>, ב-24 בנובמבר וב-31 בדצמבר. חוסר שקט, ורצון לשנות משהו עוד לפני שברור מה.</li>
+      <li><strong>מאדים נכנס לבתולה</strong> ב-26 בנובמבר ונשאר בה עד סוף פברואר, כולל נסיגה מ-11 בינואר, ואז חוזר אליה מאמצע מאי עד אמצע יולי 2027. חודשים ארוכים שבהם הכוכב של הפעולה עובר שוב ושוב על שלושת הכוכבים שלך בבית 5.</li>
+    </ul>
+    <p>זו לא תקופה רעה, זו תקופה של עבודה. מה שבנוי נכון יעבור אותה בשקט. מה שלא, יבקש תיקון, ועדיף לתקן אותו עכשיו, לפני האביב.</p>
+
+    <div class="epi">
+      <h3>שבועיים באפריל</h3>
+      <p class="when">02.04.2027 - 17.04.2027</p>
+      <p>זה הממצא הכי חריג בתחזית. בתוך שבועיים נופלים ארבעה אירועים, וכולם נוגעים באותה נקודה בדיוק: השמש שלך. ואחרי חודשים של ריבועים ונסיגות, הפעם כמעט כולם תומכים.</p>
+      <ol>
+        <li><div class="epi-c"><b>2 באפריל: מאדים חוזר לנוע קדימה, ליד השמש שלך</b><span>אחרי כמעט שלושה חודשי נסיגה, הכוכב של הפעולה עוצר באריה, פחות משלוש מעלות מהשמש, ומתחיל לנוע קדימה. מה שנתקע מתחילת השנה מתחיל לזוז.</span></div></li>
+        <li><div class="epi-c"><b>11 באפריל: שבתאי בטריגון לשמש שלך</b><span>שבתאי, שבחודשים הקודמים בחן, נותן עכשיו גיבוי. זה המעבר של מבנה שמחזיק, הכרה על עבודה ארוכה, ויכולת לקחת אחריות בלי שזה מכביד.</span></div></li>
+        <li><div class="epi-c"><b>13 באפריל: צדק עוצר על השמש שלך</b><span>הלב של השנה. צדק משנה כיוון כמעלה אחת מהשמש שלך, ומפעיל אותה בעוצמה המרבית.</span></div></li>
+        <li><div class="epi-c"><b>17 באפריל: זנב הדרקון עובר על השמש שלך</b><span>הצד של ציר הדרקון שמסכם ומשחרר. אירועים שסוגרים פרק ישן, ומורידים ממך משהו שכבר לא צריך לשאת.</span></div></li>
+      </ol>
+    </div>
+
+    <h3>ומה מגבה אותך לאורך כל השנה</h3>
+    <p>הקשיים הם רק חצי מהתמונה. צדק עובר השנה בבתים 4 ו-5, הבית והיצירה, שני התחומים הכי חשובים במפה שלך. שבתאי מגיע באפריל לטריגון לשמש. ומיד אחרי יום ההולדת הבא מתחיל גל שני: צדק עובר על מאדים שלך ב-17 באוגוסט 2027 ועל מרקורי ב-8 בספטמבר 2027.</p>
+    <p>ועוד דבר ששווה לדעת: בין יולי 2025 למאי 2026 אורנוס עמד מול הירח שלך שלוש פעמים. אם התקופה הזאת הביאה שינוי פתאומי בקשרים הקרובים, או תחושה שהקרקע הרגשית זזה, זה בדיוק האופי של המעבר הזה, <strong>והוא כבר מאחורייך.</strong></p>
+  </div>
+</section>
+
+<section class="brk" id="s-dates">
+  <div class="narrow">
+    <div class="opener"><span class="g">✧</span><h2>לוח העיתויים</h2><span class="t">תאריכים</span></div>
+    <p>כל תאריך כאן הוא היום שבו המעבר מדויק. ההשפעה מורגשת בדרך כלל בטווח של שבועיים לפני ואחרי. השורות המודגשות הן הארבע שהכי שווה לסמן ביומן.</p>
+
+    <div class="tl">
+      <div class="tl-item key"><div class="tl-date">10.08.2026<br>22:08</div><div>
+        <p class="tl-h">יום ההולדת, לרגע המדויק</p>
+        <p class="tl-b">השמש חוזרת בדיוק לנקודה שבה עמדה ביום שנולדת, אריה <span class="n">18°10′</span>. זו נקודת הפתיחה של השנה.</p>
+        <span class="tl-tag">שיבת השמש</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">12.08.2026</div><div>
+        <p class="tl-h">ליקוי חמה מלא באריה <span class="n">20°02′</span></p>
+        <p class="tl-b">פחות משתי מעלות מהשמש שלך, בבית 4. הליקוי לא נראה מישראל, אבל הוא פתח את השנה בנושא של בית וזהות.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">23.09.2026</div><div>
+        <p class="tl-h">צדק על השמש, מעבר ראשון</p>
+        <p class="tl-b">הנגיעה הראשונה מתוך שלוש. חלון של ביטחון, נראות ורצון לגדול.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">04.10.2026<br>15.11.2026</div><div>
+        <p class="tl-h">ונוס, שליטת המפה, בנסיגה</p>
+        <p class="tl-b">שישה שבועות לחשוב מחדש על אהבה, על ערך ועל מה שנותן לך הנאה. פחות זמן להתחלות רומנטיות גדולות, יותר זמן לחזור לדברים ולאנשים מהעבר.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">31.10.2026</div><div>
+        <p class="tl-h">מאדים על השמש</p>
+        <p class="tl-b">אנרגיה, יוזמה ותחושת כוח. שבוע טוב להתחיל משהו פיזי או לקדם משהו שדורש אומץ.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">10.11.2026</div><div>
+        <p class="tl-h">החזרת ראש הדרקון</p>
+        <p class="tl-b">ראש הדרקון חוזר לדלי <span class="n">25°51′</span>, בבית 10. הכיוון של החיים מתחדד, והמשיכה החוצה, אל התפקיד והקהל, מתחזקת.</p>
+        <span class="tl-tag">פעם ב-18.6 שנים</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">24.11.2026</div><div>
+        <p class="tl-h">נפטון בריבוע לאורנוס שלך</p>
+        <p class="tl-b">חוסר שקט ורצון לשנות משהו לפני שברור מה. המעבר השני ב-31 בדצמבר.</p></div></div>
+
+      <div class="tl-item key"><div class="tl-date">28.11.2026</div><div>
+        <p class="tl-h">שבתאי בריבוע לשבתאי שלך</p>
+        <p class="tl-b">המבחן של המבנה, והמעבר השלישי ב-23 בדצמבר. מה שבנוי נכון מתחזק, מה שלא מבקש תיקון. זה הזמן לתקן ולא להתחיל.</p>
+        <span class="tl-tag">הבחינה של סוף השנה</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">11.01.2027<br>02.04.2027</div><div>
+        <p class="tl-h">מאדים בנסיגה, על הבתולה שלך</p>
+        <p class="tl-b">הכוכב של הפעולה נסוג על מרקורי (23 בינואר) ועל מאדים שלך (10 בפברואר). פרויקטים מתעכבים ודברים חוזרים לתיקון. עדיף לשפר מאשר להתחיל.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">06.02.2027</div><div>
+        <p class="tl-h">ליקוי חמה טבעתי בדלי <span class="n">17°38′</span></p>
+        <p class="tl-b">מול השמש שלך, בבית הקריירה. נקודת החלטה סביב האיזון בין הבית לעבודה.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">16.03.2027</div><div>
+        <p class="tl-h">צדק על השמש, מעבר שני</p>
+        <p class="tl-b">הגל האמצעי, בתנועה לאחור. זמן טוב לחזור למשהו שהתחיל בספטמבר ולא הושלם.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">02.04.2027</div><div>
+        <p class="tl-h">מאדים חוזר לנוע קדימה, ליד השמש</p>
+        <p class="tl-b">סוף הנסיגה. מה שנתקע מינואר מתחיל לזוז.</p>
+        <span class="tl-tag">שבועיים באפריל &middot; 1 מתוך 4</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">11.04.2027</div><div>
+        <p class="tl-h">שבתאי בטריגון לשמש שלך</p>
+        <p class="tl-b">מעבר יחיד. הכרה על עבודה ארוכה, ומבנה שנותן ביטחון.</p>
+        <span class="tl-tag">שבועיים באפריל &middot; 2 מתוך 4</span></div></div>
+
+      <div class="tl-item key"><div class="tl-date">13.04.2027</div><div>
+        <p class="tl-h">צדק עוצר על השמש שלך</p>
+        <p class="tl-b">צדק משנה כיוון באריה <span class="n">17°00′</span>, כמעלה אחת מהשמש שלך. השיא של השנה.</p>
+        <span class="tl-tag">שבועיים באפריל &middot; 3 מתוך 4</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">17.04.2027</div><div>
+        <p class="tl-h">זנב הדרקון על השמש</p>
+        <p class="tl-b">סגירה של פרק ישן, ושחרור ממשהו שכבר לא צריך לשאת.</p>
+        <span class="tl-tag">שבועיים באפריל &middot; 4 מתוך 4</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">07.05.2027</div><div>
+        <p class="tl-h">אורנוס בריבוע למאדים שלך, מעבר אחרון</p>
+        <p class="tl-b">אחרי יולי ונובמבר 2026. דחף חזק לשנות את אופן העבודה או היצירה, ומה שהתחלת לשנות בשנה האחרונה מתקבע.</p></div></div>
+
+      <div class="tl-item key"><div class="tl-date">11.05.2027</div><div>
+        <p class="tl-h">צדק על השמש, מעבר שלישי ואחרון</p>
+        <p class="tl-b">הגל האחרון, בתנועה ישרה. אם יש חלון אחד בשנה להתחיל בו משהו גדול שקשור לבית או לעצמך, זה הוא.</p>
+        <span class="tl-tag">חלון ההתנעה</span></div></div>
+
+      <div class="tl-item"><div class="tl-date">11.07.2027</div><div>
+        <p class="tl-h">צדק נכנס לבית 5</p>
+        <p class="tl-b">ובסוף החודש גם למזל בתולה. מתחיל פרק של יצירה, הנאה ורומנטיקה.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">02.08.2027<br>12:59</div><div>
+        <p class="tl-h">ליקוי חמה מלא באריה <span class="n">9°55′</span></p>
+        <p class="tl-b">בבית 4. רצועת הליקוי המלא עוברת בצפון אפריקה, במצרים ובסעודיה, ומחיפה יכוסו בשיא כשלושה רבעים מהשמש.</p></div></div>
+
+      <div class="tl-item"><div class="tl-date">11.08.2027<br>03:53</div><div>
+        <p class="tl-h">יום ההולדת הבא</p>
+        <p class="tl-b">השמש חוזרת לאריה <span class="n">18°10′</span> בלילה שבין 10 ל-11 באוגוסט, ונפתחת שנה אישית 2.</p></div></div>
+    </div>
+
+    <h3>איך לעבוד עם השנה הזאת</h3>
+    <ul>
+      <li><strong>סוף 2026 הוא לתיקון, לא להתחלה.</strong> שבתאי ומאדים מבקשים לבדוק את מה שקיים. מה שתחזקי עכשיו יישא את האביב.</li>
+      <li><strong>אל תמהרי בין ינואר לתחילת אפריל 2027.</strong> מאדים נסוג על הבתולה שלך. זה זמן לשפר, לערוך ולחזור לדברים.</li>
+      <li><strong>סמני את אפריל ומאי 2027.</strong> בין 2 באפריל ל-11 במאי נפתח החלון הטוב של השנה, ובמיוחד לכל מה שקשור לבית, למשפחה ולביטחון העצמי.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="brk" id="s-numbers">
+  <div class="narrow">
+    <div class="opener"><span class="g">✷</span><h2>הנומרולוגיה</h2><span class="t">מספרים</span></div>
+
+    <p class="lead">נומרולוגיה היא מערכת נפרדת לגמרי מהאסטרולוגיה, והיא עובדת על מספרים ולא על כוכבים. היא מחלקת את הזמן למחזורים של תשע שנים, ואת השנה למחזורים של תשעה חודשים, ולכל מספר יש אופי משלו. שווה להסתכל עליה כאן דווקא בגלל מה שהיא אומרת על השנה הקרובה.</p>
+
+    <div class="num-hero">
+      <div><div class="v">9</div><div class="k">מספר הגורל</div><div class="s">רוחב, נתינה, משמעות</div></div>
+      <div><div class="v">1</div><div class="k">מספר יום הלידה</div><div class="s">יוזמה ועצמאות</div></div>
+      <div><div class="v">5</div><div class="k">גימטריית השם</div><div class="s">חופש ותנועה</div></div>
+      <div><div class="v">1</div><div class="k">השנה האישית</div><div class="s">התחלה מחדש</div></div>
+    </div>
+
+    <h3>מספר הגורל: 9</h3>
+    <p>המספר שנגזר מתאריך הלידה המלא, ונחשב לציר המרכזי של הדרך. תשע הוא המספר האחרון במחזור, ולכן הוא מכיל את כל האחרים. זה מספר של <strong>רוחב, חמלה ונתינה</strong>: היכולת לראות תמונה גדולה, לעזור, ללמד, ולחיות בשביל משהו גדול יותר מעצמך. הצד המאתגר שלו הוא השחרור. תשע צריך ללמוד לסיים דברים, לשחרר אנשים, ולא להחזיק בכל מה שהיה.</p>
+    <p>ויש כאן חפיפה שראוי לעצור עליה. תשע הוא המספר של האופק הרחב, והבית התשיעי במפה עוסק בדיוק באותו דבר: לימוד, משמעות, אמונה והוראה. <strong>אצלך בבית 9 יושבים שבתאי ונפטון, ושבתאי שם הוא גם שליט הקריירה.</strong> המספר והמפה מצביעים על אותו כיוון: הדרך שלך עוברת דרך ידע שמועבר הלאה.</p>
+    <p>מספר יום הלידה, 10, מצטמצם ל-<strong>1</strong>: יוזמה, עצמאות, היכולת לעמוד בראש. זה איזון חשוב לתשע הנותן, ותזכורת שהנתינה שלך צריכה לצאת ממקום עצמאי ולא ממקום של ריצוי.</p>
+    <p>והשם. בגימטריה <strong>דנה</strong> שווה <span class="n">59</span>, שמצטמצם ל-<strong>5</strong>, מספר של חופש, תנועה, סקרנות ושינוי. זה בדיוק הקול של הירח בקשת: הצורך במרחב ובאופק פתוח.</p>
+    <p>ויש כאן צירוף שקשה להתעלם ממנו. <strong>מספר יום הלידה שלך הוא 1, ואת נמצאת עכשיו בשנה אישית 1.</strong> המספר שאת נושאת מלידה והמספר של השנה הזאת מנגנים באותו צליל, וזה קורה פעם בתשע שנים.</p>
+
+    <h3>השנה האישית: 1</h3>
+    <p>מיום ההולדת האחרון, 10 באוגוסט 2026, את נמצאת ב<strong>שנה אישית 1</strong>, הראשונה במחזור חדש של תשע שנים.</p>
+    <p>השנה שקדמה לה, שנה 9, נהוג לתאר אותה כשנת סגירה, וזה נכון רק בחצי. דברים אכן הסתיימו בה או איבדו עניין, אבל במקביל היא הייתה <strong>שנת חקר והבשלה</strong>. שנה 9 עובדת כמו תשעה חודשי הריון: בזמן שדברים ישנים מתפנים, משהו חדש כבר נוצר בשקט מתחת לפני השטח, נבדק, מתגבש ומחכה. <strong>הוא פשוט לא יוצא לאוויר העולם עד שנה 1.</strong></p>
+    <p>לכן שווה להסתכל אחורה על השנה האחרונה ולשאול מה נבט שם. רעיון שחזר, נושא שמשך אותך, שיחה שנשארה באוויר. סביר מאוד שמה שאת עומדת להתחיל השנה כבר נהגה שם, ורק עכשיו מקבל צורה רשמית.</p>
+    <p>שנה 1 היא ההפך הגמור. זו <strong>שנת הזריעה</strong>: התחלות, יוזמה, עצמאות, והנחת יסודות למשהו שילך ויגדל לאורך תשע השנים הבאות. מה שנשתל בשנה כזאת נוטה להישאר. מה שלא נשתל בה, מחכה עוד תשע שנים לחלון הבא.</p>
+
+    <div class="note"><b>וזאת הנקודה המעניינת</b>
+    <p>שתי המערכות אומרות השנה את אותו הדבר, מכיוונים שונים לגמרי. <strong>הנומרולוגיה אומרת: זו שנת ההתחלה, תזרעי.</strong> <strong>האסטרולוגיה אומרת: צדק, כוכב ההתרחבות, עובר על השמש שלך, נקודת העצמי, לראשונה מזה שתים עשרה שנים.</strong> שני מחזורים נפתחים יחד, ומה שתתחילי השנה מקבל רוח גבית כפולה.</p></div>
+
+    <h4>איך נכון לפעול השנה</h4>
+    <ul>
+      <li><strong>תתחילי, גם אם את לא מוכנה עד הסוף.</strong> שנה 1 מתגמלת פעולה ולא הכנה. ואצלך, עם מרקורי בבתולה, "עוד קצת שיפור" הוא הפיתוי הגדול. עדיף להתחיל טוב מאשר לא להתחיל מושלם.</li>
+      <li><strong>משהו שהוא שלך.</strong> אחד הוא מספר של עצמאות. עם תשעה כוכבים בחצי המערבי של המפה את רגילה להגיב למה שאחרים מביאים. השנה שווה ליזום בעצמך.</li>
+      <li><strong>קטן זה בסדר.</strong> לא צריך מהפכה. צריך זרע אחד אמיתי שאפשר יהיה להשקות תשע שנים.</li>
+      <li><strong>אל תסגרי השנה חשבונות ישנים.</strong> זה היה התפקיד של השנה שעברה. השנה מסתכלים קדימה.</li>
+      <li><strong>תתעדי את ההתחלה.</strong> בסוף המחזור, בעוד תשע שנים, תרצי לדעת מה בדיוק הנחת כאן.</li>
+    </ul>
+
+    <h3>החודשים האישיים</h3>
+    <p>בתוך השנה יש מחזור חודשי משלו, ולכל חודש אופי אחר. זה הלוח שלך מיום ההולדת ועד הבא אחריו, מוצלב עם לוח העיתויים האסטרולוגי.</p>
+
+    <div class="months">
+      <div class="mo"><div class="mo-when">08.2026</div><div class="mo-n">9</div><div class="mo-t"><b>הבשלה.</b> חודש יום ההולדת עוד נושא את התדר של השנה שהסתיימה: סיכום, שחרור, ומשהו שמתגבש בשקט. הליקוי על השמש שלך ב-12 בו מתאים לזה בדיוק.</div></div>
+      <div class="mo mark"><div class="mo-when">09.2026</div><div class="mo-n">1</div><div class="mo-t"><b>פתיחה.</b> חודש ההתחלה של שנת ההתחלה, ובדיוק בו, ב-23 בחודש, צדק נוגע לראשונה בשמש שלך. הכי חזק שיש.</div></div>
+      <div class="mo"><div class="mo-when">10.2026</div><div class="mo-n">2</div><div class="mo-t"><b>השתרשות.</b> מה שנזרע מתחיל לתפוס אחיזה בשקט. ונוס בנסיגה מתחילת החודש מזמינה לחזור לקשרים ולשיחות אישיות.</div></div>
+      <div class="mo"><div class="mo-when">11.2026</div><div class="mo-n">3</div><div class="mo-t"><b>ביטוי.</b> חודש חברתי ותקשורתי, וגם החודש של החזרת ראש הדרקון ב-10 בו. לספר לאנשים לאן את הולכת.</div></div>
+      <div class="mo"><div class="mo-when">12.2026</div><div class="mo-n">4</div><div class="mo-t"><b>יסודות.</b> חודש של עבודה מעשית, וזה בדיוק מה ששבתאי בריבוע לשבתאי מבקש ב-23 בו. מה שתבני בו יחזיק.</div></div>
+      <div class="mo"><div class="mo-when">01.2027</div><div class="mo-n">3</div><div class="mo-t"><b>ביטוי, שוב.</b> גל שני של שיחות ונראות, אבל מאדים נסוג מה-11 בו. לדבר ולתכנן, לא למהר לבצע.</div></div>
+      <div class="mo"><div class="mo-when">02.2027</div><div class="mo-n">4</div><div class="mo-t"><b>ביסוס.</b> חודש מסודר ומעשי. הליקוי ב-6 בו, מול השמש שלך, מוסיף נקודת החלטה סביב העבודה והבית.</div></div>
+      <div class="mo"><div class="mo-when">03.2027</div><div class="mo-n">5</div><div class="mo-t"><b>חופש ותנועה.</b> הזדמנויות פתאומיות, אנשים חדשים ורוח טובה, וצדק חוזר לשמש שלך ב-16 בו. חודש מצוין לצאת מהשגרה ולנסות משהו שלא ניסית.</div></div>
+      <div class="mo mark"><div class="mo-when">04.2027</div><div class="mo-n">6</div><div class="mo-t"><b>בית, משפחה ואחריות.</b> וזה בדיוק החודש שבו צדק עוצר על השמש שלך בבית 4, בית הבית. שתי המערכות מצביעות על אותו מקום.</div></div>
+      <div class="mo mark"><div class="mo-when">05.2027</div><div class="mo-n">7</div><div class="mo-t"><b>בהירות.</b> חודש של הבנה עמוקה, שבו נופלים אסימונים. ואסטרולוגית זה חלון ההתנעה של השנה, עם המעבר האחרון של צדק ב-11 בו. מתחילים מתוך ידיעה שקטה.</div></div>
+      <div class="mo"><div class="mo-when">06.2027</div><div class="mo-n">8</div><div class="mo-t"><b>תוצאות.</b> כוח, כסף והישגים. כאן נמדד מה שנזרע בספטמבר. מאדים חוזר לבתולה ועובר על מרקורי ב-6 בו, ונותן אנרגיה לעבודה.</div></div>
+      <div class="mo"><div class="mo-when">07.2027</div><div class="mo-n">9</div><div class="mo-t"><b>הבשלה.</b> מפנים מקום, ובמקביל משהו חדש מתגבש בשקט. צדק נכנס לבית 5 ב-11 בו, ולבתולה בסוף החודש.</div></div>
+      <div class="mo mark"><div class="mo-when">08.2027</div><div class="mo-n">1</div><div class="mo-t"><b>פתיחה.</b> גל התחלה שני, עם ליקוי החמה בבית 4 ב-2 בו, ויום ההולדת שפותח שנה אישית 2.</div></div>
+    </div>
+
+    <h3>תשע השנים שלפניך</h3>
+    <p>שנה אישית 1 היא הראשונה במחזור של תשע, וכל אחת מהשנים הבאות נושאת תדר אחר. אין כאן שנים "טובות" ו"רעות", יש תפקידים שונים, ולכל אחת יש את המתנה שלה. זה הלוח המלא שלך, מיום ההולדת הזה ועד 2035.</p>
+
+    <div class="months">
+      <div class="mo mark"><div class="mo-when">08.2026</div><div class="mo-n">1</div><div class="mo-t"><b>שנת הזריעה.</b> דף חדש, יוזמה, עצמאות. השנה שבה הכי כדאי להתחיל, ומה שנזרע בה מלווה אותך תשע שנים. את כאן עכשיו.</div></div>
+      <div class="mo"><div class="mo-when">08.2027</div><div class="mo-n">2</div><div class="mo-t"><b>שנת הקשרים.</b> שותפויות, אהבה, רגישות מוגברת ואינטואיציה חדה. הדברים מתקדמים דרך אנשים ולא דרך כוח. שנה מצוינת לזוגיות ולברית ארוכת טווח.</div></div>
+      <div class="mo"><div class="mo-when">08.2028</div><div class="mo-n">3</div><div class="mo-t"><b>שנת הביטוי.</b> יצירתיות, חברה, שמחה ונראות. אחת השנים הקלות והמהנות במחזור. מצוינת לכל דבר שדורש להיראות, לדבר ולהופיע.</div></div>
+      <div class="mo"><div class="mo-when">08.2029</div><div class="mo-n">4</div><div class="mo-t"><b>שנת הבנייה.</b> סדר, מסגרת ועבודה שמניבה. מה שנבנה בשנה כזאת עומד יציב לאורך שנים. שנה טובה במיוחד לבית, לרכישה גדולה ולביסוס מקצועי.</div></div>
+      <div class="mo mark"><div class="mo-when">08.2030</div><div class="mo-n">5</div><div class="mo-t"><b>שנת החופש.</b> תנועה, שינוי, הרפתקה והזדמנויות שמגיעות מכיוונים לא צפויים. וזה גם המספר של השם שלך, ולכן זו שנה שבה את מרגישה במיוחד את עצמך. מצוינת לנסיעות, לשינוי כיוון ולפתיחת דלתות חדשות.</div></div>
+      <div class="mo"><div class="mo-when">08.2031</div><div class="mo-n">6</div><div class="mo-t"><b>שנת האהבה והבית.</b> חום, משפחה, מחויבות ואחריות מתוך בחירה. הקשרים מעמיקים והבית מקבל מקום מרכזי. השנה הקלאסית לחתונה, להורות ולהשתקעות.</div></div>
+      <div class="mo"><div class="mo-when">08.2032</div><div class="mo-n">7</div><div class="mo-t"><b>שנת העומק.</b> למידה, התמחות, שקט והבנה. שנה שבה מבינים דברים לעומק ומגלים חוכמה פנימית. מצוינת ללימודים, למחקר ולכל דבר שדורש ריכוז.</div></div>
+      <div class="mo"><div class="mo-when">08.2033</div><div class="mo-n">8</div><div class="mo-t"><b>שנת הקציר.</b> הישגים, כסף, הכרה ומימוש. כאן נמדד בפועל מה שנזרע ב-2026, ולכן היא צפויה להיות מהחזקות במחזור מבחינה חומרית.</div></div>
+      <div class="mo mark"><div class="mo-when">08.2034</div><div class="mo-n">9</div><div class="mo-t"><b>שנת ההבשלה.</b> סיכום, נדיבות וראייה רחבה, ולא רק סגירה. זו גם השנה שנושאת את מספר הגורל שלך, ולכן היא עשויה להרגיש כמו השנה הכי "את" במחזור כולו. משהו מבשיל בפנים לאורך כל השנה, ויוצא לאוויר העולם רשמית רק בשנה אישית 1 שאחריה.</div></div>
+    </div>
+
+    <p>שימי לב לקשת: את נמצאת עכשיו בתחילת המחזור, ובשנה האחרונה שלו, <strong>2034</strong>, חוזר בדיוק מספר הגורל שלך. כלומר מה שתתחילי השנה מגיע להבשלה המלאה שלו בעוד שמונה שנים, בשנה שהכי מתאימה לך.</p>
+  </div>
+</section>
+
+<section class="brk" id="s-summary">
+  <div class="narrow">
+    <div class="opener"><span class="g">⚷</span><h2>עשרה דברים לקחת</h2><span class="t">לסיכום</span></div>
+    <ol>
+      <li>הראש שלך הוא כלי עבודה מהשורה הראשונה. תבני עליו.</li>
+      <li>את אוהבת דרך מעשים. תני גם לאחרים לעשות בשבילך.</li>
+      <li>הסטנדרט שלך לעצמך גבוה מדי. "טוב" זה מספיק כדי להתחיל.</li>
+      <li>הבית הוא מקור הכוח, והכוח הזה נועד לצאת החוצה.</li>
+      <li>כשהראש מתגלגל, צאי החוצה וזוזי. זה עובד יותר טוב מלחשוב.</li>
+      <li>הקשרים הקרובים משנים אותך. תבחרי אותם בזהירות.</li>
+      <li>הנאה לא תגיע לבד. תכניסי אותה לשגרה בכוונה.</li>
+      <li>תגידי "זה לא הוגן כלפיי" מוקדם, לפני שהגוף אומר את זה בשבילך.</li>
+      <li>סוף 2026 לתיקון, אביב 2027 להתחלה.</li>
+      <li>13 באפריל 2027. תסמני ביומן.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="close">
+  <p>מפה היא לא גזרה. היא תיאור של מזג, ושל תזמון.<br>מה שעושים עם זה, זה כבר לגמרי את.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  var map={};links.forEach(function(l){var s=document.getElementById(l.hash.slice(1));if(s)map[s.id]=l;});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id);});
+  if(!secs.length||!('IntersectionObserver' in window))return;
+  var seen={};
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){seen[e.target.id]=e.isIntersecting;});
+    var cur=null;
+    for(var i=0;i<secs.length;i++){if(seen[secs[i].id]){cur=secs[i].id;break;}}
+    links.forEach(function(l){l.classList.remove('on');});
+    if(cur){map[cur].classList.add('on');}
+  },{rootMargin:'-56px 0px -70% 0px'});
+  secs.forEach(function(s){io.observe(s);});
+})();
+</script>
+
+</body>
+</html>
